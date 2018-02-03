@@ -1,0 +1,23 @@
+site_name: Saturn Docs
+site_description: Documentation for Saturn Framework
+site_author: Krzysztof Cieslak
+
+# Repository
+repo_name: SaturnFramework/docs
+repo_url: https://github.com/SaturnFramework/docs
+
+#Theme
+theme:
+  name: 'material'
+  custom_dir: 'theme'
+  palette:
+    primary: 'blue'
+    accent: 'teal'
+
+#Social
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/SaturnFramework'
+    - type: globe
+      link: http://lambdafactory.io
