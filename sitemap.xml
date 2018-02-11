@@ -4,9 +4,29 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-02-03</lastmod>
+     <lastmod>2018-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
+    <url>
+     <loc>/guides/how-to-start/</loc>
+     <lastmod>2018-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/api/application/</loc>
+     <lastmod>2018-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

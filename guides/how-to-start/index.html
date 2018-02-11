@@ -35,22 +35,22 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.1">
     
     
       
-        <title>Saturn Docs</title>
+        <title>How to start in 60 seconds - Saturn Docs</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/application.a315b664.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.a315b664.css">
       
-        <link rel="stylesheet" href="/assets/stylesheets/application-palette.792431c1.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
       
     
     
-      <script src="/assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       
@@ -96,12 +96,16 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
+      <a href="#how-to-start-in-60-seconds" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="/" title="Saturn Docs" class="md-header-nav__button md-logo">
+        <a href="../.." title="Saturn Docs" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -118,7 +122,7 @@
                 Saturn Docs
               </span>
               <span class="md-header-nav__topic">
-                
+                How to start in 60 seconds
               </span>
             
           
@@ -235,7 +239,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/" title="Home" class="md-nav__link">
+    <a href="../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -245,10 +249,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Guides
@@ -264,11 +270,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/guides/how-to-start/" title="How to start in 60 seconds" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="How to start in 60 seconds" class="md-nav__link md-nav__link--active">
       How to start in 60 seconds
     </a>
+    
   </li>
 
         
@@ -302,7 +317,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/api/application/" title="Application" class="md-nav__link">
+    <a href="../../api/application/" title="Application" class="md-nav__link">
       Application
     </a>
   </li>
@@ -320,12 +335,47 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
-
+                
+                  <a href="https://github.com/SaturnFramework/docs/edit/master/docs/guides/how-to-start.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="how-to-start-in-60-seconds">How to start in 60 seconds</h1>
+<ol>
+<li>Install <code>dotnet</code> template with <code>dotnet new -i Saturn.Template</code></li>
+<li>Create new folder and move into it - <code>mkdir SaturnSample &amp;&amp; cd SaturnSample</code></li>
+<li>Create new Saturn application - <code>dotnet new saturn -lang F#</code></li>
+<li>If you're on Linux/MacOS you need to run <code>chmod u+x build.sh</code> (see: <a href="https://github.com/SaturnFramework/Saturn/issues/15">https://github.com/SaturnFramework/Saturn/issues/15</a>)</li>
+<li>Run build process to ensure everything was scaffolded correctly and restore dependencies - <code>build.cmd / build.sh</code></li>
+<li>Go into subdirectory with server application - <code>cd src/SaturnSample</code></li>
+<li>Create new controller with <code>dotnet saturn gen Book Books id:string title:string author:string</code></li>
+<li>Run migrations that will create database and Books table (as for now, generator is using only SQLite DB) - <code>dotnet saturn migration</code></li>
+<li>Open folder in favourite editor (VSCode) and insert suggested line (<code>forward "/books" Books.Controller.resource</code>) into <code>browserRouter</code> in <code>Router.fs</code> file</li>
+<li>Start application by running <code>build.cmd Run</code> from the root of solution. This will start application in watch mode (automatic recompilation on changes) and open browser on <a href="http://localhost:8085">http://localhost:8085</a> which should display index page.</li>
+<li>Go to <a href="http://localhost:8085/books">http://localhost:8085/books</a> to see generated view. All buttons should be working, you can add new entries, remove or edit old ones.</li>
+</ol>
+                
+                  
+                
+              
               
                 
               
@@ -340,6 +390,54 @@
 <footer class="md-footer">
 
   <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../.."
+              title="Home"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../../api/application/" title="Application"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Application
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
 
   <!-- Further information -->
@@ -374,9 +472,9 @@
       
     </div>
     
-      <script src="/assets/javascripts/application.9fb73e57.js"></script>
+      <script src="../../assets/javascripts/application.9fb73e57.js"></script>
       
-      <script>app.initialize({version:"0.17.2",url:{base:""}})</script>
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
       
     
     

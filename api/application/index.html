@@ -1,0 +1,995 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Saturn Framework">
+      
+      
+      
+        <meta name="author" content="Krzysztof Cieslak">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.1">
+    
+    
+      
+        <title>Application - Saturn Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.a315b664.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#application" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Saturn Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Saturn Docs
+              </span>
+              <span class="md-header-nav__topic">
+                Application
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/SaturnFramework/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      SaturnFramework/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Saturn Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/SaturnFramework/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      SaturnFramework/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/how-to-start/" title="How to start in 60 seconds" class="md-nav__link">
+      How to start in 60 seconds
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Api Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Api Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Application
+      </label>
+    
+    <a href="./" title="Application" class="md-nav__link md-nav__link--active">
+      Application
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-builder" title="Application builder" class="md-nav__link">
+    Application builder
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#router" title="router" class="md-nav__link">
+    router
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipe_through" title="pipe_through" class="md-nav__link">
+    pipe_through
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error_handler" title="error_handler" class="md-nav__link">
+    error_handler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" title="url" class="md-nav__link">
+    url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_cache" title="memory_cache" class="md-nav__link">
+    memory_cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_gzip" title="use_gzip" class="md-nav__link">
+    use_gzip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_static" title="use_static" class="md-nav__link">
+    use_static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_config" title="use_config" class="md-nav__link">
+    use_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force_ssl" title="force_ssl" class="md-nav__link">
+    force_ssl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_cors" title="use_cors" class="md-nav__link">
+    use_cors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_iis" title="use_iis" class="md-nav__link">
+    use_iis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_jwt_authentication" title="use_jwt_authentication" class="md-nav__link">
+    use_jwt_authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_jwt_authentication_with_config" title="use_jwt_authentication_with_config" class="md-nav__link">
+    use_jwt_authentication_with_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_cookies_authentication" title="use_cookies_authentication" class="md-nav__link">
+    use_cookies_authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_cookies_authentication_with_config" title="use_cookies_authentication_with_config" class="md-nav__link">
+    use_cookies_authentication_with_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_github_oauth" title="use_github_oauth" class="md-nav__link">
+    use_github_oauth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_github_oauth_with_config" title="use_github_oauth_with_config" class="md-nav__link">
+    use_github_oauth_with_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_custom_oauth" title="use_custom_oauth" class="md-nav__link">
+    use_custom_oauth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app_config" title="app_config" class="md-nav__link">
+    app_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host_config" title="host_config" class="md-nav__link">
+    host_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_config" title="service_config" class="md-nav__link">
+    service_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" title="logging" class="md-nav__link">
+    logging
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-builder" title="Application builder" class="md-nav__link">
+    Application builder
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#router" title="router" class="md-nav__link">
+    router
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipe_through" title="pipe_through" class="md-nav__link">
+    pipe_through
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error_handler" title="error_handler" class="md-nav__link">
+    error_handler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" title="url" class="md-nav__link">
+    url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_cache" title="memory_cache" class="md-nav__link">
+    memory_cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_gzip" title="use_gzip" class="md-nav__link">
+    use_gzip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_static" title="use_static" class="md-nav__link">
+    use_static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_config" title="use_config" class="md-nav__link">
+    use_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force_ssl" title="force_ssl" class="md-nav__link">
+    force_ssl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_cors" title="use_cors" class="md-nav__link">
+    use_cors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_iis" title="use_iis" class="md-nav__link">
+    use_iis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_jwt_authentication" title="use_jwt_authentication" class="md-nav__link">
+    use_jwt_authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_jwt_authentication_with_config" title="use_jwt_authentication_with_config" class="md-nav__link">
+    use_jwt_authentication_with_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_cookies_authentication" title="use_cookies_authentication" class="md-nav__link">
+    use_cookies_authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_cookies_authentication_with_config" title="use_cookies_authentication_with_config" class="md-nav__link">
+    use_cookies_authentication_with_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_github_oauth" title="use_github_oauth" class="md-nav__link">
+    use_github_oauth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_github_oauth_with_config" title="use_github_oauth_with_config" class="md-nav__link">
+    use_github_oauth_with_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_custom_oauth" title="use_custom_oauth" class="md-nav__link">
+    use_custom_oauth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app_config" title="app_config" class="md-nav__link">
+    app_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host_config" title="host_config" class="md-nav__link">
+    host_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_config" title="service_config" class="md-nav__link">
+    service_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" title="logging" class="md-nav__link">
+    logging
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/SaturnFramework/docs/edit/master/docs/api/application.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="application">Application</h1>
+<h2 id="application-builder">Application builder</h2>
+<p>Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as <code>IWebHostBuilder</code>, <code>IServiceCollection</code>, <code>IApplicationBuilder</code> and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles</p>
+<h3 id="router">router</h3>
+<p>Defines top-level router used for the application. It's calling <code>IApplicationBuilder.UseGiraffe</code></p>
+<p><strong>Input:</strong> <code>HttpHandler</code></p>
+<pre><code class="fsharp">application {
+    ...
+    router myRouter
+}
+</code></pre>
+
+<h3 id="pipe_through">pipe_through</h3>
+<p>Adds pipeline to the list of pipelines that will be used for every request</p>
+<p><strong>Input:</strong> <code>HttpHandler</code></p>
+<pre><code class="fsharp">application {
+    ...
+    pipe_through requestId
+}
+</code></pre>
+
+<h3 id="error_handler">error_handler</h3>
+<p>Adds global error handler for exceptions not handled anywhere else. It's using <code>IApplicationBuilder.UseGiraffeErrorHandler</code></p>
+<p><strong>Input:</strong> <code>Exception -&gt; ILogger -&gt; HttpHandler</code></p>
+<pre><code class="fsharp">application {
+    ...
+    error_handler (fun e log -&gt; text e.Message)
+}
+</code></pre>
+
+<h3 id="url">url</h3>
+<p>Defines URL on which application will be hosted. Should include port.</p>
+<p><strong>Input:</strong> <code>string</code></p>
+<pre><code class="fsharp">application {
+    ...
+    url &quot;http://0.0.0.0:8085/&quot;
+}
+</code></pre>
+
+<h3 id="memory_cache">memory_cache</h3>
+<p>Enables in-memory session cache. Required if you used <code>fetchSession</code> plug.</p>
+<pre><code class="fsharp">application {
+    ...
+    memory_cache
+}
+</code></pre>
+
+<h3 id="use_gzip">use_gzip</h3>
+<p>Enables automatic gzip compression</p>
+<pre><code class="fsharp">application {
+    ...
+    use_gzip
+}
+</code></pre>
+
+<h3 id="use_static">use_static</h3>
+<p>Enables using static file hosting. Input path defines <code>WebRoot</code> and <code>ContentRoot</code> of application</p>
+<p><strong>Input:</strong> <code>string</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_static &quot;static&quot;
+}
+</code></pre>
+
+<h3 id="use_config">use_config</h3>
+<p>Defines configuration that can be used with <code>HttpContext.GetConfiguration ()</code> function. Configuration function is evaluated once, during first request of the application.</p>
+<p><strong>Input:</strong> <code>unit -&gt; 'a</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_config (fun _ -&gt; &quot;config&quot;)
+}
+</code></pre>
+
+<h3 id="force_ssl">force_ssl</h3>
+<p>Redirect all HTTP request to HTTPS</p>
+<pre><code class="fsharp">application {
+    ...
+    force_ssl
+}
+</code></pre>
+
+<h3 id="use_cors">use_cors</h3>
+<p>Enables application level CORS protection. First parameter is name of the policy. Second parameter is configuration builder setting policy options.</p>
+<p><strong>Input:</strong> <code>string -&gt; (CorsPolicyBuilder -&gt; unit)</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_cors &quot;CORS_policy&quot; (fun builder -&gt; ())
+}
+</code></pre>
+
+<h3 id="use_iis">use_iis</h3>
+<p>Enables IIS integration</p>
+<pre><code class="fsharp">application {
+    ...
+    use_iis
+}
+</code></pre>
+
+<hr />
+<h3 id="use_jwt_authentication">use_jwt_authentication</h3>
+<p>Enables default JWT authentication. First parameter is private key used to signing. Second one defines issuer of the token.</p>
+<p><strong>Input:</strong> <code>string -&gt; string</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_jwt_authentication &quot;mySecretKey&quot; &quot;lambdafactory.io&quot;
+}
+</code></pre>
+
+<h3 id="use_jwt_authentication_with_config">use_jwt_authentication_with_config</h3>
+<p>Enables JWT authentication with custom configuration</p>
+<p><strong>Input:</strong> <code>JwtBearerOptions -&gt; unit</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_jwt_authentication_with_config (fun opts -&gt; ())
+}
+</code></pre>
+
+<h3 id="use_cookies_authentication">use_cookies_authentication</h3>
+<p>Enables default cookies authentication</p>
+<p><strong>Input:</strong> <code>string</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_cookies_authentication &quot;lambdafactory.io&quot;
+}
+</code></pre>
+
+<h3 id="use_cookies_authentication_with_config">use_cookies_authentication_with_config</h3>
+<p>Enables cookies authentication with custom configuration</p>
+<p><strong>Input:</strong> <code>CookieAuthenticationOptions -&gt; unit</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_cookies_authentication_with_config (fun opts -&gt; ())
+}
+</code></pre>
+
+<h3 id="use_github_oauth">use_github_oauth</h3>
+<p>Enables default GitHub OAuth authentication</p>
+<p><strong>Input:</strong> <code>string -&gt; string -&gt; string</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_github_oauth &quot;myClientId&quot; &quot;myClientSecret&quot; &quot;/login&quot;
+}
+</code></pre>
+
+<h3 id="use_github_oauth_with_config">use_github_oauth_with_config</h3>
+<p>Enables GitHub OAuth authentication with custom configuration</p>
+<p><strong>Input:</strong> <code>OAuthOptions -&gt; unit</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_github_oauth (fun opts -&gt; ())
+}
+</code></pre>
+
+<h3 id="use_custom_oauth">use_custom_oauth</h3>
+<p>Enables custom OAuth authentication</p>
+<p><strong>Input:</strong> <code>string -&gt; (OAuthOptions -&gt; unit)</code></p>
+<pre><code class="fsharp">application {
+    ...
+    use_custom_oauth &quot;LinkedIn&quot; (fun opts -&gt; ())
+}
+</code></pre>
+
+<hr />
+<blockquote>
+<p>Functions below enables you to add any configuration with using standard ASP.NET builders</p>
+</blockquote>
+<h3 id="app_config">app_config</h3>
+<p>Adds custom application configuration step.</p>
+<p><strong>Input:</strong> <code>IApplicationBuilder -&gt; IApplicationBuilder</code></p>
+<h3 id="host_config">host_config</h3>
+<p>Adds custom host configuration step.</p>
+<p><strong>Input:</strong> <code>IWebHostBuilder -&gt; IWebHostBuilder</code></p>
+<h3 id="service_config">service_config</h3>
+<p>Adds custom service configuration step.</p>
+<p><strong>Input:</strong> <code>IServiceCollection -&gt; IServiceCollection</code></p>
+<h3 id="logging">logging</h3>
+<p>Adds logging configuration</p>
+<p><strong>Input:</strong> <code>IloggingBuilder -&gt; unit</code></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../../guides/how-to-start/"
+              title="How to start in 60 seconds"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                How to start in 60 seconds
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        Powered by <a href="http://www.mkdocs.org">MkDocs</a>
+        | Supported by
+        <a href="http://lambdafactory.io">
+            λFactory</a>
+      </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/SaturnFramework" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="http://lambdafactory.io" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9fb73e57.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
