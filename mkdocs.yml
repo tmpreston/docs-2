@@ -6,6 +6,15 @@ site_author: Krzysztof Cieslak
 repo_name: SaturnFramework/docs
 repo_url: https://github.com/SaturnFramework/docs
 
+#Pages
+pages:
+  - Home: 'index.md'
+  - Guides:
+    - How to start in 60 seconds: 'guides/how-to-start.md'
+  - Api Reference:
+    - Application: 'api/application.md'
+
+
 #Theme
 theme:
   name: 'material'
