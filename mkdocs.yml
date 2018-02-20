@@ -12,6 +12,7 @@ pages:
   - Guides:
     - How to start in 60 seconds: 'guides/how-to-start.md'
   - Api Reference:
+    - Scope: 'api/scope.md'
     - Controller: 'api/controller.md'
     - Application: 'api/application.md'
 

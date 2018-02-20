@@ -10,6 +10,8 @@ Computation expression used to create Saturn controllers - abstraction represent
 * defining common error handler for all actions
 * defining not-found action
 
+Result of the computation expression is standard Giraffe's `HttpHandler`which means that it's easily composable with other parts of the ecosytem.
+
 ### index
 
 Operation that should render (or return in case of API controllers) list of data
