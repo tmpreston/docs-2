@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-02-11</lastmod>
+     <lastmod>2018-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +13,7 @@
         
     <url>
      <loc>/guides/how-to-start/</loc>
-     <lastmod>2018-02-11</lastmod>
+     <lastmod>2018-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -22,8 +22,20 @@
     
         
     <url>
+     <loc>/api/scope/</loc>
+     <lastmod>2018-02-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/api/controller/</loc>
+     <lastmod>2018-02-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/api/application/</loc>
-     <lastmod>2018-02-11</lastmod>
+     <lastmod>2018-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
