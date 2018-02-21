@@ -6,6 +6,35 @@ Computation expression used to creating routing and combining `HttpHandlers`, `p
 
 Result of the computation expression is standard Giraffe's `HttpHandler`which means that it's easily composable with other parts of the ecosytem.
 
+**Example:**
+
+```fsharp
+let topRouter = scope {
+    pipe_through headerPipe
+    not_found_handler (text "404")
+
+    get "/" helloWorld
+    get "/a" helloWorld2
+    getf "/name/%s" helloWorldName
+    getf "/name/%s/%i" helloWorldNameAge
+
+    //scopes can be defined inline to simulate `subRoute` combinator
+    forward "/other" (scope {
+        pipe_through otherHeaderPipe
+        not_found_handler (text "Other 404")
+
+        get "/" otherHelloWorld
+        get "/a" otherHelloWorld2
+    })
+
+    // or can be defined separatly and used as HttpHandler
+    forward "/api" apiRouter
+
+    // same with controllers
+    forward "/users" userController
+}
+```
+
 ### get
 
 Adds handler for `GET` request.

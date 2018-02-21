@@ -71,6 +71,8 @@ Saturn is made up of a number of distinct parts, each with its own purpose and r
     - `dotnet new` template providing good starting point for new applications - [https://github.com/SaturnFramework/Saturn.Template](https://github.com/SaturnFramework/Saturn.Template)
     - `dotnet saturn` CLI tool that controls migrations and let you easily scaffold new parts of application - [https://github.com/SaturnFramework/Saturn.Dotnet](https://github.com/SaturnFramework/Saturn.Dotnet)
 
+---
+
 ## How to contribute
 
 *Imposter syndrome disclaimer*: I want your help. No really, I do.

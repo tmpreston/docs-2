@@ -1,8 +1,28 @@
 # Application
 
+## run
+
+Runs Saturn application
+
+**Input:** `IWebHost`
+
 ## Application builder
 
 Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as `IWebHostBuilder`, `IServiceCollection`, `IApplicationBuilder` and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles
+
+**Example:**
+
+```fsharp
+let app = application {
+    pipe_through endpointPipe
+
+    router topRouter
+    url "http://0.0.0.0:8085/"
+    memory_cache
+    use_static "static"
+    use_gzip
+}
+```
 
 ### router
 
