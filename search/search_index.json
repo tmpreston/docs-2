@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Saturn\n\n\nSaturn is a web development framework written in F# which implements the server-side MVC pattern. Many of its components and concepts will seem familiar to those of us with experience in other web frameworks like Ruby on Rails or Python\u2019s Django.\n\n\nIt's heavily inspired by Elixir's \nPhoenix\n.\n\n\n\n\nWARNING: Saturn and its tooling are still in really early stage of development - which means that things may not work too well. Also, all suggestions about design choices are highly appreciated.\n\n\n\n\nRead more about why I've decided to create Saturn, and some of its design choices on my blog - \nhttp://kcieslak.io/Reinventing-MVC-for-web-programming-with-F\n\n\nSaturn rings\n\n\nSaturn itself is top layer of a multi layer system designed to create flexible, productive environment for creating web applications.\n\n\nKestrel and ASP.NET Core\n\n\n\n\nASP.NET Core is a cross-platform, high-performance, open-source framework for building modern, cloud-based, Internet-connected application\n\n\nKestrel is a cross-platform web server for ASP.NET Core based on libuv, a cross-platform asynchronous I/O library\n\n\n\n\nGiraffe\n\n\n\n\nGiraffe is an F# micro web framework for building rich web applications. It has been heavily inspired and is similar to \nSuave\n, but has been specifically designed with ASP.NET Core in mind and can be plugged into the ASP.NET Core pipeline via middleware. Giraffe applications are composed of so called HttpHandler functions which can be thought of a mixture of Suave's WebParts and ASP.NET Core's middleware.\n\n\n\n\nSaturn moons\n\n\nSaturn is not only a library building on top of Giraffe, but also set of opinionated tooling for scaffolding a whole project and then generating some boilerplate code. At the moment our template is using (by default):\n\n\nDapper\n\n\n\n\na simple, focused on performance object mapper for .Net that you can add in to your project that will extend your \nIDbConnection\n interface.\n\n\n\n\nSimple.Migrations\n\n\n\n\nSimple.Migrations is a simple bare-bones migration framework for .NET Core (.NET Standard 1.2 and .NET 4.5). It doesn't provide SQL generation, or an out-of-the-box command-line tool, or other fancy features. It does however provide a set of simple, extendable, and composable tools for integrating migrations into your application.\n\n\n\n\nOverview\n\n\nBuilt on top of the battle-tested ASP.NET Core foundation, a highly flexible, extendable model of Giraffe Saturn provides high level abstractions, helpers and tools to enable high developer productivity, at the same time keeping high application performance provided by Kestrel and Giraffe.\n\n\nSaturn is made up of a number of distinct parts, each with its own purpose and role to play in building a web application.\n\n\n\n\nApplication\n\n\nthe start and end of the request lifecycle\n\n\nhandles all aspects of requests up until the point where the router takes over\n\n\nprovides a core set of plugs to apply to all requests\n\n\ndispatches requests into a router\n\n\nenables application and hosting configuration\n\n\n\n\n\n\nRouter\n\n\nparses incoming requests and dispatches them to the correct controller/action, passing parameters as needed\n\n\nprovides helpers to generate route paths or urls to resources\n\n\ndefines named pipelines through which we may pass our requests\n\n\nallow easy application of groups of plugs to a set of routes\n\n\n\n\n\n\nControllers\n\n\nprovide functions, called \nactions\n, to handle requests\n\n\nactions:\n\n\nprepare data and pass it into views\n\n\ninvoke rendering via views\n\n\nperform redirects\n\n\nreturns data as JSON or XML\n\n\nand much more\n\n\n\n\n\n\n\n\n\n\nViews\n\n\nrender templates\n\n\nact as a presentation layer\n\n\ndefine helper functions, available in templates, to decorate data for presentation\n\n\n\n\n\n\nChannels  \n[Not implemented yet]\n\n\nmanage sockets for easy realtime communication\n\n\nare analogous to controllers except that they allow bi-directional communication with persistent connections\n\n\n\n\n\n\nScaffolding scripts\n\n\ndotnet new\n template providing good starting point for new applications - \nhttps://github.com/SaturnFramework/Saturn.Template\n\n\ndotnet saturn\n CLI tool that controls migrations and let you easily scaffold new parts of application - \nhttps://github.com/SaturnFramework/Saturn.Dotnet\n\n\n\n\n\n\n\n\nHow to contribute\n\n\nImposter syndrome disclaimer\n: I want your help. No really, I do.\n\n\nThere might be a little voice inside that tells you you're not ready; that you need to do one more tutorial, or learn another framework, or write a few more blog posts before you can help me with this project.\n\n\nI assure you, that's not the case.\n\n\nThis project has some clear Contribution Guidelines and expectations that you can \nread here\n.\n\n\nThe contribution guidelines outline the process that you'll need to follow to get a patch merged. By making expectations and process explicit, I hope it will make it easier for you to contribute.\n\n\nAnd you don't just have to write code. You can help out by writing documentation, tests, or even by giving feedback about this work. (And yes, that includes giving feedback about the contribution guidelines.)\n\n\nThank you for contributing!\n\n\nContributing and copyright\n\n\nThe project is hosted on \nGitHub\n where you can \nreport issues\n, fork\nthe project and submit pull requests.\n\n\nThe library is available under \nMIT license\n, which allows modification and redistribution for both commercial and non-commercial purposes.", 
+            "text": "Saturn\n\n\nSaturn is a web development framework written in F# which implements the server-side MVC pattern. Many of its components and concepts will seem familiar to those of us with experience in other web frameworks like Ruby on Rails or Python\u2019s Django.\n\n\nIt's heavily inspired by Elixir's \nPhoenix\n.\n\n\n\n\nWARNING: Saturn and its tooling are still in really early stage of development - which means that things may not work too well. Also, all suggestions about design choices are highly appreciated.\n\n\n\n\nRead more about why I've decided to create Saturn, and some of its design choices on my blog - \nhttp://kcieslak.io/Reinventing-MVC-for-web-programming-with-F\n\n\nSaturn rings\n\n\nSaturn itself is top layer of a multi layer system designed to create flexible, productive environment for creating web applications.\n\n\nKestrel and ASP.NET Core\n\n\n\n\nASP.NET Core is a cross-platform, high-performance, open-source framework for building modern, cloud-based, Internet-connected application\n\n\nKestrel is a cross-platform web server for ASP.NET Core based on libuv, a cross-platform asynchronous I/O library\n\n\n\n\nGiraffe\n\n\n\n\nGiraffe is an F# micro web framework for building rich web applications. It has been heavily inspired and is similar to \nSuave\n, but has been specifically designed with ASP.NET Core in mind and can be plugged into the ASP.NET Core pipeline via middleware. Giraffe applications are composed of so called HttpHandler functions which can be thought of a mixture of Suave's WebParts and ASP.NET Core's middleware.\n\n\n\n\nSaturn moons\n\n\nSaturn is not only a library building on top of Giraffe, but also set of opinionated tooling for scaffolding a whole project and then generating some boilerplate code. At the moment our template is using (by default):\n\n\nDapper\n\n\n\n\na simple, focused on performance object mapper for .Net that you can add in to your project that will extend your \nIDbConnection\n interface.\n\n\n\n\nSimple.Migrations\n\n\n\n\nSimple.Migrations is a simple bare-bones migration framework for .NET Core (.NET Standard 1.2 and .NET 4.5). It doesn't provide SQL generation, or an out-of-the-box command-line tool, or other fancy features. It does however provide a set of simple, extendable, and composable tools for integrating migrations into your application.\n\n\n\n\nOverview\n\n\nBuilt on top of the battle-tested ASP.NET Core foundation, a highly flexible, extendable model of Giraffe Saturn provides high level abstractions, helpers and tools to enable high developer productivity, at the same time keeping high application performance provided by Kestrel and Giraffe.\n\n\nSaturn is made up of a number of distinct parts, each with its own purpose and role to play in building a web application.\n\n\n\n\nApplication\n\n\nthe start and end of the request lifecycle\n\n\nhandles all aspects of requests up until the point where the router takes over\n\n\nprovides a core set of plugs to apply to all requests\n\n\ndispatches requests into a router\n\n\nenables application and hosting configuration\n\n\n\n\n\n\nRouter\n\n\nparses incoming requests and dispatches them to the correct controller/action, passing parameters as needed\n\n\nprovides helpers to generate route paths or urls to resources\n\n\ndefines named pipelines through which we may pass our requests\n\n\nallow easy application of groups of plugs to a set of routes\n\n\n\n\n\n\nControllers\n\n\nprovide functions, called \nactions\n, to handle requests\n\n\nactions:\n\n\nprepare data and pass it into views\n\n\ninvoke rendering via views\n\n\nperform redirects\n\n\nreturns data as JSON or XML\n\n\nand much more\n\n\n\n\n\n\n\n\n\n\nViews\n\n\nrender templates\n\n\nact as a presentation layer\n\n\ndefine helper functions, available in templates, to decorate data for presentation\n\n\n\n\n\n\nChannels  \n[Not implemented yet]\n\n\nmanage sockets for easy realtime communication\n\n\nare analogous to controllers except that they allow bi-directional communication with persistent connections\n\n\n\n\n\n\nScaffolding scripts\n\n\ndotnet new\n template providing good starting point for new applications - \nhttps://github.com/SaturnFramework/Saturn.Template\n\n\ndotnet saturn\n CLI tool that controls migrations and let you easily scaffold new parts of application - \nhttps://github.com/SaturnFramework/Saturn.Dotnet\n\n\n\n\n\n\n\n\n\n\nHow to contribute\n\n\nImposter syndrome disclaimer\n: I want your help. No really, I do.\n\n\nThere might be a little voice inside that tells you you're not ready; that you need to do one more tutorial, or learn another framework, or write a few more blog posts before you can help me with this project.\n\n\nI assure you, that's not the case.\n\n\nThis project has some clear Contribution Guidelines and expectations that you can \nread here\n.\n\n\nThe contribution guidelines outline the process that you'll need to follow to get a patch merged. By making expectations and process explicit, I hope it will make it easier for you to contribute.\n\n\nAnd you don't just have to write code. You can help out by writing documentation, tests, or even by giving feedback about this work. (And yes, that includes giving feedback about the contribution guidelines.)\n\n\nThank you for contributing!\n\n\nContributing and copyright\n\n\nThe project is hosted on \nGitHub\n where you can \nreport issues\n, fork\nthe project and submit pull requests.\n\n\nThe library is available under \nMIT license\n, which allows modification and redistribution for both commercial and non-commercial purposes.", 
             "title": "Home"
         }, 
         {
@@ -66,8 +66,198 @@
             "title": "How to start in 60 seconds"
         }, 
         {
+            "location": "/api/pipeline/", 
+            "text": "Pipeline\n\n\nPipeline builder\n\n\nCommputation expression used to combining \nHttpHandlers\n in declarative manner.\n\n\nResult of the computation expression is standard Giraffe's \nHttpHandler\nwhich means that it's easily composable with other parts of the ecosytem.\n\n\nExample:\n\n\nlet headerPipe = pipeline {\n    set_header \nmyCustomHeader\n \nabcd\n\n    set_header \nmyCustomHeader2\n \nzxcv\n\n}\n\nlet endpointPipe = pipeline {\n    plug fetchSession\n    plug head\n    plug requestId\n}\n\n\n\n\n\n\nplug\n\n\nEnables adding any additional \nHttpHandler\n to the pipeline\n\n\nInput:\n \nHttpHandler\n\n\nmust_accept\n\n\nFilters a request by the \nAccept\n HTTP header. You can use it to check if a client accepts a certain mime type before returning a response.\n\n\nInput:\n \nstring\n\n\nchallenge\n\n\nChallenges an authentication with a specified authentication scheme\n\n\nInput:\n \nstring\n\n\nsign_off\n\n\nSigns off the currently logged in user with a specified authentication scheme.\n\n\nInput:\n \nstring\n\n\nrequires_auth_policy\n\n\nValidates if a user satisfies policy requirement, if not then the handler will execute the \nauthFailedHandler\n function.\n\n\nInput:\n \n(ClaimsPrincipal -\n build) -\n HttpHandler\n\n\nrequires_authentication\n\n\nValidates if a user is authenticated/logged in. If the user is not authenticated then the handler will execute the \nauthFailedHandler\n function.\n\n\nInput:\n \nHttpHandler\n\n\nrequires_role\n\n\nValidates if an authenticated user is in a specified role. If the user fails to be in the required role then the handler will execute the \nauthFailedHandler\n function.\n\n\nInput:\n \nstring -\n HttpHandler\n\n\nrequires_role_of\n\n\nValidates if an authenticated user is in one of the supplied roles. If the user fails to be in one of the required roles then the handler will execute the \nauthFailedHandler\n function.\n\n\nInput:\n \nstring list-\n HttpHandler\n\n\nclear_response\n\n\nTries to clear the current response. This can be useful inside an error handler to reset the response before writing an error message to the body of the HTTP response object.\n\n\nset_status_code\n\n\nChanges the status code of the \nHttpResponse\n.\n\n\nInput:\n \nint\n\n\nset_header\n\n\nSets or modifies a HTTP header of the \nHttpResponse\n.\n\n\nInput:\n \nstring -\n 'a\n\n\nset_body\n\n\nSets or modifies the body of the \nHttpResponse\n. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.\n\n\nInput:\n \nbyte[]\n\n\ntext\n\n\nSets or modifies the body of the \nHttpResponse\n by sending a plain text value to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the \nContent-Type\n HTTP header to \ntext/plain\n.\n\n\nInput:\n \nstring\n\n\njson\n\n\nSets or modifies the body of the \nHttpResponse\n by sending a JSON serialized object to the client. It uses JSON serializer configured by Giraffe. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the \nContent-Type\n HTTP header to \napplication/json\n.\n\n\nInput:\n \n'a\n\n\nxml\n\n\nSets or modifies the body of the \nHttpResponse\n by sending an XML serialized object to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the \nContent-Type\n HTTP header to \napplication/xml\n.\n\n\nInput:\n \n'a\n\n\nnegotiate\n\n\nSets or modifies the body of the \nHttpResponse\n by inspecting the \nAccept\n header of the HTTP request and deciding if the response should be sent in JSON or XML or plain text. If the client is indifferent then the default response will be sent in JSON. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.\n\n\nInput:\n \n'a\n\n\nnegotiate_with\n\n\nSets or modifies the body of the \nHttpResponse\n by inspecting the \nAccept\n header of the HTTP request and deciding in what mimeType the response should be sent. A dictionary of type \nIDictionary\nstring, obj -\n HttpHandler\n is used to determine which \nobj -\n HttpHandler\n function should be used to convert an object into a \nHttpHandler\n for a given mime type. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.\n\n\nInput:\n \n(IDictionary\nstring, obj -\n HttpHandler\n) -\n 'a\n\n\nhtml\n\n\nSets or modifies the body of the \nHttpResponse\n with the contents of a single string variable. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. Sets the HTTP header \nContent-Type\n to \ntext/html\n\n\nInput:\n \nstring\n\n\nhtml_file\n\n\nSets or modifies the body of the \nHttpResponse\n with the contents of a physical html file. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. This http handler takes a rooted path of a html file or a path which is relative to the ContentRootPath as the input parameter and sets the HTTP header \nContent-Type\n to \ntext/html\n\n\nInput:\n \nstring\n\n\nrender_html\n\n\nIt is a more functional way of generating HTML by composing HTML elements in F# to generate a rich Model-View output.\n\n\nInput:\n \nXmlNode\n \n\n\nredirect_to\n\n\nUses a 302 or 301 (when permanent) HTTP response code to redirect the client to the specified location. It takes in two parameters, a boolean flag denoting whether the redirect should be permanent or not and the location to redirect to.\n\n\nInput:\n \nbool -\n string\n \n\n\nroute_ports\n\n\nIf your web server is listening to multiple ports then you can use the \nroutePorts\n HttpHandler to easily filter incoming requests based on their port by providing a list of port number and HttpHandler (\n(int * HttpHandler) list\n).\n\n\nInput:\n \n(int -\n HttpHandler) list\n \n\n\nuse_warbler\n\n\nIf your route is not returning a static response, then you should wrap your function with a warbler. Functions in F# are eagerly evaluated and the warbler will help to evaluate the function every time the route is hit.\n\n\nInput:\n \nHttpHandler\n \n\n\n\n\nPipeline Helpers\n\n\nModule containg couple of more advanced \nHttpHandlers\n commonly used in Saturn applications\n\n\nacceptJson\n\n\nAccepts \nContentType\n \napplication/json\n\n\nacceptXml\n\n\nAccepts \nContentType\n \napplication/xml\n\n\nacceptHtml\n\n\nAccepts \nContentType\n \ntext/html\n\n\nacceptMultipart\n\n\nAccepts \nContentType\n \nmultipart/form-data\n\n\n\n\nputSecureBrowserHeaders\n\n\nPut headers that improve browser security.\nIt sets the following headers:\n  * x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin\n  * x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type\n  * x-xss-protection - set to \"1; mode=block\" to improve XSS protection on both Chrome and IE\n  * x-download-options - set to noopen to instruct the browser not to open a download directly in the browser, to avoid HTML files rendering inline and accessing the security context of the application (like critical domain cookies)\n  * x-permitted-cross-domain-policies - set to none to restrict Adobe Flash Player\u2019s access to data\n\n\nenableCors\n\n\nEnables CORS pretection using provided config. Use \nCORS.defaultCORSConfig\n for default configuration.\n\n\nInput:\n \nCORSConfig\n\n\nfetchSession\n\n\nFetches session from session provider. If it won't be called session will be synchronusly fetched on first usage.\n\n\nfetchModel\n\n\nTries to model from request and puts model into \nItems.RequestModel\n. If it won't be called content can be fetched using \nContext.Controller\n helpers.\nIt won't crash the pipelines if fetching failed.\nIt optionally takes custom culture name as arguments.\n\n\nInput:\n \nstring option\n\n\nhead\n\n\nConvert \nHEAD\n requests to \nGET\n requests.\n\n\nrequestId\n\n\nPipeline for generating a unique request id for each request. A generated request id will in the format \nuq8hs30oafhj5vve8ji5pmp7mtopc08f\n.\nIf a request id already exists as the \nx-request-id\n HTTP request header, then that value will be used assuming it is between 20 and 200 characters. If it is not, a new request id will be generated.\nRequest id is put into \nx-request-id\n HTTP header and into \nItems\n directory of HttpContext with \nRequestId\n key.\n\n\nrequireHeader\n\n\nRequires given value for given request header\n\n\nInput:\n \nstring -\n string", 
+            "title": "Pipeline"
+        }, 
+        {
+            "location": "/api/pipeline/#pipeline", 
+            "text": "", 
+            "title": "Pipeline"
+        }, 
+        {
+            "location": "/api/pipeline/#pipeline-builder", 
+            "text": "Commputation expression used to combining  HttpHandlers  in declarative manner.  Result of the computation expression is standard Giraffe's  HttpHandler which means that it's easily composable with other parts of the ecosytem.  Example:  let headerPipe = pipeline {\n    set_header  myCustomHeader   abcd \n    set_header  myCustomHeader2   zxcv \n}\n\nlet endpointPipe = pipeline {\n    plug fetchSession\n    plug head\n    plug requestId\n}", 
+            "title": "Pipeline builder"
+        }, 
+        {
+            "location": "/api/pipeline/#plug", 
+            "text": "Enables adding any additional  HttpHandler  to the pipeline  Input:   HttpHandler", 
+            "title": "plug"
+        }, 
+        {
+            "location": "/api/pipeline/#must_accept", 
+            "text": "Filters a request by the  Accept  HTTP header. You can use it to check if a client accepts a certain mime type before returning a response.  Input:   string", 
+            "title": "must_accept"
+        }, 
+        {
+            "location": "/api/pipeline/#challenge", 
+            "text": "Challenges an authentication with a specified authentication scheme  Input:   string", 
+            "title": "challenge"
+        }, 
+        {
+            "location": "/api/pipeline/#sign_off", 
+            "text": "Signs off the currently logged in user with a specified authentication scheme.  Input:   string", 
+            "title": "sign_off"
+        }, 
+        {
+            "location": "/api/pipeline/#requires_auth_policy", 
+            "text": "Validates if a user satisfies policy requirement, if not then the handler will execute the  authFailedHandler  function.  Input:   (ClaimsPrincipal -  build) -  HttpHandler", 
+            "title": "requires_auth_policy"
+        }, 
+        {
+            "location": "/api/pipeline/#requires_authentication", 
+            "text": "Validates if a user is authenticated/logged in. If the user is not authenticated then the handler will execute the  authFailedHandler  function.  Input:   HttpHandler", 
+            "title": "requires_authentication"
+        }, 
+        {
+            "location": "/api/pipeline/#requires_role", 
+            "text": "Validates if an authenticated user is in a specified role. If the user fails to be in the required role then the handler will execute the  authFailedHandler  function.  Input:   string -  HttpHandler", 
+            "title": "requires_role"
+        }, 
+        {
+            "location": "/api/pipeline/#requires_role_of", 
+            "text": "Validates if an authenticated user is in one of the supplied roles. If the user fails to be in one of the required roles then the handler will execute the  authFailedHandler  function.  Input:   string list-  HttpHandler", 
+            "title": "requires_role_of"
+        }, 
+        {
+            "location": "/api/pipeline/#clear_response", 
+            "text": "Tries to clear the current response. This can be useful inside an error handler to reset the response before writing an error message to the body of the HTTP response object.", 
+            "title": "clear_response"
+        }, 
+        {
+            "location": "/api/pipeline/#set_status_code", 
+            "text": "Changes the status code of the  HttpResponse .  Input:   int", 
+            "title": "set_status_code"
+        }, 
+        {
+            "location": "/api/pipeline/#set_header", 
+            "text": "Sets or modifies a HTTP header of the  HttpResponse .  Input:   string -  'a", 
+            "title": "set_header"
+        }, 
+        {
+            "location": "/api/pipeline/#set_body", 
+            "text": "Sets or modifies the body of the  HttpResponse . This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.  Input:   byte[]", 
+            "title": "set_body"
+        }, 
+        {
+            "location": "/api/pipeline/#text", 
+            "text": "Sets or modifies the body of the  HttpResponse  by sending a plain text value to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the  Content-Type  HTTP header to  text/plain .  Input:   string", 
+            "title": "text"
+        }, 
+        {
+            "location": "/api/pipeline/#json", 
+            "text": "Sets or modifies the body of the  HttpResponse  by sending a JSON serialized object to the client. It uses JSON serializer configured by Giraffe. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the  Content-Type  HTTP header to  application/json .  Input:   'a", 
+            "title": "json"
+        }, 
+        {
+            "location": "/api/pipeline/#xml", 
+            "text": "Sets or modifies the body of the  HttpResponse  by sending an XML serialized object to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the  Content-Type  HTTP header to  application/xml .  Input:   'a", 
+            "title": "xml"
+        }, 
+        {
+            "location": "/api/pipeline/#negotiate", 
+            "text": "Sets or modifies the body of the  HttpResponse  by inspecting the  Accept  header of the HTTP request and deciding if the response should be sent in JSON or XML or plain text. If the client is indifferent then the default response will be sent in JSON. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.  Input:   'a", 
+            "title": "negotiate"
+        }, 
+        {
+            "location": "/api/pipeline/#negotiate_with", 
+            "text": "Sets or modifies the body of the  HttpResponse  by inspecting the  Accept  header of the HTTP request and deciding in what mimeType the response should be sent. A dictionary of type  IDictionary string, obj -  HttpHandler  is used to determine which  obj -  HttpHandler  function should be used to convert an object into a  HttpHandler  for a given mime type. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.  Input:   (IDictionary string, obj -  HttpHandler ) -  'a", 
+            "title": "negotiate_with"
+        }, 
+        {
+            "location": "/api/pipeline/#html", 
+            "text": "Sets or modifies the body of the  HttpResponse  with the contents of a single string variable. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. Sets the HTTP header  Content-Type  to  text/html  Input:   string", 
+            "title": "html"
+        }, 
+        {
+            "location": "/api/pipeline/#html_file", 
+            "text": "Sets or modifies the body of the  HttpResponse  with the contents of a physical html file. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. This http handler takes a rooted path of a html file or a path which is relative to the ContentRootPath as the input parameter and sets the HTTP header  Content-Type  to  text/html  Input:   string", 
+            "title": "html_file"
+        }, 
+        {
+            "location": "/api/pipeline/#render_html", 
+            "text": "It is a more functional way of generating HTML by composing HTML elements in F# to generate a rich Model-View output.  Input:   XmlNode", 
+            "title": "render_html"
+        }, 
+        {
+            "location": "/api/pipeline/#redirect_to", 
+            "text": "Uses a 302 or 301 (when permanent) HTTP response code to redirect the client to the specified location. It takes in two parameters, a boolean flag denoting whether the redirect should be permanent or not and the location to redirect to.  Input:   bool -  string", 
+            "title": "redirect_to"
+        }, 
+        {
+            "location": "/api/pipeline/#route_ports", 
+            "text": "If your web server is listening to multiple ports then you can use the  routePorts  HttpHandler to easily filter incoming requests based on their port by providing a list of port number and HttpHandler ( (int * HttpHandler) list ).  Input:   (int -  HttpHandler) list", 
+            "title": "route_ports"
+        }, 
+        {
+            "location": "/api/pipeline/#use_warbler", 
+            "text": "If your route is not returning a static response, then you should wrap your function with a warbler. Functions in F# are eagerly evaluated and the warbler will help to evaluate the function every time the route is hit.  Input:   HttpHandler", 
+            "title": "use_warbler"
+        }, 
+        {
+            "location": "/api/pipeline/#pipeline-helpers", 
+            "text": "Module containg couple of more advanced  HttpHandlers  commonly used in Saturn applications", 
+            "title": "Pipeline Helpers"
+        }, 
+        {
+            "location": "/api/pipeline/#acceptjson", 
+            "text": "Accepts  ContentType   application/json", 
+            "title": "acceptJson"
+        }, 
+        {
+            "location": "/api/pipeline/#acceptxml", 
+            "text": "Accepts  ContentType   application/xml", 
+            "title": "acceptXml"
+        }, 
+        {
+            "location": "/api/pipeline/#accepthtml", 
+            "text": "Accepts  ContentType   text/html", 
+            "title": "acceptHtml"
+        }, 
+        {
+            "location": "/api/pipeline/#acceptmultipart", 
+            "text": "Accepts  ContentType   multipart/form-data", 
+            "title": "acceptMultipart"
+        }, 
+        {
+            "location": "/api/pipeline/#putsecurebrowserheaders", 
+            "text": "Put headers that improve browser security.\nIt sets the following headers:\n  * x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin\n  * x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type\n  * x-xss-protection - set to \"1; mode=block\" to improve XSS protection on both Chrome and IE\n  * x-download-options - set to noopen to instruct the browser not to open a download directly in the browser, to avoid HTML files rendering inline and accessing the security context of the application (like critical domain cookies)\n  * x-permitted-cross-domain-policies - set to none to restrict Adobe Flash Player\u2019s access to data", 
+            "title": "putSecureBrowserHeaders"
+        }, 
+        {
+            "location": "/api/pipeline/#enablecors", 
+            "text": "Enables CORS pretection using provided config. Use  CORS.defaultCORSConfig  for default configuration.  Input:   CORSConfig", 
+            "title": "enableCors"
+        }, 
+        {
+            "location": "/api/pipeline/#fetchsession", 
+            "text": "Fetches session from session provider. If it won't be called session will be synchronusly fetched on first usage.", 
+            "title": "fetchSession"
+        }, 
+        {
+            "location": "/api/pipeline/#fetchmodel", 
+            "text": "Tries to model from request and puts model into  Items.RequestModel . If it won't be called content can be fetched using  Context.Controller  helpers.\nIt won't crash the pipelines if fetching failed.\nIt optionally takes custom culture name as arguments.  Input:   string option", 
+            "title": "fetchModel"
+        }, 
+        {
+            "location": "/api/pipeline/#head", 
+            "text": "Convert  HEAD  requests to  GET  requests.", 
+            "title": "head"
+        }, 
+        {
+            "location": "/api/pipeline/#requestid", 
+            "text": "Pipeline for generating a unique request id for each request. A generated request id will in the format  uq8hs30oafhj5vve8ji5pmp7mtopc08f .\nIf a request id already exists as the  x-request-id  HTTP request header, then that value will be used assuming it is between 20 and 200 characters. If it is not, a new request id will be generated.\nRequest id is put into  x-request-id  HTTP header and into  Items  directory of HttpContext with  RequestId  key.", 
+            "title": "requestId"
+        }, 
+        {
+            "location": "/api/pipeline/#requireheader", 
+            "text": "Requires given value for given request header  Input:   string -  string", 
+            "title": "requireHeader"
+        }, 
+        {
             "location": "/api/scope/", 
-            "text": "Scope\n\n\nScope builder\n\n\nComputation expression used to creating routing and combining \nHttpHandlers\n, \npipelines\n and \ncontrollers\n together.\n\n\nResult of the computation expression is standard Giraffe's \nHttpHandler\nwhich means that it's easily composable with other parts of the ecosytem.\n\n\nget\n\n\nAdds handler for \nGET\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\ngetf\n\n\nAdds handler for \nGET\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\npost\n\n\nAdds handler for \nPOST\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\npostf\n\n\nAdds handler for \nPOST\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\nput\n\n\nAdds handler for \nPUT\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\nputf\n\n\nAdds handler for \nPUT\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\ndelete\n\n\nAdds handler for \nDELETE\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\ndeletef\n\n\nAdds handler for \nDELETE\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\npatch\n\n\nAdds handler for \nPATCH\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\npatchf\n\n\nAdds handler for \nPATCH\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\nforward\n\n\nForwards calls to different \nscope\n. Modifies the \nHttpRequest.Path\n to allow subrouting.\n\n\nInput:\n: \nstring * HttpHandler\n\n\npipe_through\n\n\nAdds pipeline to the list of pipelines that will be used for every request\n\n\nInput:\n: \nHttpHandler\n\n\nnot_found_handler\n\n\nAdds not-found handler for current scope\n\n\nInput:\n: \nHttpHandler", 
+            "text": "Scope\n\n\nScope builder\n\n\nComputation expression used to creating routing and combining \nHttpHandlers\n, \npipelines\n and \ncontrollers\n together.\n\n\nResult of the computation expression is standard Giraffe's \nHttpHandler\nwhich means that it's easily composable with other parts of the ecosytem.\n\n\nExample:\n\n\nlet topRouter = scope {\n    pipe_through headerPipe\n    not_found_handler (text \n404\n)\n\n    get \n/\n helloWorld\n    get \n/a\n helloWorld2\n    getf \n/name/%s\n helloWorldName\n    getf \n/name/%s/%i\n helloWorldNameAge\n\n    //scopes can be defined inline to simulate `subRoute` combinator\n    forward \n/other\n (scope {\n        pipe_through otherHeaderPipe\n        not_found_handler (text \nOther 404\n)\n\n        get \n/\n otherHelloWorld\n        get \n/a\n otherHelloWorld2\n    })\n\n    // or can be defined separatly and used as HttpHandler\n    forward \n/api\n apiRouter\n\n    // same with controllers\n    forward \n/users\n userController\n}\n\n\n\n\n\n\nget\n\n\nAdds handler for \nGET\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\ngetf\n\n\nAdds handler for \nGET\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\npost\n\n\nAdds handler for \nPOST\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\npostf\n\n\nAdds handler for \nPOST\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\nput\n\n\nAdds handler for \nPUT\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\nputf\n\n\nAdds handler for \nPUT\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\ndelete\n\n\nAdds handler for \nDELETE\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\ndeletef\n\n\nAdds handler for \nDELETE\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\npatch\n\n\nAdds handler for \nPATCH\n request.\n\n\nInput:\n: \nstring * HttpHandler\n\n\npatchf\n\n\nAdds handler for \nPATCH\n request using formater.\n\n\nInput:\n: \nPrintfFormat\n_,_,_,_'f\n * ('f -\n HttpHandler)\n\n\nforward\n\n\nForwards calls to different \nscope\n. Modifies the \nHttpRequest.Path\n to allow subrouting.\n\n\nInput:\n: \nstring * HttpHandler\n\n\npipe_through\n\n\nAdds pipeline to the list of pipelines that will be used for every request\n\n\nInput:\n: \nHttpHandler\n\n\nnot_found_handler\n\n\nAdds not-found handler for current scope\n\n\nInput:\n: \nHttpHandler", 
             "title": "Scope"
         }, 
         {
@@ -77,7 +267,7 @@
         }, 
         {
             "location": "/api/scope/#scope-builder", 
-            "text": "Computation expression used to creating routing and combining  HttpHandlers ,  pipelines  and  controllers  together.  Result of the computation expression is standard Giraffe's  HttpHandler which means that it's easily composable with other parts of the ecosytem.", 
+            "text": "Computation expression used to creating routing and combining  HttpHandlers ,  pipelines  and  controllers  together.  Result of the computation expression is standard Giraffe's  HttpHandler which means that it's easily composable with other parts of the ecosytem.  Example:  let topRouter = scope {\n    pipe_through headerPipe\n    not_found_handler (text  404 )\n\n    get  /  helloWorld\n    get  /a  helloWorld2\n    getf  /name/%s  helloWorldName\n    getf  /name/%s/%i  helloWorldNameAge\n\n    //scopes can be defined inline to simulate `subRoute` combinator\n    forward  /other  (scope {\n        pipe_through otherHeaderPipe\n        not_found_handler (text  Other 404 )\n\n        get  /  otherHelloWorld\n        get  /a  otherHelloWorld2\n    })\n\n    // or can be defined separatly and used as HttpHandler\n    forward  /api  apiRouter\n\n    // same with controllers\n    forward  /users  userController\n}", 
             "title": "Scope builder"
         }, 
         {
@@ -147,7 +337,7 @@
         }, 
         {
             "location": "/api/controller/", 
-            "text": "Controller\n\n\nController builder\n\n\nComputation expression used to create Saturn controllers - abstraction representing REST-ish enpoint for serving HTML views or returning data. It supports:\n\n set of predefined actions that are automatically mapped to the enpoints following standard conventions\n\n embedding sub-controllers for modeling one-to-many relationships \n\n versioning \n\n adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications. \n\n defining common error handler for all actions\n\n defining not-found action\n\n\nResult of the computation expression is standard Giraffe's \nHttpHandler\nwhich means that it's easily composable with other parts of the ecosytem.\n\n\nindex\n\n\nOperation that should render (or return in case of API controllers) list of data\n\n\nMapped to \nGET \"/\"\n endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nshow\n\n\nOperation that should render (or return in case of API controllers) single entry of data\n\n\nMapped to \nGET \"/:id\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\nadd\n\n\nOperation that should render form for adding new item\n\n\nMapped to \nGET \"/add\"\n endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nedit\n\n\nOperation that should render form for editing existing item\n\n\nMapped to \nGET \"/:id/edit\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\ncreate\n\n\nOperation that creates new item\n\n\nMapped to \nPOST \"/\"\n and endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nupdate\n\n\nOperation that updates existing item\n\n\nMapped to \nPOST \"/:id\"\n and \nPATCH \"/:id\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\ndelete\n\n\nOperation that deletes existing item\n\n\nMapped to \nDELETE \"/:id\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\ndelete_all\n\n\nOperation that deletes all items\n\n\nMapped to \nDELETE \"/\"\n endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\n\n\nnot_found_handler\n\n\nDefine not-found handler for the controller\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nerror_handler\n\n\nDefine error for the controller\n\n\nInput:\n \nHttpContext * Exception -\n HttpFuncResult\n\n\nsubController\n\n\nAdds subcontroller\n\n\nForward to subcontroller all calls to \n/:id/:controller_name\n endpoint\n\n\nInput:\n \nstring * ('a -\n HttpHandler)\n\n\nversion\n\n\nDefine version of controller. Adds checking of \nx-controller-version\n header\n\n\nInput:\n \nint\n\n\nplug\n\n\nPlugs given \nHttpHandler\n for some actions in the controller.\n\n\nInput:\n \nAction list * HttpHandler", 
+            "text": "Controller\n\n\nController helpers\n\n\nModule with high level helper functions that are usaully used in controller actions.\n\n\n\n\njson\n\n\nReturns to the client content serialized to JSON\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nxml\n\n\nReturns to the client content serialized to XML.\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\ntext\n\n\nReturns to the client content as string.\n\n\nType:\n \nHttpContext -\n string -\n HttpFuncResult\n\n\nrender\n\n\nReturns to the client rendered template.\n\n\nType:\n \nHttpContext -\n string -\n HttpFuncResult\n\n\nfile\n\n\nReturns to the client static file.\n\n\nType:\n \nHttpContext -\n string -\n HttpFuncResult\n\n\nsendDownload\n\n\nSends file with given path\n\n\nType:\n \nHttpContext -\n string -\n HttpFuncResult\n\n\nsendDownloadBinary\n\n\nSends file as binary blob\n\n\nType:\n \nHttpContext -\n byte [] -\n HttpFuncResult\n\n\nredirect\n\n\nSends redirect response\n\n\nType:\n \nHttpContext -\n string -\n HttpFuncResult\n\n\n\n\ngetJson\n'a\n\n\nGets model from body as JSON.\n\n\nType:\n \nHttpContext -\n Task\n'a\n\n\ngetXml\n'a\n\n\nGets model from body as XML.\n\n\nType:\n \nHttpContext -\n Task\n'a\n\n\ngetForm\n'a\n\n\nGets model from urelencoded body.\n\n\nType:\n \nHttpContext -\n Task\n'a\n\n\ngetQuery\n'a\n\n\nGets model from query string.\n\n\nType:\n \nHttpContext -\n Task\n'a\n\n\ngetModel\n'a\n\n\nGet model based on \nHttpMethod\n and \nContent-Type\n of request.\n\n\nType:\n \nHttpContext -\n Task\n'a\n\n\nloadModel\n'a\n\n\nLoads model populated by \nfetchModel\n pipeline\n\n\nType:\n \nHttpContext -\n Option\n'a\n\n\ngetPath\n\n\nGets path of the request - it's relative to current \nscope\n\n\nType:\n \nHttpContext -\n string\n\n\ngetUrl\n\n\nGets url of the request\n\n\nType:\n \nHttpContext -\n string option\n\n\ngetConfig\n'a\n\n\nGets configuration\n\n\nType:\n \nHttpContext -\n 'a\n\n\n\n\nResponse helpers\n\n\nModule with lower level functions for returning certain responses from the action.\n\n\n\n\ncontinue\n\n\nReturns \n100 Continue\n\n\nType:\n \nHttpContext -\n HttpFuncResult\n\n\nswitchingProto\n\n\nReturns \n101 Switching Protocols\n\n\nType:\n \nHttpContext -\n HttpFuncResult\n\n\n\n\nok\n\n\nReturns \n200 OK\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\ncreated\n\n\nReturns \n201 Created\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\naccepted\n\n\nReturns \n202 Accepted\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\n\n\nbadRequest\n\n\nReturns \n400 Bad Request\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nunauthorized\n\n\nReturns \n401 Unauthorized\n. Requires \nscheme\n and \nrelam\n.\n\n\nType:\n \nHttpContext -\n string -\n string -\n 'a -\n HttpFuncResult\n\n\nforbidden\n\n\nReturns \n403 Forbidden\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nnotFound\n\n\nReturns \n404 Not Found\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nmethodNotAllowed\n\n\nReturns \n405 Method Not Allowed\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nnotAcceptable\n\n\nReturns \n406 Not Acceptable\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nconflict\n\n\nReturns \n409 Conflict\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\ngone\n\n\nReturns \n410 Gone\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nunuspportedMediaType\n\n\nReturns \n415 Unsupported Media Type\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nunprocessableEntity\n\n\nReturns \n422 Unprocessable Entity\n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\npreconditionRequired\n\n\nReturns \n428 Precondition Required\n \n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\ntooManyRequests\n\n\nReturns \n429 Too Many Requests\n \n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\n\n\ninternalError\n\n\nReturns \n500 Internal Server Error\n \n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nnotImplemented\n\n\nReturns \n501 Not Implemented\n \n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nbadGateway\n\n\nReturns \n502 Bad Gateway\n \n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\nserviceUnavailable\n\n\nReturns \n503 Service Unavailable\n \n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\ngatewayTimeout\n\n\nReturns \n504 Gateway Timeout\n \n\n\nType:\n \nHttpContext -\n 'a -\n HttpFuncResult\n\n\n\n\nController builder\n\n\nComputation expression used to create Saturn controllers - abstraction representing REST-ish enpoint for serving HTML views or returning data. It supports:\n\n set of predefined actions that are automatically mapped to the enpoints following standard conventions\n\n embedding sub-controllers for modeling one-to-many relationships \n\n versioning \n\n adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications. \n\n defining common error handler for all actions\n\n defining not-found action\n\n\nResult of the computation expression is standard Giraffe's \nHttpHandler\nwhich means that it's easily composable with other parts of the ecosytem.\n\n\nExample:\n\n\nlet commentController userId = controller {\n    index (fun ctx -\n (sprintf \nComment Index handler for user %i\n userId ) |\n Controller.text ctx)\n    add (fun ctx -\n (sprintf \nComment Add handler for user %i\n userId ) |\n Controller.text ctx)\n    show (fun (ctx, id) -\n (sprintf \nShow comment %s handler for user %i\n id userId ) |\n Controller.text ctx)\n    edit (fun (ctx, id) -\n (sprintf \nEdit comment %s handler for user %i\n id userId )  |\n Controller.text ctx)\n}\n\nlet userControllerVersion1 = controller {\n    version 1\n    subController \n/comments\n commentController\n\n    index (fun ctx -\n \nIndex handler version 1\n |\n Controller.text ctx)\n    add (fun ctx -\n \nAdd handler version 1\n |\n Controller.text ctx)\n    show (fun (ctx, id) -\n (sprintf \nShow handler version 1 - %i\n id) |\n Controller.text ctx)\n    edit (fun (ctx, id) -\n (sprintf \nEdit handler version 1 - %i\n id) |\n Controller.text ctx)\n}\n\nlet userController = controller {\n    subController \n/comments\n commentController\n\n    plug [All] (setHttpHeader \nuser-controller-common\n \n123\n)\n    plug [Index; Show] (setHttpHeader \nuser-controller-specialized\n \n123\n)\n\n    index (fun ctx -\n \nIndex handler no version\n |\n Controller.text ctx)\n    add (fun ctx -\n \nAdd handler no version\n |\n Controller.text ctx)\n    show (fun (ctx, id) -\n (sprintf \nShow handler no version - %i\n id) |\n Controller.text ctx)\n    edit (fun (ctx, id) -\n (sprintf \nEdit handler no version - %i\n id) |\n Controller.text ctx)\n}\n\n\n\n\n\n\nindex\n\n\nOperation that should render (or return in case of API controllers) list of data\n\n\nMapped to \nGET \"/\"\n endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nshow\n\n\nOperation that should render (or return in case of API controllers) single entry of data\n\n\nMapped to \nGET \"/:id\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\nadd\n\n\nOperation that should render form for adding new item\n\n\nMapped to \nGET \"/add\"\n endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nedit\n\n\nOperation that should render form for editing existing item\n\n\nMapped to \nGET \"/:id/edit\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\ncreate\n\n\nOperation that creates new item\n\n\nMapped to \nPOST \"/\"\n and endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nupdate\n\n\nOperation that updates existing item\n\n\nMapped to \nPOST \"/:id\"\n and \nPATCH \"/:id\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\ndelete\n\n\nOperation that deletes existing item\n\n\nMapped to \nDELETE \"/:id\"\n endpoint\n\n\nInput:\n \nHttpContext * 'Key -\n HttpFuncResult\n\n\ndelete_all\n\n\nOperation that deletes all items\n\n\nMapped to \nDELETE \"/\"\n endpoint\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\n\n\nnot_found_handler\n\n\nDefine not-found handler for the controller\n\n\nInput:\n \nHttpContext -\n HttpFuncResult\n\n\nerror_handler\n\n\nDefine error for the controller\n\n\nInput:\n \nHttpContext * Exception -\n HttpFuncResult\n\n\nsubController\n\n\nAdds subcontroller\n\n\nForward to subcontroller all calls to \n/:id/:controller_name\n endpoint\n\n\nInput:\n \nstring * ('a -\n HttpHandler)\n\n\nversion\n\n\nDefine version of controller. Adds checking of \nx-controller-version\n header\n\n\nInput:\n \nint\n\n\nplug\n\n\nPlugs given \nHttpHandler\n for some actions in the controller.\n\n\nInput:\n \nAction list * HttpHandler", 
             "title": "Controller"
         }, 
         {
@@ -156,8 +346,213 @@
             "title": "Controller"
         }, 
         {
+            "location": "/api/controller/#controller-helpers", 
+            "text": "Module with high level helper functions that are usaully used in controller actions.", 
+            "title": "Controller helpers"
+        }, 
+        {
+            "location": "/api/controller/#json", 
+            "text": "Returns to the client content serialized to JSON  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "json"
+        }, 
+        {
+            "location": "/api/controller/#xml", 
+            "text": "Returns to the client content serialized to XML.  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "xml"
+        }, 
+        {
+            "location": "/api/controller/#text", 
+            "text": "Returns to the client content as string.  Type:   HttpContext -  string -  HttpFuncResult", 
+            "title": "text"
+        }, 
+        {
+            "location": "/api/controller/#render", 
+            "text": "Returns to the client rendered template.  Type:   HttpContext -  string -  HttpFuncResult", 
+            "title": "render"
+        }, 
+        {
+            "location": "/api/controller/#file", 
+            "text": "Returns to the client static file.  Type:   HttpContext -  string -  HttpFuncResult", 
+            "title": "file"
+        }, 
+        {
+            "location": "/api/controller/#senddownload", 
+            "text": "Sends file with given path  Type:   HttpContext -  string -  HttpFuncResult", 
+            "title": "sendDownload"
+        }, 
+        {
+            "location": "/api/controller/#senddownloadbinary", 
+            "text": "Sends file as binary blob  Type:   HttpContext -  byte [] -  HttpFuncResult", 
+            "title": "sendDownloadBinary"
+        }, 
+        {
+            "location": "/api/controller/#redirect", 
+            "text": "Sends redirect response  Type:   HttpContext -  string -  HttpFuncResult", 
+            "title": "redirect"
+        }, 
+        {
+            "location": "/api/controller/#getjsona", 
+            "text": "Gets model from body as JSON.  Type:   HttpContext -  Task 'a", 
+            "title": "getJson&lt;'a&gt;"
+        }, 
+        {
+            "location": "/api/controller/#getxmla", 
+            "text": "Gets model from body as XML.  Type:   HttpContext -  Task 'a", 
+            "title": "getXml&lt;'a&gt;"
+        }, 
+        {
+            "location": "/api/controller/#getforma", 
+            "text": "Gets model from urelencoded body.  Type:   HttpContext -  Task 'a", 
+            "title": "getForm&lt;'a&gt;"
+        }, 
+        {
+            "location": "/api/controller/#getquerya", 
+            "text": "Gets model from query string.  Type:   HttpContext -  Task 'a", 
+            "title": "getQuery&lt;'a&gt;"
+        }, 
+        {
+            "location": "/api/controller/#getmodela", 
+            "text": "Get model based on  HttpMethod  and  Content-Type  of request.  Type:   HttpContext -  Task 'a", 
+            "title": "getModel&lt;'a&gt;"
+        }, 
+        {
+            "location": "/api/controller/#loadmodela", 
+            "text": "Loads model populated by  fetchModel  pipeline  Type:   HttpContext -  Option 'a", 
+            "title": "loadModel&lt;'a&gt;"
+        }, 
+        {
+            "location": "/api/controller/#getpath", 
+            "text": "Gets path of the request - it's relative to current  scope  Type:   HttpContext -  string", 
+            "title": "getPath"
+        }, 
+        {
+            "location": "/api/controller/#geturl", 
+            "text": "Gets url of the request  Type:   HttpContext -  string option", 
+            "title": "getUrl"
+        }, 
+        {
+            "location": "/api/controller/#getconfiga", 
+            "text": "Gets configuration  Type:   HttpContext -  'a", 
+            "title": "getConfig&lt;'a&gt;"
+        }, 
+        {
+            "location": "/api/controller/#response-helpers", 
+            "text": "Module with lower level functions for returning certain responses from the action.", 
+            "title": "Response helpers"
+        }, 
+        {
+            "location": "/api/controller/#continue", 
+            "text": "Returns  100 Continue  Type:   HttpContext -  HttpFuncResult", 
+            "title": "continue"
+        }, 
+        {
+            "location": "/api/controller/#switchingproto", 
+            "text": "Returns  101 Switching Protocols  Type:   HttpContext -  HttpFuncResult", 
+            "title": "switchingProto"
+        }, 
+        {
+            "location": "/api/controller/#ok", 
+            "text": "Returns  200 OK  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "ok"
+        }, 
+        {
+            "location": "/api/controller/#created", 
+            "text": "Returns  201 Created  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "created"
+        }, 
+        {
+            "location": "/api/controller/#accepted", 
+            "text": "Returns  202 Accepted  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "accepted"
+        }, 
+        {
+            "location": "/api/controller/#badrequest", 
+            "text": "Returns  400 Bad Request  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "badRequest"
+        }, 
+        {
+            "location": "/api/controller/#unauthorized", 
+            "text": "Returns  401 Unauthorized . Requires  scheme  and  relam .  Type:   HttpContext -  string -  string -  'a -  HttpFuncResult", 
+            "title": "unauthorized"
+        }, 
+        {
+            "location": "/api/controller/#forbidden", 
+            "text": "Returns  403 Forbidden  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "forbidden"
+        }, 
+        {
+            "location": "/api/controller/#notfound", 
+            "text": "Returns  404 Not Found  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "notFound"
+        }, 
+        {
+            "location": "/api/controller/#methodnotallowed", 
+            "text": "Returns  405 Method Not Allowed  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "methodNotAllowed"
+        }, 
+        {
+            "location": "/api/controller/#notacceptable", 
+            "text": "Returns  406 Not Acceptable  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "notAcceptable"
+        }, 
+        {
+            "location": "/api/controller/#conflict", 
+            "text": "Returns  409 Conflict  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "conflict"
+        }, 
+        {
+            "location": "/api/controller/#gone", 
+            "text": "Returns  410 Gone  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "gone"
+        }, 
+        {
+            "location": "/api/controller/#unuspportedmediatype", 
+            "text": "Returns  415 Unsupported Media Type  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "unuspportedMediaType"
+        }, 
+        {
+            "location": "/api/controller/#unprocessableentity", 
+            "text": "Returns  422 Unprocessable Entity  Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "unprocessableEntity"
+        }, 
+        {
+            "location": "/api/controller/#preconditionrequired", 
+            "text": "Returns  428 Precondition Required    Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "preconditionRequired"
+        }, 
+        {
+            "location": "/api/controller/#toomanyrequests", 
+            "text": "Returns  429 Too Many Requests    Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "tooManyRequests"
+        }, 
+        {
+            "location": "/api/controller/#internalerror", 
+            "text": "Returns  500 Internal Server Error    Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "internalError"
+        }, 
+        {
+            "location": "/api/controller/#notimplemented", 
+            "text": "Returns  501 Not Implemented    Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "notImplemented"
+        }, 
+        {
+            "location": "/api/controller/#badgateway", 
+            "text": "Returns  502 Bad Gateway    Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "badGateway"
+        }, 
+        {
+            "location": "/api/controller/#serviceunavailable", 
+            "text": "Returns  503 Service Unavailable    Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "serviceUnavailable"
+        }, 
+        {
+            "location": "/api/controller/#gatewaytimeout", 
+            "text": "Returns  504 Gateway Timeout    Type:   HttpContext -  'a -  HttpFuncResult", 
+            "title": "gatewayTimeout"
+        }, 
+        {
             "location": "/api/controller/#controller-builder", 
-            "text": "Computation expression used to create Saturn controllers - abstraction representing REST-ish enpoint for serving HTML views or returning data. It supports:  set of predefined actions that are automatically mapped to the enpoints following standard conventions  embedding sub-controllers for modeling one-to-many relationships   versioning   adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications.   defining common error handler for all actions  defining not-found action  Result of the computation expression is standard Giraffe's  HttpHandler which means that it's easily composable with other parts of the ecosytem.", 
+            "text": "Computation expression used to create Saturn controllers - abstraction representing REST-ish enpoint for serving HTML views or returning data. It supports:  set of predefined actions that are automatically mapped to the enpoints following standard conventions  embedding sub-controllers for modeling one-to-many relationships   versioning   adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications.   defining common error handler for all actions  defining not-found action  Result of the computation expression is standard Giraffe's  HttpHandler which means that it's easily composable with other parts of the ecosytem.  Example:  let commentController userId = controller {\n    index (fun ctx -  (sprintf  Comment Index handler for user %i  userId ) |  Controller.text ctx)\n    add (fun ctx -  (sprintf  Comment Add handler for user %i  userId ) |  Controller.text ctx)\n    show (fun (ctx, id) -  (sprintf  Show comment %s handler for user %i  id userId ) |  Controller.text ctx)\n    edit (fun (ctx, id) -  (sprintf  Edit comment %s handler for user %i  id userId )  |  Controller.text ctx)\n}\n\nlet userControllerVersion1 = controller {\n    version 1\n    subController  /comments  commentController\n\n    index (fun ctx -   Index handler version 1  |  Controller.text ctx)\n    add (fun ctx -   Add handler version 1  |  Controller.text ctx)\n    show (fun (ctx, id) -  (sprintf  Show handler version 1 - %i  id) |  Controller.text ctx)\n    edit (fun (ctx, id) -  (sprintf  Edit handler version 1 - %i  id) |  Controller.text ctx)\n}\n\nlet userController = controller {\n    subController  /comments  commentController\n\n    plug [All] (setHttpHeader  user-controller-common   123 )\n    plug [Index; Show] (setHttpHeader  user-controller-specialized   123 )\n\n    index (fun ctx -   Index handler no version  |  Controller.text ctx)\n    add (fun ctx -   Add handler no version  |  Controller.text ctx)\n    show (fun (ctx, id) -  (sprintf  Show handler no version - %i  id) |  Controller.text ctx)\n    edit (fun (ctx, id) -  (sprintf  Edit handler no version - %i  id) |  Controller.text ctx)\n}", 
             "title": "Controller builder"
         }, 
         {
@@ -227,7 +622,7 @@
         }, 
         {
             "location": "/api/application/", 
-            "text": "Application\n\n\nApplication builder\n\n\nComputation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as \nIWebHostBuilder\n, \nIServiceCollection\n, \nIApplicationBuilder\n and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles\n\n\nrouter\n\n\nDefines top-level router used for the application. It's calling \nIApplicationBuilder.UseGiraffe\n\n\nInput:\n \nHttpHandler\n\n\napplication {\n    ...\n    router myRouter\n}\n\n\n\n\npipe_through\n\n\nAdds pipeline to the list of pipelines that will be used for every request\n\n\nInput:\n \nHttpHandler\n\n\napplication {\n    ...\n    pipe_through requestId\n}\n\n\n\n\nerror_handler\n\n\nAdds global error handler for exceptions not handled anywhere else. It's using \nIApplicationBuilder.UseGiraffeErrorHandler\n\n\nInput:\n \nException -\n ILogger -\n HttpHandler\n\n\napplication {\n    ...\n    error_handler (fun e log -\n text e.Message)\n}\n\n\n\n\nurl\n\n\nDefines URL on which application will be hosted. Should include port.\n\n\nInput:\n \nstring\n\n\napplication {\n    ...\n    url \nhttp://0.0.0.0:8085/\n\n}\n\n\n\n\nmemory_cache\n\n\nEnables in-memory session cache. Required if you used \nfetchSession\n plug.\n\n\napplication {\n    ...\n    memory_cache\n}\n\n\n\n\nuse_gzip\n\n\nEnables automatic gzip compression\n\n\napplication {\n    ...\n    use_gzip\n}\n\n\n\n\nuse_static\n\n\nEnables using static file hosting. Input path defines \nWebRoot\n and \nContentRoot\n of application\n\n\nInput:\n \nstring\n\n\napplication {\n    ...\n    use_static \nstatic\n\n}\n\n\n\n\nuse_config\n\n\nDefines configuration that can be used with \nHttpContext.GetConfiguration ()\n function. Configuration function is evaluated once, during first request of the application.\n\n\nInput:\n \nunit -\n 'a\n\n\napplication {\n    ...\n    use_config (fun _ -\n \nconfig\n)\n}\n\n\n\n\nforce_ssl\n\n\nRedirect all HTTP request to HTTPS\n\n\napplication {\n    ...\n    force_ssl\n}\n\n\n\n\nuse_cors\n\n\nEnables application level CORS protection. First parameter is name of the policy. Second parameter is configuration builder setting policy options.\n\n\nInput:\n \nstring -\n (CorsPolicyBuilder -\n unit)\n\n\napplication {\n    ...\n    use_cors \nCORS_policy\n (fun builder -\n ())\n}\n\n\n\n\nuse_iis\n\n\nEnables IIS integration\n\n\napplication {\n    ...\n    use_iis\n}\n\n\n\n\n\n\nuse_jwt_authentication\n\n\nEnables default JWT authentication. First parameter is private key used to signing. Second one defines issuer of the token.\n\n\nInput:\n \nstring -\n string\n\n\napplication {\n    ...\n    use_jwt_authentication \nmySecretKey\n \nlambdafactory.io\n\n}\n\n\n\n\nuse_jwt_authentication_with_config\n\n\nEnables JWT authentication with custom configuration\n\n\nInput:\n \nJwtBearerOptions -\n unit\n\n\napplication {\n    ...\n    use_jwt_authentication_with_config (fun opts -\n ())\n}\n\n\n\n\nuse_cookies_authentication\n\n\nEnables default cookies authentication\n\n\nInput:\n \nstring\n\n\napplication {\n    ...\n    use_cookies_authentication \nlambdafactory.io\n\n}\n\n\n\n\nuse_cookies_authentication_with_config\n\n\nEnables cookies authentication with custom configuration\n\n\nInput:\n \nCookieAuthenticationOptions -\n unit\n\n\napplication {\n    ...\n    use_cookies_authentication_with_config (fun opts -\n ())\n}\n\n\n\n\nuse_github_oauth\n\n\nEnables default GitHub OAuth authentication\n\n\nInput:\n \nstring -\n string -\n string\n\n\napplication {\n    ...\n    use_github_oauth \nmyClientId\n \nmyClientSecret\n \n/login\n\n}\n\n\n\n\nuse_github_oauth_with_config\n\n\nEnables GitHub OAuth authentication with custom configuration\n\n\nInput:\n \nOAuthOptions -\n unit\n\n\napplication {\n    ...\n    use_github_oauth (fun opts -\n ())\n}\n\n\n\n\nuse_custom_oauth\n\n\nEnables custom OAuth authentication\n\n\nInput:\n \nstring -\n (OAuthOptions -\n unit)\n\n\napplication {\n    ...\n    use_custom_oauth \nLinkedIn\n (fun opts -\n ())\n}\n\n\n\n\n\n\n\n\nFunctions below enables you to add any configuration with using standard ASP.NET builders\n\n\n\n\napp_config\n\n\nAdds custom application configuration step.\n\n\nInput:\n \nIApplicationBuilder -\n IApplicationBuilder\n\n\nhost_config\n\n\nAdds custom host configuration step.\n\n\nInput:\n \nIWebHostBuilder -\n IWebHostBuilder\n\n\nservice_config\n\n\nAdds custom service configuration step.\n\n\nInput:\n \nIServiceCollection -\n IServiceCollection\n\n\nlogging\n\n\nAdds logging configuration\n\n\nInput:\n \nIloggingBuilder -\n unit", 
+            "text": "Application\n\n\nrun\n\n\nRuns Saturn application\n\n\nInput:\n \nIWebHost\n\n\nApplication builder\n\n\nComputation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as \nIWebHostBuilder\n, \nIServiceCollection\n, \nIApplicationBuilder\n and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles\n\n\nExample:\n\n\nlet app = application {\n    pipe_through endpointPipe\n\n    router topRouter\n    url \nhttp://0.0.0.0:8085/\n\n    memory_cache\n    use_static \nstatic\n\n    use_gzip\n}\n\n\n\n\n\n\nrouter\n\n\nDefines top-level router used for the application. It's calling \nIApplicationBuilder.UseGiraffe\n\n\nInput:\n \nHttpHandler\n\n\napplication {\n    ...\n    router myRouter\n}\n\n\n\n\npipe_through\n\n\nAdds pipeline to the list of pipelines that will be used for every request\n\n\nInput:\n \nHttpHandler\n\n\napplication {\n    ...\n    pipe_through requestId\n}\n\n\n\n\nerror_handler\n\n\nAdds global error handler for exceptions not handled anywhere else. It's using \nIApplicationBuilder.UseGiraffeErrorHandler\n\n\nInput:\n \nException -\n ILogger -\n HttpHandler\n\n\napplication {\n    ...\n    error_handler (fun e log -\n text e.Message)\n}\n\n\n\n\nurl\n\n\nDefines URL on which application will be hosted. Should include port.\n\n\nInput:\n \nstring\n\n\napplication {\n    ...\n    url \nhttp://0.0.0.0:8085/\n\n}\n\n\n\n\nmemory_cache\n\n\nEnables in-memory session cache. Required if you used \nfetchSession\n plug.\n\n\napplication {\n    ...\n    memory_cache\n}\n\n\n\n\nuse_gzip\n\n\nEnables automatic gzip compression\n\n\napplication {\n    ...\n    use_gzip\n}\n\n\n\n\nuse_static\n\n\nEnables using static file hosting. Input path defines \nWebRoot\n and \nContentRoot\n of application\n\n\nInput:\n \nstring\n\n\napplication {\n    ...\n    use_static \nstatic\n\n}\n\n\n\n\nuse_config\n\n\nDefines configuration that can be used with \nHttpContext.GetConfiguration ()\n function. Configuration function is evaluated once, during first request of the application.\n\n\nInput:\n \nunit -\n 'a\n\n\napplication {\n    ...\n    use_config (fun _ -\n \nconfig\n)\n}\n\n\n\n\nforce_ssl\n\n\nRedirect all HTTP request to HTTPS\n\n\napplication {\n    ...\n    force_ssl\n}\n\n\n\n\nuse_cors\n\n\nEnables application level CORS protection. First parameter is name of the policy. Second parameter is configuration builder setting policy options.\n\n\nInput:\n \nstring -\n (CorsPolicyBuilder -\n unit)\n\n\napplication {\n    ...\n    use_cors \nCORS_policy\n (fun builder -\n ())\n}\n\n\n\n\nuse_iis\n\n\nEnables IIS integration\n\n\napplication {\n    ...\n    use_iis\n}\n\n\n\n\n\n\nuse_jwt_authentication\n\n\nEnables default JWT authentication. First parameter is private key used to signing. Second one defines issuer of the token.\n\n\nInput:\n \nstring -\n string\n\n\napplication {\n    ...\n    use_jwt_authentication \nmySecretKey\n \nlambdafactory.io\n\n}\n\n\n\n\nuse_jwt_authentication_with_config\n\n\nEnables JWT authentication with custom configuration\n\n\nInput:\n \nJwtBearerOptions -\n unit\n\n\napplication {\n    ...\n    use_jwt_authentication_with_config (fun opts -\n ())\n}\n\n\n\n\nuse_cookies_authentication\n\n\nEnables default cookies authentication\n\n\nInput:\n \nstring\n\n\napplication {\n    ...\n    use_cookies_authentication \nlambdafactory.io\n\n}\n\n\n\n\nuse_cookies_authentication_with_config\n\n\nEnables cookies authentication with custom configuration\n\n\nInput:\n \nCookieAuthenticationOptions -\n unit\n\n\napplication {\n    ...\n    use_cookies_authentication_with_config (fun opts -\n ())\n}\n\n\n\n\nuse_github_oauth\n\n\nEnables default GitHub OAuth authentication\n\n\nInput:\n \nstring -\n string -\n string\n\n\napplication {\n    ...\n    use_github_oauth \nmyClientId\n \nmyClientSecret\n \n/login\n\n}\n\n\n\n\nuse_github_oauth_with_config\n\n\nEnables GitHub OAuth authentication with custom configuration\n\n\nInput:\n \nOAuthOptions -\n unit\n\n\napplication {\n    ...\n    use_github_oauth (fun opts -\n ())\n}\n\n\n\n\nuse_custom_oauth\n\n\nEnables custom OAuth authentication\n\n\nInput:\n \nstring -\n (OAuthOptions -\n unit)\n\n\napplication {\n    ...\n    use_custom_oauth \nLinkedIn\n (fun opts -\n ())\n}\n\n\n\n\n\n\n\n\nFunctions below enables you to add any configuration with using standard ASP.NET builders\n\n\n\n\napp_config\n\n\nAdds custom application configuration step.\n\n\nInput:\n \nIApplicationBuilder -\n IApplicationBuilder\n\n\nhost_config\n\n\nAdds custom host configuration step.\n\n\nInput:\n \nIWebHostBuilder -\n IWebHostBuilder\n\n\nservice_config\n\n\nAdds custom service configuration step.\n\n\nInput:\n \nIServiceCollection -\n IServiceCollection\n\n\nlogging\n\n\nAdds logging configuration\n\n\nInput:\n \nIloggingBuilder -\n unit", 
             "title": "Application"
         }, 
         {
@@ -236,8 +631,13 @@
             "title": "Application"
         }, 
         {
+            "location": "/api/application/#run", 
+            "text": "Runs Saturn application  Input:   IWebHost", 
+            "title": "run"
+        }, 
+        {
             "location": "/api/application/#application-builder", 
-            "text": "Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as  IWebHostBuilder ,  IServiceCollection ,  IApplicationBuilder  and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles", 
+            "text": "Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as  IWebHostBuilder ,  IServiceCollection ,  IApplicationBuilder  and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles  Example:  let app = application {\n    pipe_through endpointPipe\n\n    router topRouter\n    url  http://0.0.0.0:8085/ \n    memory_cache\n    use_static  static \n    use_gzip\n}", 
             "title": "Application builder"
         }, 
         {

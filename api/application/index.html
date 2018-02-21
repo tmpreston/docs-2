@@ -308,6 +308,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../pipeline/" title="Pipeline" class="md-nav__link">
+      Pipeline
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../scope/" title="Scope" class="md-nav__link">
       Scope
     </a>
@@ -357,6 +369,13 @@
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" title="run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#application-builder" title="Application builder" class="md-nav__link">
@@ -562,6 +581,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#run" title="run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#application-builder" title="Application builder" class="md-nav__link">
     Application builder
   </a>
@@ -748,8 +774,24 @@
                 
                 
                 <h1 id="application">Application</h1>
+<h2 id="run">run</h2>
+<p>Runs Saturn application</p>
+<p><strong>Input:</strong> <code>IWebHost</code></p>
 <h2 id="application-builder">Application builder</h2>
 <p>Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as <code>IWebHostBuilder</code>, <code>IServiceCollection</code>, <code>IApplicationBuilder</code> and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles</p>
+<p><strong>Example:</strong></p>
+<pre><code class="fsharp">let app = application {
+    pipe_through endpointPipe
+
+    router topRouter
+    url &quot;http://0.0.0.0:8085/&quot;
+    memory_cache
+    use_static &quot;static&quot;
+    use_gzip
+}
+</code></pre>
+
+<hr />
 <h3 id="router">router</h3>
 <p>Defines top-level router used for the application. It's calling <code>IApplicationBuilder.UseGiraffe</code></p>
 <p><strong>Input:</strong> <code>HttpHandler</code></p>

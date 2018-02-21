@@ -1,0 +1,1190 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Saturn Framework">
+      
+      
+      
+        <meta name="author" content="Krzysztof Cieslak">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+    
+    
+      
+        <title>Pipeline - Saturn Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.9b572555.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#pipeline" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Saturn Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Saturn Docs
+              </span>
+              <span class="md-header-nav__topic">
+                Pipeline
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/SaturnFramework/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      SaturnFramework/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Saturn Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/SaturnFramework/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      SaturnFramework/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/how-to-start/" title="How to start in 60 seconds" class="md-nav__link">
+      How to start in 60 seconds
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Api Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Api Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Pipeline
+      </label>
+    
+    <a href="./" title="Pipeline" class="md-nav__link md-nav__link--active">
+      Pipeline
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-builder" title="Pipeline builder" class="md-nav__link">
+    Pipeline builder
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plug" title="plug" class="md-nav__link">
+    plug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#must_accept" title="must_accept" class="md-nav__link">
+    must_accept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge" title="challenge" class="md-nav__link">
+    challenge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sign_off" title="sign_off" class="md-nav__link">
+    sign_off
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_auth_policy" title="requires_auth_policy" class="md-nav__link">
+    requires_auth_policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_authentication" title="requires_authentication" class="md-nav__link">
+    requires_authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_role" title="requires_role" class="md-nav__link">
+    requires_role
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_role_of" title="requires_role_of" class="md-nav__link">
+    requires_role_of
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clear_response" title="clear_response" class="md-nav__link">
+    clear_response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_status_code" title="set_status_code" class="md-nav__link">
+    set_status_code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_header" title="set_header" class="md-nav__link">
+    set_header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_body" title="set_body" class="md-nav__link">
+    set_body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" title="text" class="md-nav__link">
+    text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" title="json" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml" title="xml" class="md-nav__link">
+    xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negotiate" title="negotiate" class="md-nav__link">
+    negotiate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negotiate_with" title="negotiate_with" class="md-nav__link">
+    negotiate_with
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html" title="html" class="md-nav__link">
+    html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html_file" title="html_file" class="md-nav__link">
+    html_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render_html" title="render_html" class="md-nav__link">
+    render_html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirect_to" title="redirect_to" class="md-nav__link">
+    redirect_to
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route_ports" title="route_ports" class="md-nav__link">
+    route_ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_warbler" title="use_warbler" class="md-nav__link">
+    use_warbler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-helpers" title="Pipeline Helpers" class="md-nav__link">
+    Pipeline Helpers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acceptjson" title="acceptJson" class="md-nav__link">
+    acceptJson
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceptxml" title="acceptXml" class="md-nav__link">
+    acceptXml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accepthtml" title="acceptHtml" class="md-nav__link">
+    acceptHtml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceptmultipart" title="acceptMultipart" class="md-nav__link">
+    acceptMultipart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putsecurebrowserheaders" title="putSecureBrowserHeaders" class="md-nav__link">
+    putSecureBrowserHeaders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enablecors" title="enableCors" class="md-nav__link">
+    enableCors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetchsession" title="fetchSession" class="md-nav__link">
+    fetchSession
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetchmodel" title="fetchModel" class="md-nav__link">
+    fetchModel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head" title="head" class="md-nav__link">
+    head
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestid" title="requestId" class="md-nav__link">
+    requestId
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requireheader" title="requireHeader" class="md-nav__link">
+    requireHeader
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scope/" title="Scope" class="md-nav__link">
+      Scope
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../controller/" title="Controller" class="md-nav__link">
+      Controller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../application/" title="Application" class="md-nav__link">
+      Application
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-builder" title="Pipeline builder" class="md-nav__link">
+    Pipeline builder
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plug" title="plug" class="md-nav__link">
+    plug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#must_accept" title="must_accept" class="md-nav__link">
+    must_accept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge" title="challenge" class="md-nav__link">
+    challenge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sign_off" title="sign_off" class="md-nav__link">
+    sign_off
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_auth_policy" title="requires_auth_policy" class="md-nav__link">
+    requires_auth_policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_authentication" title="requires_authentication" class="md-nav__link">
+    requires_authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_role" title="requires_role" class="md-nav__link">
+    requires_role
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires_role_of" title="requires_role_of" class="md-nav__link">
+    requires_role_of
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clear_response" title="clear_response" class="md-nav__link">
+    clear_response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_status_code" title="set_status_code" class="md-nav__link">
+    set_status_code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_header" title="set_header" class="md-nav__link">
+    set_header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_body" title="set_body" class="md-nav__link">
+    set_body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" title="text" class="md-nav__link">
+    text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" title="json" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml" title="xml" class="md-nav__link">
+    xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negotiate" title="negotiate" class="md-nav__link">
+    negotiate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negotiate_with" title="negotiate_with" class="md-nav__link">
+    negotiate_with
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html" title="html" class="md-nav__link">
+    html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html_file" title="html_file" class="md-nav__link">
+    html_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render_html" title="render_html" class="md-nav__link">
+    render_html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirect_to" title="redirect_to" class="md-nav__link">
+    redirect_to
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route_ports" title="route_ports" class="md-nav__link">
+    route_ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_warbler" title="use_warbler" class="md-nav__link">
+    use_warbler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-helpers" title="Pipeline Helpers" class="md-nav__link">
+    Pipeline Helpers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acceptjson" title="acceptJson" class="md-nav__link">
+    acceptJson
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceptxml" title="acceptXml" class="md-nav__link">
+    acceptXml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accepthtml" title="acceptHtml" class="md-nav__link">
+    acceptHtml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceptmultipart" title="acceptMultipart" class="md-nav__link">
+    acceptMultipart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putsecurebrowserheaders" title="putSecureBrowserHeaders" class="md-nav__link">
+    putSecureBrowserHeaders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enablecors" title="enableCors" class="md-nav__link">
+    enableCors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetchsession" title="fetchSession" class="md-nav__link">
+    fetchSession
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetchmodel" title="fetchModel" class="md-nav__link">
+    fetchModel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head" title="head" class="md-nav__link">
+    head
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestid" title="requestId" class="md-nav__link">
+    requestId
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requireheader" title="requireHeader" class="md-nav__link">
+    requireHeader
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/SaturnFramework/docs/edit/master/docs/api/pipeline.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="pipeline">Pipeline</h1>
+<h2 id="pipeline-builder">Pipeline builder</h2>
+<p>Commputation expression used to combining <code>HttpHandlers</code> in declarative manner.</p>
+<p>Result of the computation expression is standard Giraffe's <code>HttpHandler</code>which means that it's easily composable with other parts of the ecosytem.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="fsharp">let headerPipe = pipeline {
+    set_header &quot;myCustomHeader&quot; &quot;abcd&quot;
+    set_header &quot;myCustomHeader2&quot; &quot;zxcv&quot;
+}
+
+let endpointPipe = pipeline {
+    plug fetchSession
+    plug head
+    plug requestId
+}
+</code></pre>
+
+<hr />
+<h3 id="plug">plug</h3>
+<p>Enables adding any additional <code>HttpHandler</code> to the pipeline</p>
+<p><strong>Input:</strong> <code>HttpHandler</code></p>
+<h3 id="must_accept">must_accept</h3>
+<p>Filters a request by the <code>Accept</code> HTTP header. You can use it to check if a client accepts a certain mime type before returning a response.</p>
+<p><strong>Input:</strong> <code>string</code></p>
+<h3 id="challenge">challenge</h3>
+<p>Challenges an authentication with a specified authentication scheme</p>
+<p><strong>Input:</strong> <code>string</code></p>
+<h3 id="sign_off">sign_off</h3>
+<p>Signs off the currently logged in user with a specified authentication scheme.</p>
+<p><strong>Input:</strong> <code>string</code></p>
+<h3 id="requires_auth_policy">requires_auth_policy</h3>
+<p>Validates if a user satisfies policy requirement, if not then the handler will execute the <code>authFailedHandler</code> function.</p>
+<p><strong>Input:</strong> <code>(ClaimsPrincipal -&gt; build) -&gt; HttpHandler</code></p>
+<h3 id="requires_authentication">requires_authentication</h3>
+<p>Validates if a user is authenticated/logged in. If the user is not authenticated then the handler will execute the <code>authFailedHandler</code> function.</p>
+<p><strong>Input:</strong> <code>HttpHandler</code></p>
+<h3 id="requires_role">requires_role</h3>
+<p>Validates if an authenticated user is in a specified role. If the user fails to be in the required role then the handler will execute the <code>authFailedHandler</code> function.</p>
+<p><strong>Input:</strong> <code>string -&gt; HttpHandler</code></p>
+<h3 id="requires_role_of">requires_role_of</h3>
+<p>Validates if an authenticated user is in one of the supplied roles. If the user fails to be in one of the required roles then the handler will execute the <code>authFailedHandler</code> function.</p>
+<p><strong>Input:</strong> <code>string list-&gt; HttpHandler</code></p>
+<h3 id="clear_response">clear_response</h3>
+<p>Tries to clear the current response. This can be useful inside an error handler to reset the response before writing an error message to the body of the HTTP response object.</p>
+<h3 id="set_status_code">set_status_code</h3>
+<p>Changes the status code of the <code>HttpResponse</code>.</p>
+<p><strong>Input:</strong> <code>int</code></p>
+<h3 id="set_header">set_header</h3>
+<p>Sets or modifies a HTTP header of the <code>HttpResponse</code>.</p>
+<p><strong>Input:</strong> <code>string -&gt; 'a</code></p>
+<h3 id="set_body">set_body</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code>. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.</p>
+<p><strong>Input:</strong> <code>byte[]</code></p>
+<h3 id="text">text</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by sending a plain text value to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>text/plain</code>.</p>
+<p><strong>Input:</strong> <code>string</code></p>
+<h3 id="json">json</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by sending a JSON serialized object to the client. It uses JSON serializer configured by Giraffe. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>application/json</code>.</p>
+<p><strong>Input:</strong> <code>'a</code></p>
+<h3 id="xml">xml</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by sending an XML serialized object to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>application/xml</code>.</p>
+<p><strong>Input:</strong> <code>'a</code></p>
+<h3 id="negotiate">negotiate</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by inspecting the <code>Accept</code> header of the HTTP request and deciding if the response should be sent in JSON or XML or plain text. If the client is indifferent then the default response will be sent in JSON. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.</p>
+<p><strong>Input:</strong> <code>'a</code></p>
+<h3 id="negotiate_with">negotiate_with</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by inspecting the <code>Accept</code> header of the HTTP request and deciding in what mimeType the response should be sent. A dictionary of type <code>IDictionary&lt;string, obj -&gt; HttpHandler&gt;</code> is used to determine which <code>obj -&gt; HttpHandler</code> function should be used to convert an object into a <code>HttpHandler</code> for a given mime type. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.</p>
+<p><strong>Input:</strong> <code>(IDictionary&lt;string, obj -&gt; HttpHandler&gt;) -&gt; 'a</code></p>
+<h3 id="html">html</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code> with the contents of a single string variable. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. Sets the HTTP header <code>Content-Type</code> to <code>text/html</code></p>
+<p><strong>Input:</strong> <code>string</code></p>
+<h3 id="html_file">html_file</h3>
+<p>Sets or modifies the body of the <code>HttpResponse</code> with the contents of a physical html file. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. This http handler takes a rooted path of a html file or a path which is relative to the ContentRootPath as the input parameter and sets the HTTP header <code>Content-Type</code> to <code>text/html</code></p>
+<p><strong>Input:</strong> <code>string</code></p>
+<h3 id="render_html">render_html</h3>
+<p>It is a more functional way of generating HTML by composing HTML elements in F# to generate a rich Model-View output.</p>
+<p><strong>Input:</strong> <code>XmlNode</code> </p>
+<h3 id="redirect_to">redirect_to</h3>
+<p>Uses a 302 or 301 (when permanent) HTTP response code to redirect the client to the specified location. It takes in two parameters, a boolean flag denoting whether the redirect should be permanent or not and the location to redirect to.</p>
+<p><strong>Input:</strong> <code>bool -&gt; string</code> </p>
+<h3 id="route_ports">route_ports</h3>
+<p>If your web server is listening to multiple ports then you can use the <code>routePorts</code> HttpHandler to easily filter incoming requests based on their port by providing a list of port number and HttpHandler (<code>(int * HttpHandler) list</code>).</p>
+<p><strong>Input:</strong> <code>(int -&gt; HttpHandler) list</code> </p>
+<h3 id="use_warbler">use_warbler</h3>
+<p>If your route is not returning a static response, then you should wrap your function with a warbler. Functions in F# are eagerly evaluated and the warbler will help to evaluate the function every time the route is hit.</p>
+<p><strong>Input:</strong> <code>HttpHandler</code> </p>
+<hr />
+<h2 id="pipeline-helpers">Pipeline Helpers</h2>
+<p>Module containg couple of more advanced <code>HttpHandlers</code> commonly used in Saturn applications</p>
+<h3 id="acceptjson">acceptJson</h3>
+<p>Accepts <code>ContentType</code> <code>application/json</code></p>
+<h3 id="acceptxml">acceptXml</h3>
+<p>Accepts <code>ContentType</code> <code>application/xml</code></p>
+<h3 id="accepthtml">acceptHtml</h3>
+<p>Accepts <code>ContentType</code> <code>text/html</code></p>
+<h3 id="acceptmultipart">acceptMultipart</h3>
+<p>Accepts <code>ContentType</code> <code>multipart/form-data</code></p>
+<hr />
+<h3 id="putsecurebrowserheaders">putSecureBrowserHeaders</h3>
+<p>Put headers that improve browser security.
+It sets the following headers:
+  * x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin
+  * x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type
+  * x-xss-protection - set to "1; mode=block" to improve XSS protection on both Chrome and IE
+  * x-download-options - set to noopen to instruct the browser not to open a download directly in the browser, to avoid HTML files rendering inline and accessing the security context of the application (like critical domain cookies)
+  * x-permitted-cross-domain-policies - set to none to restrict Adobe Flash Player’s access to data</p>
+<h3 id="enablecors">enableCors</h3>
+<p>Enables CORS pretection using provided config. Use <code>CORS.defaultCORSConfig</code> for default configuration.</p>
+<p><strong>Input:</strong> <code>CORSConfig</code></p>
+<h3 id="fetchsession">fetchSession</h3>
+<p>Fetches session from session provider. If it won't be called session will be synchronusly fetched on first usage.</p>
+<h3 id="fetchmodel">fetchModel</h3>
+<p>Tries to model from request and puts model into <code>Items.RequestModel</code>. If it won't be called content can be fetched using <code>Context.Controller</code> helpers.
+It won't crash the pipelines if fetching failed.
+It optionally takes custom culture name as arguments.</p>
+<p><strong>Input:</strong> <code>string option</code></p>
+<h3 id="head">head</h3>
+<p>Convert <code>HEAD</code> requests to <code>GET</code> requests.</p>
+<h3 id="requestid">requestId</h3>
+<p>Pipeline for generating a unique request id for each request. A generated request id will in the format <code>uq8hs30oafhj5vve8ji5pmp7mtopc08f</code>.
+If a request id already exists as the <code>x-request-id</code> HTTP request header, then that value will be used assuming it is between 20 and 200 characters. If it is not, a new request id will be generated.
+Request id is put into <code>x-request-id</code> HTTP header and into <code>Items</code> directory of HttpContext with <code>RequestId</code> key.</p>
+<h3 id="requireheader">requireHeader</h3>
+<p>Requires given value for given request header</p>
+<p><strong>Input:</strong> <code>string -&gt; string</code></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../../guides/how-to-start/"
+              title="How to start in 60 seconds"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                How to start in 60 seconds
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../scope/" title="Scope"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Scope
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        Powered by <a href="http://www.mkdocs.org">MkDocs</a>
+        | Supported by
+        <a href="http://lambdafactory.io">
+            λFactory</a>
+      </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/SaturnFramework" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="http://lambdafactory.io" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.abd7b172.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

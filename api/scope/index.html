@@ -306,6 +306,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../pipeline/" title="Pipeline" class="md-nav__link">
+      Pipeline
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -625,6 +637,34 @@
 <h2 id="scope-builder">Scope builder</h2>
 <p>Computation expression used to creating routing and combining <code>HttpHandlers</code>, <code>pipelines</code> and <code>controllers</code> together.</p>
 <p>Result of the computation expression is standard Giraffe's <code>HttpHandler</code>which means that it's easily composable with other parts of the ecosytem.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="fsharp">let topRouter = scope {
+    pipe_through headerPipe
+    not_found_handler (text &quot;404&quot;)
+
+    get &quot;/&quot; helloWorld
+    get &quot;/a&quot; helloWorld2
+    getf &quot;/name/%s&quot; helloWorldName
+    getf &quot;/name/%s/%i&quot; helloWorldNameAge
+
+    //scopes can be defined inline to simulate `subRoute` combinator
+    forward &quot;/other&quot; (scope {
+        pipe_through otherHeaderPipe
+        not_found_handler (text &quot;Other 404&quot;)
+
+        get &quot;/&quot; otherHelloWorld
+        get &quot;/a&quot; otherHelloWorld2
+    })
+
+    // or can be defined separatly and used as HttpHandler
+    forward &quot;/api&quot; apiRouter
+
+    // same with controllers
+    forward &quot;/users&quot; userController
+}
+</code></pre>
+
+<hr />
 <h3 id="get">get</h3>
 <p>Adds handler for <code>GET</code> request.</p>
 <p><strong>Input:</strong>: <code>string * HttpHandler</code></p>
@@ -688,8 +728,8 @@
 
         <!-- Link to previous page -->
         
-          <a href="../../guides/how-to-start/"
-              title="How to start in 60 seconds"
+          <a href="../pipeline/"
+              title="Pipeline"
               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
               rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -702,7 +742,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                How to start in 60 seconds
+                Pipeline
               </span>
             </div>
           </a>
