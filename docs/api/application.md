@@ -24,8 +24,9 @@ let app = application {
 }
 ```
 
-### router
+---
 
+### router
 
 Defines top-level router used for the application. It's calling `IApplicationBuilder.UseGiraffe`
 

@@ -35,6 +35,8 @@ let topRouter = scope {
 }
 ```
 
+---
+
 ### get
 
 Adds handler for `GET` request.
