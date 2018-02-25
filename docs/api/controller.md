@@ -2,7 +2,7 @@
 
 ## Controller helpers
 
-Module with high level helper functions that are usaully used in controller actions.
+Module with high level helper functions that are usually used in controller actions.
 
 ---
 
