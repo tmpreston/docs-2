@@ -11,6 +11,8 @@ pages:
   - Home: 'index.md'
   - Guides:
     - How to start in 60 seconds: 'guides/how-to-start.md'
+    - Directory Structure: 'guides/directory-structure.md'
+    - Adding Pages: 'guides/adding-pages.md'
   - Api Reference:
     - Pipeline: 'api/pipeline.md'
     - Scope: 'api/scope.md'
