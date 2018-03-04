@@ -2,9 +2,9 @@
 
 ## Pipeline builder
 
-Commputation expression used to combining `HttpHandlers` in declarative manner.
+Computation expression used to combine `HttpHandlers` in declarative manner.
 
-Result of the computation expression is standard Giraffe's `HttpHandler`which means that it's easily composable with other parts of the ecosytem.
+The result of the computation expression is a standard Giraffe `HttpHandler`which means that it's easily composable with other parts of the Giraffe ecosystem.
 
 **Example:**
 
@@ -163,7 +163,7 @@ If your route is not returning a static response, then you should wrap your func
 
 ## Pipeline Helpers
 
-Module containg couple of more advanced `HttpHandlers` commonly used in Saturn applications
+Module containing a couple of more advanced `HttpHandlers` commonly used in Saturn applications
 
 ### acceptJson
 
@@ -185,7 +185,7 @@ Accepts `ContentType` `multipart/form-data`
 
 ### putSecureBrowserHeaders
 
-Put headers that improve browser security.
+Adds headers that improve browser security.
 It sets the following headers:
   * x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin
   * x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type
@@ -195,7 +195,7 @@ It sets the following headers:
 
 ### enableCors
 
-Enables CORS pretection using provided config. Use `CORS.defaultCORSConfig` for default configuration.
+Enables CORS protection using provided config. Use `CORS.defaultCORSConfig` for default configuration.
 
 **Input:** `CORSConfig`
 
@@ -205,7 +205,7 @@ Fetches session from session provider. If it won't be called session will be syn
 
 ### fetchModel
 
-Tries to model from request and puts model into `Items.RequestModel`. If it won't be called content can be fetched using `Context.Controller` helpers.
+Tries to get the model from the request and puts model into `Items.RequestModel`. If it won't be called content can be fetched using `Context.Controller` helpers.
 It won't crash the pipelines if fetching failed.
 It optionally takes custom culture name as arguments.
 
