@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.1">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.9b572555.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.a315b664.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
       
     
     
@@ -955,8 +955,8 @@
                 
                 <h1 id="pipeline">Pipeline</h1>
 <h2 id="pipeline-builder">Pipeline builder</h2>
-<p>Commputation expression used to combining <code>HttpHandlers</code> in declarative manner.</p>
-<p>Result of the computation expression is standard Giraffe's <code>HttpHandler</code>which means that it's easily composable with other parts of the ecosytem.</p>
+<p>Computation expression used to combine <code>HttpHandlers</code> in declarative manner.</p>
+<p>The result of the computation expression is a standard Giraffe <code>HttpHandler</code>which means that it's easily composable with other parts of the Giraffe ecosystem.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="fsharp">let headerPipe = pipeline {
     set_header &quot;myCustomHeader&quot; &quot;abcd&quot;
@@ -1041,7 +1041,7 @@ let endpointPipe = pipeline {
 <p><strong>Input:</strong> <code>HttpHandler</code> </p>
 <hr />
 <h2 id="pipeline-helpers">Pipeline Helpers</h2>
-<p>Module containg couple of more advanced <code>HttpHandlers</code> commonly used in Saturn applications</p>
+<p>Module containing a couple of more advanced <code>HttpHandlers</code> commonly used in Saturn applications</p>
 <h3 id="acceptjson">acceptJson</h3>
 <p>Accepts <code>ContentType</code> <code>application/json</code></p>
 <h3 id="acceptxml">acceptXml</h3>
@@ -1052,7 +1052,7 @@ let endpointPipe = pipeline {
 <p>Accepts <code>ContentType</code> <code>multipart/form-data</code></p>
 <hr />
 <h3 id="putsecurebrowserheaders">putSecureBrowserHeaders</h3>
-<p>Put headers that improve browser security.
+<p>Adds headers that improve browser security.
 It sets the following headers:
   * x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin
   * x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type
@@ -1060,12 +1060,12 @@ It sets the following headers:
   * x-download-options - set to noopen to instruct the browser not to open a download directly in the browser, to avoid HTML files rendering inline and accessing the security context of the application (like critical domain cookies)
   * x-permitted-cross-domain-policies - set to none to restrict Adobe Flash Player’s access to data</p>
 <h3 id="enablecors">enableCors</h3>
-<p>Enables CORS pretection using provided config. Use <code>CORS.defaultCORSConfig</code> for default configuration.</p>
+<p>Enables CORS protection using provided config. Use <code>CORS.defaultCORSConfig</code> for default configuration.</p>
 <p><strong>Input:</strong> <code>CORSConfig</code></p>
 <h3 id="fetchsession">fetchSession</h3>
 <p>Fetches session from session provider. If it won't be called session will be synchronusly fetched on first usage.</p>
 <h3 id="fetchmodel">fetchModel</h3>
-<p>Tries to model from request and puts model into <code>Items.RequestModel</code>. If it won't be called content can be fetched using <code>Context.Controller</code> helpers.
+<p>Tries to get the model from the request and puts model into <code>Items.RequestModel</code>. If it won't be called content can be fetched using <code>Context.Controller</code> helpers.
 It won't crash the pipelines if fetching failed.
 It optionally takes custom culture name as arguments.</p>
 <p><strong>Input:</strong> <code>string option</code></p>
@@ -1178,7 +1178,7 @@ Request id is put into <code>x-request-id</code> HTTP header and into <code>Item
       
     </div>
     
-      <script src="../../assets/javascripts/application.abd7b172.js"></script>
+      <script src="../../assets/javascripts/application.9fb73e57.js"></script>
       
       <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
       
