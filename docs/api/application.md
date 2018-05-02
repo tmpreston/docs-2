@@ -4,7 +4,7 @@
 
 Runs Saturn application
 
-**Input:** `IWebHost`
+**Input:** `IWebHostBuilder`
 
 ## Application builder
 
