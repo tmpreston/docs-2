@@ -1,10 +1,10 @@
 # Adding Pages
 
-Using the same project from the [how to start guide](how-to-start.md). Let us add two new pages to it. One hello page and a page that can get your name from the route.
+Using the same project from the [how to start guide](how-to-start.md). Let's add two pages to it. One hello page and a page that can get your name from the URL.
 
 ## Creating the View
 
-To begin, create a new folder inside your project folder in src called "Hello".
+To begin, create a `Hello` folder inside the `src` folder
 Inside the folder, create a new file called "HelloViews.fs", this file will contain the functions to create the page.
 Insert the following in the file.
 
@@ -29,24 +29,32 @@ One of the dependency required is [Giraffe View Engine](https://github.com/giraf
 </div>
 ```
 
-## Creating the route
+## Creating the controller
+
+Create a `HelloController.fs` file inside the `Hello` folder.
 
 The `index` function tell us what the html will be but we still need to tell Saturn to return it as an html page. We also need to tell Saturn what where the page is
 
-Go into the "Router.fs" file and add the following right after the `defaultView` function
+Insert the following into the file.
 
 ```fsharp
-let indexAction =
-    htmlView (Hello.Views.index)
+namespace Hello
 
-let HelloView = scope {
-    get "/" indexAction
-}
+open Saturn
+open Giraffe.ResponseWriters
+
+module Controller =
+    let indexAction =
+        htmlView (Views.index)
+
+    let helloView = scope {
+        get "/" indexAction
+    }
 ```
 
 The `indexAction` tell Saturn to create an html page using the `index` function inside "HelloViews.fs"
 
-`HelloView` let Saturn know that the page is located at the root. We don't want it at the root of the application. We want the page to be at [http://localhost:8085/hello/](http://localhost:8085/hello/) so it will be at the root of the hello directory.
+`helloView` let Saturn know that the page is located at the root.
 
 ## Adding it to Router.fs
 
@@ -56,37 +64,41 @@ After setting up the route. You need to update the project with the new route. I
 forward "/hello" HelloView
 ```
 
+This means that when we navigate to [http://localhost:8085/hello](http://localhost:8085/hello). The `helloView` function will determine what page to load there. Looking inside the `helloView` function, we said that `indexAction` is called at the root. In conclusion, the page will be located at [http://localhost:8085/hello/](http://localhost:8085/hello/). (Note the "/" at the end)
+
 Now run the program and go to [http://localhost:8085/hello/](http://localhost:8085/hello/) and you will see a page saying "Hello from Saturn!"
 
 ## Sending parameter to your page
 
-What if you want the page to display your name? You need to add a new view in your `HelloViews.fs`
+What if you want the page to display your name?
+
+One way to retrieve your name is to get it from the route. So when you go to [http://localhost:8085/hello/{yourname}](http://localhost:8085/hello/{yourname}) with {yourname} being your actual name, it will grab your name which can then be use to display it on the page.
+
+To begin, add a new view in your `HelloViews.fs`
 
 ```fsharp
-  let show (name : string) =
+  let index2 (name : string) =
     div [] [
-        h2 [] [rawText ("Hello! " + name)]
+        h2 [] [rawText ("Hello " + name + "!")]
     ]
 ```
 
-This function require passing in the name to be displayed. The name is retrieved from the route.
+This function require passing in the name to be displayed. The name will be retrieved from the route.
 
-Let's add a new action for this view.
-
-```fsharp
-let showAction name=
-    htmlView (Hello.Views.show name)
-```
-
-Now to set up the route. Add the following to the `HelloView` function
+Add the following to the `HelloController.fs` file below the `helloView` handler.
 
 ```fsharp
-getf "/%s" showAction
+let index2Action name=
+    htmlView (Hello.Views.index2 name)
 ```
 
-"%s" is a format string. This mean that whatever you type in that spot will be saved as a value. We want to get a name so we use `%s` to save it as a string.
+Now to set up the route. Add the following to the `HelloView` handler.
 
-So when you go to [http://localhost:8085/hello/{yourname}](http://localhost:8085/hello/{yourname}) with {yourname} being your actual name, it will saves your name and pass it to the `showAction` you added earlier to create a page to greet you.
+```fsharp
+getf "/%s" index2Action
+```
+
+"%s" is a format string. This let Saturn knows to save whatever you type in that spot. Since we want to save a name, we want to save it as a string so we use `%s`.
 
 There are other format string for different types.
 
@@ -100,4 +112,4 @@ There are other format string for different types.
 | `%f` | `float`/`double` |
 | `%O` | `Guid` |
 
-Now run the program and go to [http://localhost:8085/hello/{yourname}](http://localhost:8085/hello/{yourname}) and replace "{yourname}" with your name to see a page that will greet you directly.
+Now run the program and go to [http://localhost:8085/hello/{yourname}](http://localhost:8085/hello/{yourname}) and replace `{yourname}` with your name to see a page that will greet you.

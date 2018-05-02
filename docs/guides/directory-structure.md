@@ -27,7 +27,7 @@ Saturn also provide a `.gitignore` file that prevent some folders from being tra
 
 Lastly, there is the `SaturnSample.sln` solution file so you can open the project in an ide like Visual Sudio and a `global.json` file to  configure the solution file.
 
-Most of the work you will do in this project however, will be in `src/SaturnSample` which looks like the following when expanded
+Most of the work you will do in this project however, will be in `src/SaturnSample` which looks like the following when expanded.
 
     ├── bin
     ├── Books
@@ -54,11 +54,11 @@ Most of the work you will do in this project however, will be in `src/SaturnSamp
 
 `bin` and `obj` folders stored the compiled version of the program after you build the project.
 
-The convention for Saturn is that the model and everything associated with it are inside one folder. Everything is also named with the plural form of the model so "Books" instead of "Book"
+The convention for Saturn is that the model and everything associated with it are inside one folder. Everything is also named with the plural form of the model so "Books" instead of "Book".
 
-Your static files like css, js, and images should be inside the `static folder.
+Your static files like css, js, and images should be inside the `static` folder.
 
-`Config.fs` contains a `Config` record that can stores settings that you can use inside your application. By default, the record only contains the `connectionString` field
+`Config.fs` contains a `Config` record that can stores settings that you can use inside your application. By default, the record only contains the `connectionString` field.
 
 `Database.fs` contains functions to execute sql queries within the program through [Dapper](https://stackexchange.github.io/Dapper/).
 
