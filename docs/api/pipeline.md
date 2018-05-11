@@ -187,6 +187,7 @@ Accepts `ContentType` `multipart/form-data`
 
 Adds headers that improve browser security.
 It sets the following headers:
+
   * x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin
   * x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type
   * x-xss-protection - set to "1; mode=block" to improve XSS protection on both Chrome and IE
