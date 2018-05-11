@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-04-11</lastmod>
+     <lastmod>2018-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +13,19 @@
         
     <url>
      <loc>/guides/how-to-start/</loc>
-     <lastmod>2018-04-11</lastmod>
+     <lastmod>2018-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/guides/directory-structure/</loc>
+     <lastmod>2018-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/guides/adding-pages/</loc>
+     <lastmod>2018-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -23,25 +35,25 @@
         
     <url>
      <loc>/api/pipeline/</loc>
-     <lastmod>2018-04-11</lastmod>
+     <lastmod>2018-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/scope/</loc>
-     <lastmod>2018-04-11</lastmod>
+     <lastmod>2018-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/controller/</loc>
-     <lastmod>2018-04-11</lastmod>
+     <lastmod>2018-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/application/</loc>
-     <lastmod>2018-04-11</lastmod>
+     <lastmod>2018-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

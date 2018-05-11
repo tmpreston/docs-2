@@ -276,6 +276,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/directory-structure/" title="Directory Structure" class="md-nav__link">
+      Directory Structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/adding-pages/" title="Adding Pages" class="md-nav__link">
+      Adding Pages
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1053,12 +1077,14 @@ let endpointPipe = pipeline {
 <hr />
 <h3 id="putsecurebrowserheaders">putSecureBrowserHeaders</h3>
 <p>Adds headers that improve browser security.
-It sets the following headers:
-  * x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin
-  * x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type
-  * x-xss-protection - set to "1; mode=block" to improve XSS protection on both Chrome and IE
-  * x-download-options - set to noopen to instruct the browser not to open a download directly in the browser, to avoid HTML files rendering inline and accessing the security context of the application (like critical domain cookies)
-  * x-permitted-cross-domain-policies - set to none to restrict Adobe Flash Player’s access to data</p>
+It sets the following headers:</p>
+<ul>
+<li>x-frame-options - set to SAMEORIGIN to avoid clickjacking through iframes unless in the same origin</li>
+<li>x-content-type-options - set to nosniff. This requires script and style tags to be sent with proper content type</li>
+<li>x-xss-protection - set to "1; mode=block" to improve XSS protection on both Chrome and IE</li>
+<li>x-download-options - set to noopen to instruct the browser not to open a download directly in the browser, to avoid HTML files rendering inline and accessing the security context of the application (like critical domain cookies)</li>
+<li>x-permitted-cross-domain-policies - set to none to restrict Adobe Flash Player’s access to data</li>
+</ul>
 <h3 id="enablecors">enableCors</h3>
 <p>Enables CORS protection using provided config. Use <code>CORS.defaultCORSConfig</code> for default configuration.</p>
 <p><strong>Input:</strong> <code>CORSConfig</code></p>
@@ -1102,8 +1128,8 @@ Request id is put into <code>x-request-id</code> HTTP header and into <code>Item
 
         <!-- Link to previous page -->
         
-          <a href="../../guides/how-to-start/"
-              title="How to start in 60 seconds"
+          <a href="../../guides/adding-pages/"
+              title="Adding Pages"
               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
               rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1116,7 +1142,7 @@ Request id is put into <code>x-request-id</code> HTTP header and into <code>Item
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                How to start in 60 seconds
+                Adding Pages
               </span>
             </div>
           </a>

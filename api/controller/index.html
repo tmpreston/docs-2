@@ -276,6 +276,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/directory-structure/" title="Directory Structure" class="md-nav__link">
+      Directory Structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/adding-pages/" title="Adding Pages" class="md-nav__link">
+      Adding Pages
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1362,13 +1386,15 @@
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <hr />
 <h2 id="controller-builder">Controller builder</h2>
-<p>Computation expression used to create Saturn controllers - abstraction representing REST-ish enpoint for serving HTML views or returning data. It supports:
-<em> set of predefined actions that are automatically mapped to the enpoints following standard conventions
-</em> embedding sub-controllers for modeling one-to-many relationships 
-<em> versioning 
-</em> adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications. 
-<em> defining common error handler for all actions
-</em> defining not-found action</p>
+<p>Computation expression used to create Saturn controllers - abstraction representing REST-ish enpoint for serving HTML views or returning data. It supports:</p>
+<ul>
+<li>set of predefined actions that are automatically mapped to the enpoints following standard conventions</li>
+<li>embedding sub-controllers for modeling one-to-many relationships </li>
+<li>versioning </li>
+<li>adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications. </li>
+<li>defining common error handler for all actions</li>
+<li>defining not-found action</li>
+</ul>
 <p>Result of the computation expression is standard Giraffe's <code>HttpHandler</code>which means that it's easily composable with other parts of the ecosytem.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="fsharp">let commentController userId = controller {
