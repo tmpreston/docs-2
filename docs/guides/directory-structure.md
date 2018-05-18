@@ -1,6 +1,6 @@
 # Directory Structure
 
-After creating a new project, Saturn Let's take a deeper look into what files are created.
+After creating a new Saturn project, Let's take a deeper look into what files are created.
 
     ├── .fake
     ├── .paket

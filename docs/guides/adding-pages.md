@@ -4,8 +4,10 @@ Using the same project from the [how to start guide](how-to-start.md). Let's add
 
 ## Creating the View
 
-To begin, create a `Hello` folder inside the `src` folder
+To begin, create a `Hello` folder inside the `src/SaturnSample` folder.
+
 Inside the folder, create a new file called "HelloViews.fs", this file will contain the functions to create the page.
+
 Insert the following in the file.
 
 ```fsharp
