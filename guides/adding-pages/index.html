@@ -344,6 +344,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-the-2-new-files-into-saturnsamplefsproj-as-below" title="Adding the 2 new files into SaturnSample.fsproj as below" class="md-nav__link">
+    Adding the 2 new files into SaturnSample.fsproj as below
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sending-parameter-to-your-page" title="Sending parameter to your page" class="md-nav__link">
     Sending parameter to your page
   </a>
@@ -480,6 +487,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-the-2-new-files-into-saturnsamplefsproj-as-below" title="Adding the 2 new files into SaturnSample.fsproj as below" class="md-nav__link">
+    Adding the 2 new files into SaturnSample.fsproj as below
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sending-parameter-to-your-page" title="Sending parameter to your page" class="md-nav__link">
     Sending parameter to your page
   </a>
@@ -508,9 +522,9 @@
                 <h1 id="adding-pages">Adding Pages</h1>
 <p>Using the same project from the <a href="../how-to-start/">how to start guide</a>. Let's add two pages to it. One hello page and a page that can get your name from the URL.</p>
 <h2 id="creating-the-view">Creating the View</h2>
-<p>To begin, create a <code>Hello</code> folder inside the <code>src</code> folder
-Inside the folder, create a new file called "HelloViews.fs", this file will contain the functions to create the page.
-Insert the following in the file.</p>
+<p>To begin, create a <code>Hello</code> folder inside the <code>src/SaturnSample</code> folder.</p>
+<p>Inside the folder, create a new file called "HelloViews.fs", this file will contain the functions to create the page.</p>
+<p>Insert the following in the file.</p>
 <pre><code class="fsharp">namespace Hello
 
 open Giraffe.GiraffeViewEngine
@@ -556,6 +570,12 @@ module Controller =
 
 <p>This means that when we navigate to <a href="http://localhost:8085/hello">http://localhost:8085/hello</a>. The <code>helloView</code> function will determine what page to load there. Looking inside the <code>helloView</code> function, we said that <code>indexAction</code> is called at the root. In conclusion, the page will be located at <a href="http://localhost:8085/hello/">http://localhost:8085/hello/</a>. (Note the "/" at the end)</p>
 <p>Now run the program and go to <a href="http://localhost:8085/hello/">http://localhost:8085/hello/</a> and you will see a page saying "Hello from Saturn!"</p>
+<h2 id="adding-the-2-new-files-into-saturnsamplefsproj-as-below">Adding the 2 new files into SaturnSample.fsproj as below</h2>
+<p><code>&lt;ItemGroup&gt;
+    &lt;Compile Include="Database.fs" /&gt;
+    &lt;Compile Include="Config.fs" /&gt;
+    &lt;Compile Include="Hello\HelloViews.fs" /&gt;
+    &lt;Compile Include="Hello\HelloController.fs" /&gt;</code></p>
 <h2 id="sending-parameter-to-your-page">Sending parameter to your page</h2>
 <p>What if you want the page to display your name?</p>
 <p>One way to retrieve your name is to get it from the route. So when you go to <a href="http://localhost:8085/hello/{yourname}">http://localhost:8085/hello/{yourname}</a> with {yourname} being your actual name, it will grab your name which can then be use to display it on the page.</p>
