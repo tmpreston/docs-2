@@ -70,6 +70,14 @@ This means that when we navigate to [http://localhost:8085/hello](http://localho
 
 Now run the program and go to [http://localhost:8085/hello/](http://localhost:8085/hello/) and you will see a page saying "Hello from Saturn!"
 
+
+## Adding the 2 new files into SaturnSample.fsproj as below
+`  <ItemGroup>
+    <Compile Include="Database.fs" />
+    <Compile Include="Config.fs" />
+    <Compile Include="Hello\HelloViews.fs" />
+    <Compile Include="Hello\HelloController.fs" />
+`
 ## Sending parameter to your page
 
 What if you want the page to display your name?
