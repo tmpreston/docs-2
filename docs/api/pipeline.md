@@ -51,7 +51,7 @@ Signs off the currently logged in user with a specified authentication scheme.
 
 Validates if a user satisfies policy requirement, if not then the handler will execute the `authFailedHandler` function.
 
-**Input:** `(ClaimsPrincipal -> build) -> HttpHandler`
+**Input:** `(ClaimsPrincipal -> bool) -> HttpHandler`
 
 ### requires_authentication
 
