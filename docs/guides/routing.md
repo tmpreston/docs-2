@@ -2,7 +2,7 @@
 
 Routes are how Saturn connect all the HTTP requests to the different actions. Think of route as the URL of the application. The site is yoursite.com but you may have an route for your about page such as yoursite.com/about.
 
-In Saturn, `Routers` contain all the routes of your application. Routers are composed of `scopes`. A scope is a list of routes. A website can have a scope that handles the different routes to your page like so:
+In Saturn, `Routers` contain all the routes of your application. Router is a list of routes. A website can have a router that handles the different routes to your page like so:
 
     yoursite.com
         ├── "/"             -yoursite.com/
@@ -11,7 +11,7 @@ In Saturn, `Routers` contain all the routes of your application. Routers are com
         ├── "/news"         -yoursite.com/news
         └── "/investors"    -yoursite.com/investors
 
-Since this is at the root, this is your scope at `""` path. You can then add a scope inside another scope to have the following:
+Since this is at the root, this is your router at `""` path. You can then add a router inside another router to have the following:
 
     yoursite.com
         ├── books           -yoursite.com/books
@@ -24,7 +24,7 @@ Since this is at the root, this is your scope at `""` path. You can then add a s
         ├── news            -yoursite.com/news
         └── investors       -yoursite.com/investors
 
-Now you have scope for the `"/books"` path inside another scope for the `""` path.
+Now you have router for the `"/books"` path inside another router for the `""` path.
 
 Now to see it in code, create a Saturn project from the template and you will have a `Router.fs` file like this:
 
@@ -43,13 +43,13 @@ let browser = pipeline {
     set_header "x-pipeline-type" "Browser"
 }
 
-let defaultView = scope {
+let defaultView = router {
     get "/" (htmlView Index.layout)
     get "/index.html" (redirectTo false "/")
     get "/default.html" (redirectTo false "/")
 }
 
-let browserRouter = scope {
+let browserRouter = router {
     not_found_handler (htmlView NotFound.layout) //Use the default 404 webpage
     pipe_through browser //Use the default browser pipeline
 
@@ -63,33 +63,33 @@ let browserRouter = scope {
 //     set_header "x-pipeline-type" "Api"
 // }
 
-// let apiRouter = scope {
+// let apiRouter = router {
 //     error_handler (text "Api 404")
 //     pipe_through api
 //
 //     forward "/someApi" someScopeOrController
 // }
 
-let router = scope {
+let appRouter = router {
     // forward "/api" apiRouter
     forward "" browserRouter
 }
 ```
 
-First, ignoring the commented out code, take a look at the `router` function.
+First, take a look at the `router` function.
 
 ```fsharp
-let router = scope {
+let appRouter = router {
     forward "" browserRouter
 }
 ```
 
-The `router` function is a `scope`. Inside is the `forward "" defaultView` line. The ``forward`` function need a path and a scope. In this case, the path is an empty string and the scope is `browserRouter`. That means that the `browserRouter` scope is to handle the routes at the current location. Since, router is the first scope called, the current location is the root of the application.
+The `appRouter` function is a `router`. Inside is the `forward "" defaultView` line. The `forward` function need a path and a router. In this case, the path is an empty string and the router is `browserRouter`. That means that the `browserRouter` router will handles the routes at the current location. Since, `appRouter` is the first router called, the current location is the root of the application.
 
-Now let's look at the router function.
+Now let's look at `browserRouter`:
 
 ```fsharp
-let browserRouter = scope {
+let browserRouter = router {
     not_found_handler (htmlView NotFound.layout)
     pipe_through browser
 
@@ -97,17 +97,17 @@ let browserRouter = scope {
 }
 ```
 
-There are three lines. The first line, `not_found_handler (htmlView NotFound.layout)` tell browserRouter to displays a not found page if the user enter a route that the application does not handles. The second line tell the application to use the `browser` pipeline defined above. The pipeline is a list of settings on how the website will deliver the pages. Lastly, `forward "" defaultView` is like `forward "" defaultView` from the `router` scope. Again, `browserRouter` does not contain any routes but told `defaultView` scope to handle them. Finally, we get to the part where the application is told how to handle the routes. Inside `defaultView`, we created 3 routes.
+There are three lines. The first line, `not_found_handler (htmlView NotFound.layout)` tells browserRouter to displays a not found page if the user enter a route that the application does not handles. The second line tell the application to use the `browser` pipeline defined above. The pipeline is a list of settings on how the website will deliver the pages. Lastly, `forward "" defaultView` is like `forward "" defaultView` from the `appRouter`. Again, `browserRouter` does not contain any routes but it told the `defaultView` router to handle them. Finally, we get to the part where the application is told how to handle the routes. Inside `defaultView`, we created 3 routes.
 
 ```fsharp
-let defaultView = scope {
+let defaultView = router {
     get "/" (htmlView Index.layout)
     get "/index.html" (redirectTo false "/")
     get "/default.html" (redirectTo false "/")
 }
 ```
 
-There are 3 routes here but 2 that redirect to the first route. To illustrate, the routes are:
+Here, we see that `get` is used to define the routes. There are 3 routes here but 2 that redirect to the first route. To illustrate, the routes are:
 
     yoursite.com
         └── "" (router)
@@ -121,10 +121,10 @@ Looking at the first line inside `defaultView`, `get "/" (htmlView Index.layout)
 
 ## Best Practices
 
-You can combine all 3 scopes into one scope like so:
+You can combine all 3 routers into one router like so:
 
 ```fsharp
-let router = scope {
+let appRouter = router {
     not_found_handler (htmlView NotFound.layout)
     pipe_through browser
 
@@ -134,7 +134,7 @@ let router = scope {
 }
 ```
 
-The template splits them into 3 to encourages good practices. In the first scope, you can see the commented out code `forward "/api" apiRouter`. This is a good suggestin in the template to have a separate router to handle your api routes. We set up how to deliever the webpage with `pipe_through browser` in `browserRouter`. The setting are important for a browser to know how to handle your routes but not for a different applications to access your routes as an api.
+The template splits them into 3 to encourages good practices. In the first router, you can see the commented out code `forward "/api" apiRouter`. This is a good suggestin in the template to have a separate router to handle your api routes. We set up how to deliever the webpage with `pipe_through browser` in `browserRouter`. The setting are important for a browser to know how to handle your routes but not for a different applications to access your routes as an api.
 
 The template provided an example of how to set up the api routes in the commented out code, which I copied below:
 
@@ -144,12 +144,111 @@ let api = pipeline {
     set_header "x-pipeline-type" "Api"
 }
 
-let apiRouter = scope {
+let apiRouter = router {
     error_handler (text "Api 404")
     pipe_through api
 
     forward "/someApi" someScopeOrController
 }
+
 ```
 
-Here we have the `apiRouter` scope which does not return a 404 page but a 404 text instead which is appropriate for an api. The scope also use a pipeline that is more appropriate for an api such as accepting JSON inputs instead of HTML as in the `browser` pipeline.
+Here we have the `apiRouter` router which does not return a 404 page but a 404 text instead which is appropriate for an api. The router also use a pipeline that is more appropriate for an api such as accepting JSON inputs instead of HTML as in the `browser` pipeline.
+
+## Format Characters
+
+You might be wondering how to make a routes that accept a numerical id. You can make multiple routes for each id like so
+
+    get "/1" (getApplication 1)
+    get "/2" (getApplication 2)
+    get "/3" (getApplication 3)
+    ...
+
+But this is impracticle because there can be a large amount of items or new items are constantly being created with new ids. Instead the solution is to use format characters. Remember that in the [Adding Pages Guide](adding-pages.md), we used `getf "/%s" index2Action` to pass a string to page.
+
+| Format Char | Type |
+| ----------- | ---- |
+| `%b` | `bool` |
+| `%c` | `char` |
+| `%s` | `string` |
+| `%i` | `int` |
+| `%d` | `int64` |
+| `%f` | `float`/`double` |
+| `%O` | `Guid` |
+
+For a numerical id, we want to pass an int which is `%i` in the list above so you can replace the lines aboves with
+
+```fsharp
+getf "/%i" getApplication
+```
+
+Notice that `getf` is used instead of get. This is a separate version of get that handle `f`ormat characters.
+
+    You can use format characters with "forward" too by using "forwardf"
+
+There are a lot of functionalities within routers and you can view all of them [here](../api/scope).
+
+## Controller
+
+In Saturn, a **controller** is a list of routes that grouped around an **model** (an object that contain your data). So if you have a user model, some common operations are to display the list of users, show details of a user, add a user, update or user, or remove a user.
+
+Each of of the operation is a separate route and a controller is an easy way to group these routes together.
+
+A basic user controller is shown below:
+
+```fsharp
+let userController = controller {
+    index (fun ctx -> "Index handler version 1" |> Controller.text ctx) //View list of user
+    add (fun ctx -> "Add handler version 1" |> Controller.text ctx) //Add a user
+    create (fun ctx -> "Create handler version 1" |> Controller.text ctx) //Create a user
+    show (fun ctx id -> (sprintf "Show handler version 1 - %i" id) |> Controller.text ctx) //Show details of user
+    edit (fun ctx id -> (sprintf "Edit handler version 1 - %i" id) |> Controller.text ctx)  //Edit user
+    update (fun ctx id -> (sprintf "Update handler version 1 - %i" id) |> Controller.text ctx)  //Update user
+}
+```
+
+Here we can see the `index`, `add`, `create`, `show`, `edit`, and `update` operations but there are more operations that are not shown here like `patch` and `delete`. You can see all the operations [here](../api/controller). You do not have to handle all of the operations.
+
+You might be wondering what is the difference between `add` and `create` or `edit` and `update`. The `add` operation tell the application to return the form so that the user can enter the data for the user to be added. The `create` operations will commit the data to the database of the application. It is the same with `edit` for displaying the form and `update` for committing the change.
+
+To add the controller for the routes, you can add it to the `defaultView` router like so:
+
+```fsharp
+let defaultView = router {
+    get "/" (htmlView Index.layout)
+    get "/index.html" (redirectTo false "/")
+    get "/default.html" (redirectTo false "/")
+    forward "/users" userController
+}
+```
+
+The route will now be:
+
+    yoursite.com
+        └── "" (router)
+            └── "" (browserRouter)
+                └── "" (defaultView)
+                    ├── "/"                 -yoursite.com/
+                    ├── "/index.html"       -redirect to yoursite.com/
+                    ├── "/default.html"     -redirect to yoursite.com/
+                    └── "/users"
+                        ├── index "/"           -yoursite.com/users/
+                        ├── add "/add"          -yoursite.com/users/add
+                        ├── create              -POST yoursite.com/users/add
+                        ├── show "/%i"          -yoursite.com/users/%i
+                        ├── edit "/%i/edit"     -yoursite.com/users/%i/edit
+                        └── update ""           -POST yoursite.com/users/%i/edit
+
+The create and update operations make changes to the database so you have to make a POST request containing the information you want to save to the database.
+
+## Subcontroller
+
+Now that you know how to chain the routers together to create the routes. We can look at a common scenario for a website. A website usually has users and each users can create multiple comments.
+
+    yoursite.com
+        └── "/users"
+            └── "" (browserRouter)
+                └── "" (defaultView)
+                    ├── "/"                 -yoursite.com/
+                    ├── "/index.html"       -redirect to yoursite.com/
+                    └── "/default.html"     -redirect to yoursite.com/
