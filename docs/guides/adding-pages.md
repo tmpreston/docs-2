@@ -49,7 +49,7 @@ module Controller =
     let indexAction =
         htmlView (Views.index)
 
-    let helloView = scope {
+    let helloView = router {
         get "/" indexAction
     }
 ```

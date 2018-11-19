@@ -94,7 +94,7 @@ Loads model populated by `fetchModel` pipeline
 
 ### getPath
 
-Gets path of the request - it's relative to current `scope`
+Gets path of the request - it's relative to current `router`
 
 **Type:** `HttpContext -> string`
 

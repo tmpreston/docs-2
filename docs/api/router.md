@@ -1,15 +1,15 @@
-# Scope
+# Router
 
-## Scope builder
+## Router builder
 
-Computation expression used to creating routing and combining `HttpHandlers`, `pipelines` and `controllers` together.
+Computation expression used to create routing, combining `HttpHandlers`, `pipelines` and `controllers` together.
 
 Result of the computation expression is standard Giraffe's `HttpHandler`which means that it's easily composable with other parts of the ecosytem.
 
 **Example:**
 
 ```fsharp
-let topRouter = scope {
+let topRouter = router {
     pipe_through headerPipe
     not_found_handler (text "404")
 
@@ -18,8 +18,8 @@ let topRouter = scope {
     getf "/name/%s" helloWorldName
     getf "/name/%s/%i" helloWorldNameAge
 
-    //scopes can be defined inline to simulate `subRoute` combinator
-    forward "/other" (scope {
+    //routers can be defined inline to simulate `subRoute` combinator
+    forward "/other" (router {
         pipe_through otherHeaderPipe
         not_found_handler (text "Other 404")
 
@@ -45,7 +45,7 @@ Adds handler for `GET` request.
 
 ### getf
 
-Adds handler for `GET` request using formater.
+Adds handler for `GET` request using formatter.
 
 **Input:**: `PrintfFormat<_,_,_,_'f> * ('f -> HttpHandler)`
 
@@ -57,7 +57,7 @@ Adds handler for `POST` request.
 
 ### postf
 
-Adds handler for `POST` request using formater.
+Adds handler for `POST` request using formatter.
 
 **Input:**: `PrintfFormat<_,_,_,_'f> * ('f -> HttpHandler)`
 
@@ -69,7 +69,7 @@ Adds handler for `PUT` request.
 
 ### putf
 
-Adds handler for `PUT` request using formater.
+Adds handler for `PUT` request using formatter.
 
 **Input:**: `PrintfFormat<_,_,_,_'f> * ('f -> HttpHandler)`
 
@@ -81,7 +81,7 @@ Adds handler for `DELETE` request.
 
 ### deletef
 
-Adds handler for `DELETE` request using formater.
+Adds handler for `DELETE` request using formatter.
 
 **Input:**: `PrintfFormat<_,_,_,_'f> * ('f -> HttpHandler)`
 
@@ -93,13 +93,13 @@ Adds handler for `PATCH` request.
 
 ### patchf
 
-Adds handler for `PATCH` request using formater.
+Adds handler for `PATCH` request using formatter.
 
 **Input:**: `PrintfFormat<_,_,_,_'f> * ('f -> HttpHandler)`
 
 ### forward
 
-Forwards calls to different `scope`. Modifies the `HttpRequest.Path` to allow subrouting.
+Forwards calls to different `router`. Modifies the `HttpRequest.Path` to allow subrouting.
 
 **Input:**: `string * HttpHandler`
 
@@ -111,6 +111,6 @@ Adds pipeline to the list of pipelines that will be used for every request
 
 ### not_found_handler
 
-Adds not-found handler for current scope
+Adds not-found handler for current router
 
 **Input:**: `HttpHandler`

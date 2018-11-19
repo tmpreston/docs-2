@@ -40,7 +40,7 @@ Built on top of the battle-tested ASP.NET Core foundation and the highly flexibl
 Saturn is made up of a number of distinct parts, each with its own purpose and role to play in building a web application.
 
  - Application
-    - the start and end of the request lifecycle
+    - the start and end of the request life cycle
     - handles all aspects of requests up until the point where the router takes over
     - provides a core set of plugs to apply to all requests
     - dispatches requests into a router
