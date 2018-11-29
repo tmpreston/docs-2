@@ -14,6 +14,7 @@ pages:
     - Directory Structure: 'guides/directory-structure.md'
     - Adding Pages: 'guides/adding-pages.md'
     - Routing: 'guides/routing.md'
+    - Controller: 'guides/controller.md'
   - Api Reference:
     - Pipeline: 'api/pipeline.md'
     - Scope: 'api/scope.md'
