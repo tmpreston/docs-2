@@ -58,9 +58,25 @@ The `indexAction` tell Saturn to create an html page using the `index` function 
 
 `helloView` let Saturn know that the page is located at the root.
 
+## Adding the 2 new files to the project
+
+For the project to see the new files, modify SaturnSample.fsproj as below
+
+```xml
+<ItemGroup>
+    <Compile Include="Database.fs" />
+    <Compile Include="Config.fs" />
+
+    <Compile Include="Hello\HelloViews.fs" />
+    <Compile Include="Hello\HelloController.fs" />
+    ...
+```
+
 ## Adding it to Router.fs
 
-After setting up the route. You need to update the project with the new route. Inside "Router.fs", add the following to the inside of the `browserRouter` function
+After setting up the route. You need to update the project with the new route.
+
+Inside "Router.fs", add the following to the inside of the `browserRouter` function
 
 ```fsharp
 forward "/hello" HelloView
@@ -70,14 +86,6 @@ This means that when we navigate to [http://localhost:8085/hello](http://localho
 
 Now run the program and go to [http://localhost:8085/hello/](http://localhost:8085/hello/) and you will see a page saying "Hello from Saturn!"
 
-
-## Adding the 2 new files into SaturnSample.fsproj as below
-`  <ItemGroup>
-    <Compile Include="Database.fs" />
-    <Compile Include="Config.fs" />
-    <Compile Include="Hello\HelloViews.fs" />
-    <Compile Include="Hello\HelloController.fs" />
-`
 ## Sending parameter to your page
 
 What if you want the page to display your name?
