@@ -49,7 +49,7 @@ module Controller =
     let indexAction =
         htmlView (Views.index)
 
-    let helloView = scope {
+    let helloView = router {
         get "/" indexAction
     }
 ```
@@ -110,9 +110,9 @@ getf "/%s" index2Action
 
 "%s" is a format string. This let Saturn knows to save whatever you type in that spot. Since we want to save a name, we want to save it as a string so we use `%s`.
 
-There are other format string for different types.
+There are other format strings for different types.
 
-| Format Char | Type |
+| Format String | Type |
 | ----------- | ---- |
 | `%b` | `bool` |
 | `%c` | `char` |

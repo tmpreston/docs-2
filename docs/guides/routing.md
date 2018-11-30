@@ -155,7 +155,7 @@ let apiRouter = router {
 
 Here we have the `apiRouter` router which does not return a 404 page but a 404 text instead which is appropriate for an api. The router also use a pipeline that is more appropriate for an api such as accepting JSON inputs instead of HTML as in the `browser` pipeline.
 
-## Format Characters
+## Format Strings
 
 You might be wondering how to make a routes that accept a numerical id. You can make multiple routes for each id like so
 
@@ -164,7 +164,7 @@ You might be wondering how to make a routes that accept a numerical id. You can 
     get "/3" (getApplication 3)
     ...
 
-But this is impracticle because there can be a large amount of items or new items are constantly being created with new ids. Instead the solution is to use format characters. Remember that in the [Adding Pages Guide](adding-pages.md), we used `getf "/%s" index2Action` to pass a string to page.
+But this is impracticle because there can be a large amount of items or new items are constantly being created with new ids. Instead the solution is to use format strings. Remember that in the [Adding Pages Guide](adding-pages.md), we used `getf "/%s" index2Action` to pass a string to page.
 
 | Format Char | Type |
 | ----------- | ---- |
@@ -184,6 +184,6 @@ getf "/%i" getApplication
 
 Notice that `getf` is used instead of get. This is a separate version of get that handle `f`ormat characters.
 
-    You can use format characters with "forward" too by using "forwardf"
+    You can use format strings with "forward" too by using "forwardf"
 
-There are a lot of functionalities within routers and you can view all of them [here](../api/scope).
+There are a lot of functionalities within routers and you can view all of them [here](../api/router).
