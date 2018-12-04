@@ -13,6 +13,8 @@ pages:
     - How to start in 60 seconds: 'guides/how-to-start.md'
     - Directory Structure: 'guides/directory-structure.md'
     - Adding Pages: 'guides/adding-pages.md'
+    - Routing: 'guides/routing.md'
+    - Controller: 'guides/controller.md'
   - Api Reference:
     - Pipeline: 'api/pipeline.md'
     - Router: 'api/router.md'
