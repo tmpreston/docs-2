@@ -16,7 +16,7 @@ Computation expression used to configure Saturn application. Under the hood it's
 let app = application {
     pipe_through endpointPipe
 
-    router topRouter
+    use_router topRouter
     url "http://0.0.0.0:8085/"
     memory_cache
     use_static "static"
@@ -26,7 +26,7 @@ let app = application {
 
 ---
 
-### router
+### use_router
 
 Defines top-level router used for the application. It's calling `IApplicationBuilder.UseGiraffe`
 
@@ -35,7 +35,7 @@ Defines top-level router used for the application. It's calling `IApplicationBui
 ```fsharp
 application {
     ...
-    router myRouter
+    use_router myRouter
 }
 ```
 

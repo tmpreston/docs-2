@@ -94,7 +94,7 @@ Loads model populated by `fetchModel` pipeline
 
 ### getPath
 
-Gets path of the request - it's relative to current `scope`
+Gets path of the request - it's relative to current `router`
 
 **Type:** `HttpContext -> string`
 
@@ -261,9 +261,9 @@ Returns `504 Gateway Timeout`
 
 ## Controller builder
 
-Computation expression used to create Saturn controllers - abstraction representing REST-ish enpoint for serving HTML views or returning data. It supports:
+Computation expression used to create Saturn controllers - abstraction representing REST-ish endpoint for serving HTML views or returning data. It supports:
 
-* set of predefined actions that are automatically mapped to the enpoints following standard conventions
+* set of predefined actions that are automatically mapped to the endpoints following standard conventions
 * embedding sub-controllers for modeling one-to-many relationships 
 * versioning 
 * adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications. 

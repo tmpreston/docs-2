@@ -17,7 +17,7 @@ pages:
     - Controller: 'guides/controller.md'
   - Api Reference:
     - Pipeline: 'api/pipeline.md'
-    - Scope: 'api/scope.md'
+    - Router: 'api/router.md'
     - Controller: 'api/controller.md'
     - Application: 'api/application.md'
 
