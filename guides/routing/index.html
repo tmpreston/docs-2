@@ -40,7 +40,7 @@
     
     
       
-        <title>Directory Structure - Saturn Docs</title>
+        <title>Routing - Saturn Docs</title>
       
     
     
@@ -96,7 +96,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#directory-structure" tabindex="1" class="md-skip">
+      <a href="#routing" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -122,7 +122,7 @@
                 Saturn Docs
               </span>
               <span class="md-header-nav__topic">
-                Directory Structure
+                Routing
               </span>
             
           
@@ -282,20 +282,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Directory Structure" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../directory-structure/" title="Directory Structure" class="md-nav__link">
       Directory Structure
     </a>
-    
   </li>
 
         
@@ -315,11 +306,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../routing/" title="Routing" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Routing
+      </label>
+    
+    <a href="./" title="Routing" class="md-nav__link md-nav__link--active">
       Routing
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" title="Best Practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-strings" title="Format Strings" class="md-nav__link">
+    Format Strings
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -429,6 +465,29 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" title="Best Practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-strings" title="Format Strings" class="md-nav__link">
+    Format Strings
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -439,66 +498,197 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/SaturnFramework/docs/edit/master/docs/guides/directory-structure.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/SaturnFramework/docs/edit/master/docs/guides/routing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="directory-structure">Directory Structure</h1>
-<p>After creating a new Saturn project, let's take a deeper look into what files are created.</p>
-<pre><code>├── .fake
-├── .paket
-├── .vs
-├── .packages
-├── paket-files
-├── src
-|   ├── Migrations
-|   └── SaturnSample
-├── .gitignore
-├── build.cmd
-├── build.fsx
-├── build.sh
-├── global.json
-├── paket.dependencies
-├── paket.lock
-└── SaturnSample.sln
+                <h1 id="routing">Routing</h1>
+<p>Routes are how Saturn connect all the HTTP requests to the different actions. Think of route as the URL of the application. The site is yoursite.com but you may have an route for your about page such as yoursite.com/about.</p>
+<p>In Saturn, <code>Routers</code> contain all the routes of your application. Router is a list of routes. A website can have a router that handles the different routes to your page like so:</p>
+<pre><code>yoursite.com
+    ├── "/"             -yoursite.com/
+    ├── "/about"        -yoursite.com/about
+    ├── "/contact"      -yoursite.com/contact
+    ├── "/news"         -yoursite.com/news
+    └── "/investors"    -yoursite.com/investors
 </code></pre>
-<p>At this level most of it is basic configuration files to help with running Saturn. From looking at the <code>.paket</code>, <code>paket-files</code>, <code>paket.dependencies</code>, <code>paket.lock</code> folders and files, you can see that by default Saturn uses <a href="https://fsprojects.github.io/Paket/">paket</a> to handle package management. You won't be working with these files directly but rather through the command line tools instead.</p>
-<p>Saturn also uses <a href="https://fake.build/">FAKE</a> to build the project. You can see how it is set up by looking at the <code>.fake</code> folder and the <code>build.cmd</code>, <code>build.fsx</code>, <code>build.sh</code> files.</p>
-<p>Saturn also provides a <code>.gitignore</code> file that prevents some folders from being tracked by git when they don't need to.</p>
-<p>Lastly, there is the <code>SaturnSample.sln</code> solution file so you can open the project in an IDE like Visual Sudio and a <code>global.json</code> file to  configure the solution file.</p>
-<p>Most of the work you will do in this project however, will be in <code>src/SaturnSample</code>, which looks like the following when expanded:</p>
-<pre><code>├── bin
-├── Books
-|   ├── BooksController.fs
-|   ├── BooksModel.fs
-|   ├── BooksRepository.fs
-|   └── BooksView.fs
-├── obj
-├── static
-|   ├── app.css
-|   └── app.js
-├── Templates
-|   ├── App.fs
-|   ├── Index.fs
-|   ├── InternalError.fs
-|   └── NotFound.fs
-├── Config.fs
-├── Database.fs
-├── database.sqlite
-├── paket.references
-├── Program.fs
-├── Router.fs
-└── SaturnSample.fsproj
+<p>Since this is at the root, this is your router at <code>""</code> path. You can then add a router inside another router to have the following:</p>
+<pre><code>yoursite.com
+    ├── books           -yoursite.com/books
+    |   ├── list        -yoursite.com/books/list
+    |   ├── add         -yoursite.com/books/add
+    |   ├── update      -yoursite.com/books/update
+    |   └── delete      -yoursite.com/books/update
+    ├── about           -yoursite.com/about
+    ├── contact         -yoursite.com/contact
+    ├── news            -yoursite.com/news
+    └── investors       -yoursite.com/investors
 </code></pre>
-<p><code>bin</code> and <code>obj</code> folders store the compiled version of the program after you build the project.</p>
-<p>The convention for Saturn is that the model and everything associated with it are inside one folder. Everything is also named with the plural form of the model so "Books" instead of "Book".</p>
-<p>Your static files like css, js, and images should be inside the <code>static</code> folder.</p>
-<p><code>Config.fs</code> contains a <code>Config</code> record that stores settings that you can use inside your application. By default, the record only contains the <code>connectionString</code> field.</p>
-<p><code>Database.fs</code> contains functions to execute sql queries within the program through <a href="https://stackexchange.github.io/Dapper/">Dapper</a>.</p>
-<p>If you did not run <code>dotnet saturn migration</code> as in the <a href="../how-to-start/">how to start guide</a>, you might not see database.sqlite but that is the database file that your Saturn project is using to store data.</p>
-<p><code>paket.references</code> shows the packages that your project is using.</p>
-<p><code>Program.fs</code> handles intializing the program and loading up various settings.</p>
-<p><code>Router.fs</code> is where you will set the route of the site and what page to load.</p>
-<p>Lastly, <code>SaturnSample.fsproj</code> is the project file itself.</p>
+<p>Now you have router for the <code>"/books"</code> path inside another router for the <code>""</code> path.</p>
+<p>Now to see it in code, create a Saturn project from the template and you will have a <code>Router.fs</code> file like this:</p>
+<pre><code class="fsharp">module Router
+
+open Saturn
+open Giraffe.Core
+open Giraffe.ResponseWriters
+
+
+let browser = pipeline {
+    plug acceptHtml
+    plug putSecureBrowserHeaders
+    plug fetchSession
+    set_header &quot;x-pipeline-type&quot; &quot;Browser&quot;
+}
+
+let defaultView = router {
+    get &quot;/&quot; (htmlView Index.layout)
+    get &quot;/index.html&quot; (redirectTo false &quot;/&quot;)
+    get &quot;/default.html&quot; (redirectTo false &quot;/&quot;)
+}
+
+let browserRouter = router {
+    not_found_handler (htmlView NotFound.layout) //Use the default 404 webpage
+    pipe_through browser //Use the default browser pipeline
+
+    forward &quot;&quot; defaultView //Use the default view
+}
+
+//Other scopes may use different pipelines and error handlers
+
+// let api = pipeline {
+//     plug acceptJson
+//     set_header &quot;x-pipeline-type&quot; &quot;Api&quot;
+// }
+
+// let apiRouter = router {
+//     error_handler (text &quot;Api 404&quot;)
+//     pipe_through api
+//
+//     forward &quot;/someApi&quot; someScopeOrController
+// }
+
+let appRouter = router {
+    // forward &quot;/api&quot; apiRouter
+    forward &quot;&quot; browserRouter
+}
+</code></pre>
+
+<p>First, take a look at the <code>router</code> function.</p>
+<pre><code class="fsharp">let appRouter = router {
+    forward &quot;&quot; browserRouter
+}
+</code></pre>
+
+<p>The <code>appRouter</code> function is a <code>router</code>. Inside is the <code>forward "" defaultView</code> line. The <code>forward</code> function need a path and a router. In this case, the path is an empty string and the router is <code>browserRouter</code>. That means that the <code>browserRouter</code> router will handles the routes at the current location. Since, <code>appRouter</code> is the first router called, the current location is the root of the application.</p>
+<p>Now let's look at <code>browserRouter</code>:</p>
+<pre><code class="fsharp">let browserRouter = router {
+    not_found_handler (htmlView NotFound.layout)
+    pipe_through browser
+
+    forward &quot;&quot; defaultView
+}
+</code></pre>
+
+<p>There are three lines. The first line, <code>not_found_handler (htmlView NotFound.layout)</code> tells browserRouter to displays a not found page if the user enter a route that the application does not handles. The second line tell the application to use the <code>browser</code> pipeline defined above. The pipeline is a list of settings on how the website will deliver the pages. Lastly, <code>forward "" defaultView</code> is like <code>forward "" defaultView</code> from the <code>appRouter</code>. Again, <code>browserRouter</code> does not contain any routes but it told the <code>defaultView</code> router to handle them. Finally, we get to the part where the application is told how to handle the routes. Inside <code>defaultView</code>, we created 3 routes.</p>
+<pre><code class="fsharp">let defaultView = router {
+    get &quot;/&quot; (htmlView Index.layout)
+    get &quot;/index.html&quot; (redirectTo false &quot;/&quot;)
+    get &quot;/default.html&quot; (redirectTo false &quot;/&quot;)
+}
+</code></pre>
+
+<p>Here, we see that <code>get</code> is used to define the routes. There are 3 routes here but 2 that redirect to the first route. To illustrate, the routes are:</p>
+<pre><code>yoursite.com
+    └── "" (router)
+        └── "" (browserRouter)
+            └── "" (defaultView)
+                ├── "/"                 -yoursite.com/
+                ├── "/index.html"       -redirect to yoursite.com/
+                └── "/default.html"     -redirect to yoursite.com/
+</code></pre>
+<p>Looking at the first line inside <code>defaultView</code>, <code>get "/" (htmlView Index.layout)</code> tells the application to displays <code>Index.layout</code> at the root of the application. The <code>get</code> correspond to the HTTP verb GET so when you type in a link, the browser try to GET the page. The first parameter of <code>get</code> is "/" so basicly when getting the root, the get function will return something. The second parameter is <code>(htmlView Index.layout)</code> so the <code>get</code> function return a html page specified by Index.layout. The second and third line have <code>(redirectTo false "/")</code>, tell the application to go to "yoursite.com/" when going to "yoursite.com/index" or "yoursite.com/default"</p>
+<h2 id="best-practices">Best Practices</h2>
+<p>You can combine all 3 routers into one router like so:</p>
+<pre><code class="fsharp">let appRouter = router {
+    not_found_handler (htmlView NotFound.layout)
+    pipe_through browser
+
+    get &quot;/&quot; (htmlView Index.layout)
+    get &quot;/index.html&quot; (redirectTo false &quot;/&quot;)
+    get &quot;/default.html&quot; (redirectTo false &quot;/&quot;)
+}
+</code></pre>
+
+<p>The template splits them into 3 to encourages good practices. In the first router, you can see the commented out code <code>forward "/api" apiRouter</code>. This is a good suggestin in the template to have a separate router to handle your api routes. We set up how to deliever the webpage with <code>pipe_through browser</code> in <code>browserRouter</code>. The setting are important for a browser to know how to handle your routes but not for a different applications to access your routes as an api.</p>
+<p>The template provided an example of how to set up the api routes in the commented out code, which I copied below:</p>
+<pre><code class="fsharp">let api = pipeline {
+    plug acceptJson
+    set_header &quot;x-pipeline-type&quot; &quot;Api&quot;
+}
+
+let apiRouter = router {
+    error_handler (text &quot;Api 404&quot;)
+    pipe_through api
+
+    forward &quot;/someApi&quot; someScopeOrController
+}
+
+</code></pre>
+
+<p>Here we have the <code>apiRouter</code> router which does not return a 404 page but a 404 text instead which is appropriate for an api. The router also use a pipeline that is more appropriate for an api such as accepting JSON inputs instead of HTML as in the <code>browser</code> pipeline.</p>
+<h2 id="format-strings">Format Strings</h2>
+<p>You might be wondering how to make a routes that accept a numerical id. You can make multiple routes for each id like so</p>
+<pre><code>get "/1" (getApplication 1)
+get "/2" (getApplication 2)
+get "/3" (getApplication 3)
+...
+</code></pre>
+<p>But this is impracticle because there can be a large amount of items or new items are constantly being created with new ids. Instead the solution is to use format strings. Remember that in the <a href="../adding-pages/">Adding Pages Guide</a>, we used <code>getf "/%s" index2Action</code> to pass a string to page.</p>
+<table>
+<thead>
+<tr>
+<th>Format Char</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%b</code></td>
+<td><code>bool</code></td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td><code>char</code></td>
+</tr>
+<tr>
+<td><code>%s</code></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>%i</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td><code>int64</code></td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td><code>float</code>/<code>double</code></td>
+</tr>
+<tr>
+<td><code>%O</code></td>
+<td><code>Guid</code></td>
+</tr>
+</tbody>
+</table>
+<p>For a numerical id, we want to pass an int which is <code>%i</code> in the list above so you can replace the lines aboves with</p>
+<pre><code class="fsharp">getf &quot;/%i&quot; getApplication
+</code></pre>
+
+<p>Notice that <code>getf</code> is used instead of get. This is a separate version of get that handle <code>f</code>ormat characters.</p>
+<pre><code>You can use format strings with "forward" too by using "forwardf"
+</code></pre>
+<p>There are a lot of functionalities within routers and you can view all of them <a href="../../api/router">here</a>.</p>
                 
                   
                 
@@ -523,8 +713,8 @@
 
         <!-- Link to previous page -->
         
-          <a href="../how-to-start/"
-              title="How to start in 60 seconds"
+          <a href="../adding-pages/"
+              title="Adding Pages"
               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
               rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -537,7 +727,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                How to start in 60 seconds
+                Adding Pages
               </span>
             </div>
           </a>
@@ -545,7 +735,7 @@
 
         <!-- Link to next page -->
         
-          <a href="../adding-pages/" title="Adding Pages"
+          <a href="../controller/" title="Controller"
               class="md-flex md-footer-nav__link md-footer-nav__link--next"
               rel="next">
             <div class="md-flex__cell md-flex__cell--stretch
@@ -554,7 +744,7 @@
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Adding Pages
+                Controller
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

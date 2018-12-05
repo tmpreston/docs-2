@@ -1,43 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/guides/how-to-start/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/guides/directory-structure/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/guides/adding-pages/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/guides/routing/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/guides/controller/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/api/pipeline/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2018-11-26</lastmod>
+     <loc>/api/router/</loc>
+     <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>/api/controller/</loc>
+     <lastmod>2018-12-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/api/application/</loc>
+     <lastmod>2018-12-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
 </urlset>
