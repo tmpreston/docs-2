@@ -276,6 +276,17 @@ Adds custom service configuration step.
 
 **Input:** `IServiceCollection -> IServiceCollection`
 
+```fsharp
+let serviceConfig (services: IServiceCollection) =
+    services.AddSingleton<IMySingleton, MySingleton>()
+    services.AddTransient<SomeTransientService>()
+
+let app = application {
+    ...
+    service_config serviceConfig
+}
+```
+
 ### logging
 
 Adds logging configuration
