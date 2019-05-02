@@ -64,7 +64,7 @@ let browserRouter = router {
 // }
 
 // let apiRouter = router {
-//     error_handler (text "Api 404")
+//     not_found_handler (setStatusCode 404 >=> text "Api 404")
 //     pipe_through api
 //
 //     forward "/someApi" someScopeOrController
@@ -145,7 +145,7 @@ let api = pipeline {
 }
 
 let apiRouter = router {
-    error_handler (text "Api 404")
+    not_found_handler (setStatusCode 404 >=> text "Api 404")
     pipe_through api
 
     forward "/someApi" someScopeOrController
