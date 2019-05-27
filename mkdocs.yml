@@ -15,6 +15,7 @@ pages:
     - Adding Pages: 'guides/adding-pages.md'
     - Routing: 'guides/routing.md'
     - Controller: 'guides/controller.md'
+    - Scaffolding: 'guides/scaffolding.md'
   - Api Reference:
     - Pipeline: 'api/pipeline.md'
     - Router: 'api/router.md'
