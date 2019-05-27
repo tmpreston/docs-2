@@ -5,6 +5,7 @@ Requirements:
 * `dotnet` SDK
 * `mono` (on Linux/MacOS)
 
+---
 
 1. Install `dotnet` template with `dotnet new -i Saturn.Template`
 2. Create new folder and move into it - `mkdir SaturnSample && cd SaturnSample`
