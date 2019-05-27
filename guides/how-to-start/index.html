@@ -335,6 +335,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scaffolding/" title="Scaffolding" class="md-nav__link">
+      Scaffolding
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -443,8 +455,15 @@
                 
                 
                 <h1 id="how-to-start-in-60-seconds">How to start in 60 seconds</h1>
-<ol>
-<li>Install <code>dotnet</code> template with <code>dotnet new -i Saturn.Template</code></li>
+<p>Requirements:</p>
+<ul>
+<li><code>dotnet</code> SDK</li>
+<li>
+<p><code>mono</code> (on Linux/MacOS)</p>
+</li>
+<li>
+<p>Install <code>dotnet</code> template with <code>dotnet new -i Saturn.Template</code></p>
+</li>
 <li>Create new folder and move into it - <code>mkdir SaturnSample &amp;&amp; cd SaturnSample</code></li>
 <li>Create new Saturn application - <code>dotnet new saturn -lang F#</code></li>
 <li>Run build process to ensure everything was scaffolded correctly and restore dependencies - <code>build.cmd / build.sh</code></li>
@@ -454,7 +473,7 @@
 <li>Open folder in favourite editor (VSCode) and insert suggested line (<code>forward "/books" Books.Controller.resource</code>) into <code>browserRouter</code> in <code>Router.fs</code> file</li>
 <li>Start application by running <code>build.cmd Run</code> from the root of solution. This will start application in watch mode (automatic recompilation on changes) and open browser on <a href="http://localhost:8085">http://localhost:8085</a> which should display index page.</li>
 <li>Go to <a href="http://localhost:8085/books">http://localhost:8085/books</a> to see generated view. All buttons should be working, you can add new entries, remove or edit old ones.</li>
-</ol>
+</ul>
                 
                   
                 

@@ -371,6 +371,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scaffolding/" title="Scaffolding" class="md-nav__link">
+      Scaffolding
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -560,7 +572,7 @@ let browserRouter = router {
 // }
 
 // let apiRouter = router {
-//     error_handler (text &quot;Api 404&quot;)
+//     not_found_handler (setStatusCode 404 &gt;=&gt; text &quot;Api 404&quot;)
 //     pipe_through api
 //
 //     forward &quot;/someApi&quot; someScopeOrController
@@ -626,7 +638,7 @@ let appRouter = router {
 }
 
 let apiRouter = router {
-    error_handler (text &quot;Api 404&quot;)
+    not_found_handler (setStatusCode 404 &gt;=&gt; text &quot;Api 404&quot;)
     pipe_through api
 
     forward &quot;/someApi&quot; someScopeOrController

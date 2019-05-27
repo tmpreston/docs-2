@@ -324,6 +324,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/scaffolding/" title="Scaffolding" class="md-nav__link">
+      Scaffolding
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1012,6 +1024,16 @@
 <h3 id="service_config">service_config</h3>
 <p>Adds custom service configuration step.</p>
 <p><strong>Input:</strong> <code>IServiceCollection -&gt; IServiceCollection</code></p>
+<pre><code class="fsharp">let serviceConfig (services: IServiceCollection) =
+    services.AddSingleton&lt;IMySingleton, MySingleton&gt;()
+    services.AddTransient&lt;SomeTransientService&gt;()
+
+let app = application {
+    ...
+    service_config serviceConfig
+}
+</code></pre>
+
 <h3 id="logging">logging</h3>
 <p>Adds logging configuration</p>
 <p><strong>Input:</strong> <code>IloggingBuilder -&gt; unit</code></p>

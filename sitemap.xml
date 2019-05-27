@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,31 +13,37 @@
         
     <url>
      <loc>/guides/how-to-start/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guides/directory-structure/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guides/adding-pages/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guides/routing/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guides/controller/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/guides/scaffolding/</loc>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -47,25 +53,25 @@
         
     <url>
      <loc>/api/pipeline/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/router/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/controller/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/application/</loc>
-     <lastmod>2018-12-06</lastmod>
+     <lastmod>2019-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
