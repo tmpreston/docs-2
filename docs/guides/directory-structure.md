@@ -25,7 +25,7 @@ Saturn also uses [FAKE](https://fake.build/) to build the project. You can see h
 
 Saturn also provides a `.gitignore` file that prevents some folders from being tracked by git when they don't need to.
 
-Lastly, there is the `SaturnSample.sln` solution file so you can open the project in an IDE like Visual Sudio and a `global.json` file to  configure the solution file.
+Lastly, there is the `SaturnSample.sln` solution file so you can open the project in an IDE like Visual Sudio and a `global.json` file to configure the solution file.
 
 Most of the work you will do in this project however, will be in `src/SaturnSample`, which looks like the following when expanded:
 
@@ -60,9 +60,9 @@ Your static files like css, js, and images should be inside the `static` folder.
 
 `Config.fs` contains a `Config` record that stores settings that you can use inside your application. By default, the record only contains the `connectionString` field.
 
-`Database.fs` contains functions to execute sql queries within the program through [Dapper](https://stackexchange.github.io/Dapper/).
+`Database.fs` contains functions to execute SQL queries within the program through [Dapper](https://stackexchange.github.io/Dapper/).
 
-If you did not run `dotnet saturn migration` as in the [how to start guide](how-to-start.md), you might not see database.sqlite but that is the database file that your Saturn project is using to store data.
+If you did not run `dotnet saturn migration` as in the [how to start guide](how-to-start.md), you might not see `database.sqlite`, but that is the database file that your Saturn project is using to store data.
 
 `paket.references` shows the packages that your project is using.
 

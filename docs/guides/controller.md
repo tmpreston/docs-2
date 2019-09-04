@@ -1,25 +1,25 @@
 # Controller
 
-In Saturn, a **controller** is a list of routes that is focused on a **model** (an object that contain your data). So if you have a user model, some common operations are to display the list of users, show details of a user, add a user, update or user, or remove a user. A controller is a great way to organize all of these actions.
+In Saturn, a **controller** is a list of routes that is focused on a **model** (an object that contains your data). So if you have a user model, some common operations are to display the list of users, show details of a user, add a user, update or user, or remove a user. A controller is a great way to organize all of these actions.
 
-Each of of the operation is a separate route and a controller is an easy way to group these routes together.
+Each of the operations is a separate route and a controller is an easy way to group these routes together.
 
 A basic user controller is shown below:
 
 ```fsharp
 let userController = controller {
-    index (fun ctx -> "Index handler version 1" |> Controller.text ctx) //View list of user
+    index (fun ctx -> "Index handler version 1" |> Controller.text ctx) //View list of users
     add (fun ctx -> "Add handler version 1" |> Controller.text ctx) //Add a user
     create (fun ctx -> "Create handler version 1" |> Controller.text ctx) //Create a user
-    show (fun ctx id -> (sprintf "Show handler version 1 - %i" id) |> Controller.text ctx) //Show details of user
-    edit (fun ctx id -> (sprintf "Edit handler version 1 - %i" id) |> Controller.text ctx)  //Edit user
-    update (fun ctx id -> (sprintf "Update handler version 1 - %i" id) |> Controller.text ctx)  //Update user
+    show (fun ctx id -> (sprintf "Show handler version 1 - %i" id) |> Controller.text ctx) //Show details of a user
+    edit (fun ctx id -> (sprintf "Edit handler version 1 - %i" id) |> Controller.text ctx)  //Edit a user
+    update (fun ctx id -> (sprintf "Update handler version 1 - %i" id) |> Controller.text ctx)  //Update a user
 }
 ```
 
 Here we can see the `index`, `add`, `create`, `show`, `edit`, and `update` operations but there are more operations that are not shown here like `patch` and `delete`. You can see all the operations [here](../api/controller). You do not have to handle all of the operations.
 
-You might be wondering what is the difference between `add` and `create` or `edit` and `update`. The `add` operation tell the application to return the form so that the user can enter the data for the user to be added. The `create` operations will commit the data to the database of the application. It is the same with `edit` for displaying the form and `update` for committing the change.
+You might be wondering what the difference is between `add` and `create` or `edit` and `update`. The `add` operation tells the application to return the form so that the user can enter the data for the user to be added. The `create` operation will commit the data to the database of the application. It is the same with `edit` for displaying the form and `update` for committing the change.
 
 To add the controller for the routes, you can add it to the `defaultView` router like so:
 
@@ -53,7 +53,7 @@ The create and update operations make changes to the database so you have to mak
 
 ## Subcontroller
 
-Now that you know how to chain the routers together to create the routes. We can now look at a common scenario for a website. A website usually has users and each users can create multiple comments.
+Now that you know how to chain routers together to create routes, we can look at a common scenario for a website. A website usually has users and each user can create multiple comments.
 
     yoursite.com
         └── "/users"
@@ -62,7 +62,7 @@ Now that you know how to chain the routers together to create the routes. We can
                     ├── index "/"           -yoursite.com/users/{userId}/comments/
                     └── show "/%i"          -yoursite.com/users/{userId}/comments/{commentId}
 
-In Saturn, you can make comment controller to be a subcontroller of the user controller. It looks like the following code.
+In Saturn, you can make the comment controller a subcontroller of the user controller. It looks like the following code:
 
 ```fsharp
 let commentController userId = controller {
@@ -89,7 +89,7 @@ let userController = controller {
 }
 ```
 
-To create a subcontroller, start with creating a controller for your model. After that, defined it as a subcontrolller inside the main controller with the following code
+To create a subcontroller, start with creating a controller for your model. After that, define it as a subcontrolller inside the main controller with the following code:
 
 ```fsharp
     subController "/yourModel" yourModelController

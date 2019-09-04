@@ -54,6 +54,6 @@ Currently supported types are:
 
 ## Migrations
 
-Using the generator to create a model will also create a migration file that will create a supporting table in the database.  Execute the migration script using:
+Using the generator to create a model will also create a migration file that will create a supporting table in the database. Execute the migration script using:
 
 `dotnet saturn migration`

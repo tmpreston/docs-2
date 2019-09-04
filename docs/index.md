@@ -49,14 +49,14 @@ Saturn is made up of a number of distinct parts, each with its own purpose and r
     - parses incoming requests and dispatches them to the correct controller/action, passing parameters as needed
     - provides helpers to generate route paths or urls to resources
     - defines named pipelines through which we may pass our requests
-    - allow easy application of groups of plugs to a set of routes
+    - allows easy application of groups of plugs to a set of routes
  - Controllers
     - provide functions, called *actions*, to handle requests
     - actions:
         - prepare data and pass it into views
         - invoke rendering via views
         - perform redirects
-        - returns data as JSON or XML
+        - return data as JSON or XML
         - and much more
  - Views
     - render templates
