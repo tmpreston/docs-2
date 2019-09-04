@@ -8,7 +8,7 @@ Module with high level helper functions that are usually used in controller acti
 
 ### json
 
-Returns to the client content serialized to JSON
+Returns to the client content serialized to JSON.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
@@ -32,25 +32,25 @@ Returns to the client rendered template.
 
 ### file
 
-Returns to the client static file.
+Returns to the client a static file.
 
 **Type:** `HttpContext -> string -> HttpFuncResult`
 
 ### sendDownload
 
-Sends file with given path
+Sends file with given path.
 
 **Type:** `HttpContext -> string -> HttpFuncResult`
 
 ### sendDownloadBinary
 
-Sends file as binary blob
+Sends file as binary blob.
 
 **Type:** `HttpContext -> byte [] -> HttpFuncResult`
 
 ### redirect
 
-Sends redirect response
+Sends redirect response.
 
 **Type:** `HttpContext -> string -> HttpFuncResult`
 
@@ -88,25 +88,25 @@ Get model based on `HttpMethod` and `Content-Type` of request.
 
 ### loadModel<'a>
 
-Loads model populated by `fetchModel` pipeline
+Loads model populated by `fetchModel` pipeline.
 
 **Type:** `HttpContext -> Option<'a>`
 
 ### getPath
 
-Gets path of the request - it's relative to current `router`
+Gets path of the request relative to the current `router`.
 
 **Type:** `HttpContext -> string`
 
 ### getUrl
 
-Gets url of the request
+Gets the request URL.
 
 **Type:** `HttpContext -> string option`
 
 ### getConfig<'a>
 
-Gets configuration
+Gets configuration.
 
 **Type:** `HttpContext -> 'a`
 
@@ -120,13 +120,13 @@ Module with lower level functions for returning certain responses from the actio
 
 ### continue
 
-Returns `100 Continue`
+Returns `100 Continue`.
 
 **Type:** `HttpContext -> HttpFuncResult`
 
 ### switchingProto
 
-Returns `101 Switching Protocols`
+Returns `101 Switching Protocols`.
 
 **Type:** `HttpContext -> HttpFuncResult`
 
@@ -134,19 +134,19 @@ Returns `101 Switching Protocols`
 
 ### ok
 
-Returns `200 OK`
+Returns `200 OK`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### created
 
-Returns `201 Created`
+Returns `201 Created`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### accepted
 
-Returns `202 Accepted`
+Returns `202 Accepted`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
@@ -154,7 +154,7 @@ Returns `202 Accepted`
 
 ### badRequest
 
-Returns `400 Bad Request`
+Returns `400 Bad Request`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
@@ -166,61 +166,61 @@ Returns `401 Unauthorized`. Requires `scheme` and `relam`.
 
 ### forbidden
 
-Returns `403 Forbidden`
+Returns `403 Forbidden`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### notFound
 
-Returns `404 Not Found`
+Returns `404 Not Found`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### methodNotAllowed
 
-Returns `405 Method Not Allowed`
+Returns `405 Method Not Allowed`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### notAcceptable
 
-Returns `406 Not Acceptable`
+Returns `406 Not Acceptable`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### conflict
 
-Returns `409 Conflict`
+Returns `409 Conflict`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### gone
 
-Returns `410 Gone`
+Returns `410 Gone`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### unuspportedMediaType
 
-Returns `415 Unsupported Media Type`
+Returns `415 Unsupported Media Type`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### unprocessableEntity
 
-Returns `422 Unprocessable Entity`
+Returns `422 Unprocessable Entity`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### preconditionRequired
 
-Returns `428 Precondition Required` 
+Returns `428 Precondition Required`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### tooManyRequests
 
-Returns `429 Too Many Requests ` 
+Returns `429 Too Many Requests `.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
@@ -228,31 +228,31 @@ Returns `429 Too Many Requests `
 
 ### internalError
 
-Returns `500 Internal Server Error` 
+Returns `500 Internal Server Error`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### notImplemented
 
-Returns `501 Not Implemented` 
+Returns `501 Not Implemented`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### badGateway
 
-Returns `502 Bad Gateway` 
+Returns `502 Bad Gateway`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### serviceUnavailable
 
-Returns `503 Service Unavailable` 
+Returns `503 Service Unavailable`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
 ### gatewayTimeout
 
-Returns `504 Gateway Timeout` 
+Returns `504 Gateway Timeout`.
 
 **Type:** `HttpContext -> 'a -> HttpFuncResult`
 
@@ -263,14 +263,14 @@ Returns `504 Gateway Timeout`
 
 Computation expression used to create Saturn controllers - abstraction representing REST-ish endpoint for serving HTML views or returning data. It supports:
 
-* set of predefined actions that are automatically mapped to the endpoints following standard conventions
+* a set of predefined actions that are automatically mapped to the endpoints following standard conventions
 * embedding sub-controllers for modeling one-to-many relationships 
 * versioning 
-* adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications. 
-* defining common error handler for all actions
-* defining not-found action
+* adding plugs for a particular action which in principle provides the same mechanism as attributes in ASP.NET MVC applications
+* defining a common error handler for all actions
+* defining a not-found action
 
-Result of the computation expression is standard Giraffe's `HttpHandler`which means that it's easily composable with other parts of the ecosytem.
+The result of the computation expression is a standard Giraffe `HttpHandler`, which means that it's easily composable with other parts of the ecosytem.
 
 **Example:**
 
@@ -309,7 +309,7 @@ let userController = controller {
 
 ### index
 
-Operation that should render (or return in case of API controllers) list of data
+Operation that should render (or return in case of API controllers) a list of data.
 
 Mapped to `GET "/"` endpoint
 
@@ -317,7 +317,7 @@ Mapped to `GET "/"` endpoint
 
 ### show
 
-Operation that should render (or return in case of API controllers) single entry of data
+Operation that should render (or return in case of API controllers) a single entry of data.
 
 Mapped to `GET "/:id"` endpoint
 
@@ -325,7 +325,7 @@ Mapped to `GET "/:id"` endpoint
 
 ### add
 
-Operation that should render form for adding new item
+Operation that should render a form for adding a new item.
 
 Mapped to `GET "/add"` endpoint
 
@@ -333,7 +333,7 @@ Mapped to `GET "/add"` endpoint
 
 ### edit
 
-Operation that should render form for editing existing item
+Operation that should render a form for editing an existing item.
 
 Mapped to `GET "/:id/edit"` endpoint
 
@@ -341,7 +341,7 @@ Mapped to `GET "/:id/edit"` endpoint
 
 ### create
 
-Operation that creates new item
+Operation that creates a new item.
 
 Mapped to `POST "/"` and endpoint
 
@@ -349,7 +349,7 @@ Mapped to `POST "/"` and endpoint
 
 ### update
 
-Operation that updates existing item
+Operation that updates an existing item.
 
 Mapped to `POST "/:id"` and `PATCH "/:id"` endpoint
 
@@ -357,7 +357,7 @@ Mapped to `POST "/:id"` and `PATCH "/:id"` endpoint
 
 ### delete
 
-Operation that deletes existing item
+Operation that deletes an existing item.
 
 Mapped to `DELETE "/:id"` endpoint
 
@@ -365,7 +365,7 @@ Mapped to `DELETE "/:id"` endpoint
 
 ### delete_all
 
-Operation that deletes all items
+Operation that deletes all items.
 
 Mapped to `DELETE "/"` endpoint
 
@@ -375,27 +375,27 @@ Mapped to `DELETE "/"` endpoint
 
 ### not_found_handler
 
-Define not-found handler for the controller
+Define not-found handler for the controller.
 
 **Input:** `HttpContext -> HttpFuncResult`
 
 ### error_handler
 
-Define error for the controller
+Define error handler for the controller.
 
 **Input:** `HttpContext * Exception -> HttpFuncResult`
 
 ### subController
 
-Adds subcontroller
+Add subcontroller
 
-Forward to subcontroller all calls to `/:id/:controller_name` endpoint
+Forward to subcontroller all calls to `/:id/:controller_name` endpoint.
 
 **Input:** `string * ('a -> HttpHandler)`
 
 ### version
 
-Define version of controller. Adds checking of `x-controller-version` header
+Define the controller version. Adds checking of `x-controller-version` header.
 
 **Input:** `int`
 

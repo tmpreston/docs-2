@@ -2,13 +2,13 @@
 
 ## run
 
-Runs Saturn application
+Runs Saturn application.
 
 **Input:** `IWebHostBuilder`
 
 ## Application builder
 
-Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as `IWebHostBuilder`, `IServiceCollection`, `IApplicationBuilder` and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles
+Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as `IWebHostBuilder`, `IServiceCollection`, `IApplicationBuilder` and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles.
 
 **Example:**
 
@@ -28,7 +28,7 @@ let app = application {
 
 ### use_router
 
-Defines top-level router used for the application. It's calling `IApplicationBuilder.UseGiraffe`
+Defines top-level router used for the application. It calls `IApplicationBuilder.UseGiraffe`.
 
 **Input:** `HttpHandler`
 
@@ -41,7 +41,7 @@ application {
 
 ### pipe_through
 
-Adds pipeline to the list of pipelines that will be used for every request
+Adds pipeline to the list of pipelines that will be used for every request.
 
 **Input:** `HttpHandler`
 
@@ -54,7 +54,7 @@ application {
 
 ### error_handler
 
-Adds global error handler for exceptions not handled anywhere else. It's using `IApplicationBuilder.UseGiraffeErrorHandler`
+Adds global error handler for exceptions not handled anywhere else. It uses `IApplicationBuilder.UseGiraffeErrorHandler`.
 
 **Input:** `Exception -> ILogger -> HttpHandler`
 
@@ -67,7 +67,7 @@ application {
 
 ### url
 
-Defines URL on which application will be hosted. Should include port.
+Defines the URL on which the application will be hosted. Should include port.
 
 **Input:** `string`
 
@@ -91,7 +91,7 @@ application {
 
 ### use_gzip
 
-Enables automatic gzip compression
+Enables automatic gzip compression.
 
 ```fsharp
 application {
@@ -102,7 +102,7 @@ application {
 
 ### use_static
 
-Enables using static file hosting. Input path defines `WebRoot` and `ContentRoot` of application
+Enables static file hosting. Input path defines `WebRoot` and `ContentRoot` of application.
 
 **Input:** `string`
 
@@ -115,7 +115,7 @@ application {
 
 ### use_config
 
-Defines configuration that can be used with `HttpContext.GetConfiguration ()` function. Configuration function is evaluated once, during first request of the application.
+Defines configuration that can be used with the `HttpContext.GetConfiguration()` function. The configuration function is evaluated once, during first request of the application.
 
 **Input:** `unit -> 'a`
 
@@ -128,7 +128,7 @@ application {
 
 ### force_ssl
 
-Redirect all HTTP request to HTTPS
+Redirect all HTTP request to HTTPS.
 
 ```fsharp
 application {
@@ -139,7 +139,7 @@ application {
 
 ### use_cors
 
-Enables application level CORS protection. First parameter is name of the policy. Second parameter is configuration builder setting policy options.
+Enables application level CORS protection. First parameter is the name of the policy. Second parameter is configuration builder setting policy options.
 
 **Input:** `string -> (CorsPolicyBuilder -> unit)`
 
@@ -152,7 +152,7 @@ application {
 
 ### use_iis
 
-Enables IIS integration
+Enables IIS integration.
 
 ```fsharp
 application {
@@ -165,7 +165,7 @@ application {
 
 ### use_jwt_authentication
 
-Enables default JWT authentication. First parameter is private key used to signing. Second one defines issuer of the token.
+Enables default JWT authentication. First parameter is private key used in signing. Second one defines issuer of the token.
 
 **Input:** `string -> string`
 
@@ -178,7 +178,7 @@ application {
 
 ### use_jwt_authentication_with_config
 
-Enables JWT authentication with custom configuration
+Enables JWT authentication with custom configuration.
 
 **Input:** `JwtBearerOptions -> unit`
 
@@ -191,7 +191,7 @@ application {
 
 ### use_cookies_authentication
 
-Enables default cookies authentication
+Enables default cookies authentication.
 
 **Input:** `string`
 
@@ -204,7 +204,7 @@ application {
 
 ### use_cookies_authentication_with_config
 
-Enables cookies authentication with custom configuration
+Enables cookies authentication with custom configuration.
 
 **Input:** `CookieAuthenticationOptions -> unit`
 
@@ -217,7 +217,7 @@ application {
 
 ### use_github_oauth
 
-Enables default GitHub OAuth authentication
+Enables default GitHub OAuth authentication.
 
 **Input:** `string -> string -> string`
 
@@ -230,7 +230,7 @@ application {
 
 ### use_github_oauth_with_config
 
-Enables GitHub OAuth authentication with custom configuration
+Enables GitHub OAuth authentication with custom configuration.
 
 **Input:** `OAuthOptions -> unit`
 
@@ -243,7 +243,7 @@ application {
 
 ### use_custom_oauth
 
-Enables custom OAuth authentication
+Enables custom OAuth authentication.
 
 **Input:** `string -> (OAuthOptions -> unit)`
 
@@ -256,7 +256,7 @@ application {
 
 ---
 
-> Functions below enables you to add any configuration with using standard ASP.NET builders
+> The functions below enable you to add any configuration using standard ASP.NET builders
 
 ### app_config
 
@@ -289,6 +289,6 @@ let app = application {
 
 ### logging
 
-Adds logging configuration
+Adds logging configuration.
 
 **Input:** `IloggingBuilder -> unit`
