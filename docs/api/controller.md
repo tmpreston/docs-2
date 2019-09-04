@@ -1,5 +1,23 @@
 # Controller
 
+### Action
+
+```fsharp
+type Action =
+    | Index
+    | Show
+    | Add
+    | Edit
+    | Create
+    | Update
+    | Patch
+    | Delete
+    | DeleteAll
+    | All
+```
+
+---
+
 ## Controller helpers
 
 Module with high level helper functions that are usually used in controller actions.
@@ -401,6 +419,6 @@ Define the controller version. Adds checking of `x-controller-version` header.
 
 ### plug
 
-Plugs given `HttpHandler` for some actions in the controller.
+Plugs given `HttpHandler` for some [`Action`](#action)s in the controller.
 
 **Input:** `Action list * HttpHandler`
