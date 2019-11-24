@@ -165,7 +165,7 @@ application {
 
 ### use_jwt_authentication
 
-Enables default JWT authentication. First parameter is private key used in signing. Second one defines issuer of the token.
+Enables default JWT authentication. The first parameter is a private key used in signing. The second one defines the issuer of the token.
 
 **Input:** `string -> string`
 
