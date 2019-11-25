@@ -514,8 +514,8 @@
                 
                 
                 <h1 id="routing">Routing</h1>
-<p>Routes are how Saturn connect all the HTTP requests to the different actions. Think of route as the URL of the application. The site is yoursite.com but you may have an route for your about page such as yoursite.com/about.</p>
-<p>In Saturn, <code>Routers</code> contain all the routes of your application. Router is a list of routes. A website can have a router that handles the different routes to your page like so:</p>
+<p>Routes are how Saturn connects all the HTTP requests to the different actions. Think of a route as the URL of the application. The site is yoursite.com but you may have a route for your about page such as yoursite.com/about.</p>
+<p>In Saturn, <code>Routers</code> contain all the routes of your application. A router is a list of routes. A website can have a router that handles the different routes to your page like so:</p>
 <pre><code>yoursite.com
     ├── "/"             -yoursite.com/
     ├── "/about"        -yoursite.com/about
@@ -535,7 +535,7 @@
     ├── news            -yoursite.com/news
     └── investors       -yoursite.com/investors
 </code></pre>
-<p>Now you have router for the <code>"/books"</code> path inside another router for the <code>""</code> path.</p>
+<p>Now you have a router for the <code>"/books"</code> path inside another router for the <code>""</code> path.</p>
 <p>Now to see it in code, create a Saturn project from the template and you will have a <code>Router.fs</code> file like this:</p>
 <pre><code class="fsharp">module Router
 
@@ -590,7 +590,7 @@ let appRouter = router {
 }
 </code></pre>
 
-<p>The <code>appRouter</code> function is a <code>router</code>. Inside is the <code>forward "" defaultView</code> line. The <code>forward</code> function need a path and a router. In this case, the path is an empty string and the router is <code>browserRouter</code>. That means that the <code>browserRouter</code> router will handles the routes at the current location. Since, <code>appRouter</code> is the first router called, the current location is the root of the application.</p>
+<p>The <code>appRouter</code> value is a <code>router</code>. Inside is the <code>forward "" browserRouter</code> line. The <code>forward</code> function needs a path and a router. In this case, the path is an empty string and the router is <code>browserRouter</code>. That means that the <code>browserRouter</code> router will handle the routes at the current location. Since <code>appRouter</code> is the first router called, the current location is the root of the application.</p>
 <p>Now let's look at <code>browserRouter</code>:</p>
 <pre><code class="fsharp">let browserRouter = router {
     not_found_handler (htmlView NotFound.layout)
@@ -600,7 +600,7 @@ let appRouter = router {
 }
 </code></pre>
 
-<p>There are three lines. The first line, <code>not_found_handler (htmlView NotFound.layout)</code> tells browserRouter to displays a not found page if the user enter a route that the application does not handles. The second line tell the application to use the <code>browser</code> pipeline defined above. The pipeline is a list of settings on how the website will deliver the pages. Lastly, <code>forward "" defaultView</code> is like <code>forward "" defaultView</code> from the <code>appRouter</code>. Again, <code>browserRouter</code> does not contain any routes but it told the <code>defaultView</code> router to handle them. Finally, we get to the part where the application is told how to handle the routes. Inside <code>defaultView</code>, we created 3 routes.</p>
+<p>There are three lines. The first line, <code>not_found_handler (htmlView NotFound.layout)</code> tells <code>browserRouter</code> to display a not found page if the user enters a route that the application does not handle. The second line tells the application to use the <code>browser</code> pipeline defined above. The pipeline is a list of settings on how the website will deliver the pages. Lastly, <code>forward "" defaultView</code> is like <code>forward "" browserRouter</code> from the <code>appRouter</code>. Again, <code>browserRouter</code> does not contain any routes but it tells the <code>defaultView</code> router to handle them. Finally, we get to the part where the application is told how to handle the routes. Inside <code>defaultView</code>, we created 3 routes:</p>
 <pre><code class="fsharp">let defaultView = router {
     get &quot;/&quot; (htmlView Index.layout)
     get &quot;/index.html&quot; (redirectTo false &quot;/&quot;)
@@ -608,7 +608,7 @@ let appRouter = router {
 }
 </code></pre>
 
-<p>Here, we see that <code>get</code> is used to define the routes. There are 3 routes here but 2 that redirect to the first route. To illustrate, the routes are:</p>
+<p>Here, we see that <code>get</code> is used to define the routes. There are 3 routes here but 2 of them redirect to the first route. To illustrate, the routes are:</p>
 <pre><code>yoursite.com
     └── "" (router)
         └── "" (browserRouter)
@@ -617,7 +617,7 @@ let appRouter = router {
                 ├── "/index.html"       -redirect to yoursite.com/
                 └── "/default.html"     -redirect to yoursite.com/
 </code></pre>
-<p>Looking at the first line inside <code>defaultView</code>, <code>get "/" (htmlView Index.layout)</code> tells the application to displays <code>Index.layout</code> at the root of the application. The <code>get</code> correspond to the HTTP verb GET so when you type in a link, the browser try to GET the page. The first parameter of <code>get</code> is "/" so basicly when getting the root, the get function will return something. The second parameter is <code>(htmlView Index.layout)</code> so the <code>get</code> function return a html page specified by Index.layout. The second and third line have <code>(redirectTo false "/")</code>, tell the application to go to "yoursite.com/" when going to "yoursite.com/index" or "yoursite.com/default"</p>
+<p>Looking at the first line inside <code>defaultView</code>, <code>get "/" (htmlView Index.layout)</code> tells the application to display <code>Index.layout</code> at the root of the application. The <code>get</code> corresponds to the HTTP verb GET so when you type in a link, the browser tries to GET the page. The first parameter of <code>get</code> is "/", so basically when getting the root, the <code>get</code> function will return something. The second parameter is <code>(htmlView Index.layout)</code> so the <code>get</code> function returns an HTML page specified by Index.layout. The second and third line have <code>(redirectTo false "/")</code>, telling the application to go to "yoursite.com/" when going to "yoursite.com/index" or "yoursite.com/default"</p>
 <h2 id="best-practices">Best Practices</h2>
 <p>You can combine all 3 routers into one router like so:</p>
 <pre><code class="fsharp">let appRouter = router {
@@ -630,8 +630,8 @@ let appRouter = router {
 }
 </code></pre>
 
-<p>The template splits them into 3 to encourages good practices. In the first router, you can see the commented out code <code>forward "/api" apiRouter</code>. This is a good suggestin in the template to have a separate router to handle your api routes. We set up how to deliever the webpage with <code>pipe_through browser</code> in <code>browserRouter</code>. The setting are important for a browser to know how to handle your routes but not for a different applications to access your routes as an api.</p>
-<p>The template provided an example of how to set up the api routes in the commented out code, which I copied below:</p>
+<p>The template splits them into 3 to encourage good practices. In the first router, you can see the commented out code <code>forward "/api" apiRouter</code>. This is a good suggestion in the template to have a separate router to handle your API routes. We set up how to deliever the webpage with <code>pipe_through browser</code> in <code>browserRouter</code>. The settings are important for a browser to know how to handle your routes but not for a different application to access your routes as an API.</p>
+<p>The template provides an example of how to set up the API routes in the commented out code, which I copied below:</p>
 <pre><code class="fsharp">let api = pipeline {
     plug acceptJson
     set_header &quot;x-pipeline-type&quot; &quot;Api&quot;
@@ -646,15 +646,15 @@ let apiRouter = router {
 
 </code></pre>
 
-<p>Here we have the <code>apiRouter</code> router which does not return a 404 page but a 404 text instead which is appropriate for an api. The router also use a pipeline that is more appropriate for an api such as accepting JSON inputs instead of HTML as in the <code>browser</code> pipeline.</p>
+<p>Here we have the <code>apiRouter</code> router which does not return a 404 page but a 404 text instead which is appropriate for an API. The router also uses a pipeline that is more appropriate for an API such as accepting JSON inputs instead of HTML as in the <code>browser</code> pipeline.</p>
 <h2 id="format-strings">Format Strings</h2>
-<p>You might be wondering how to make a routes that accept a numerical id. You can make multiple routes for each id like so</p>
+<p>You might be wondering how to make routes that accept a numerical ID. You can make multiple routes for each ID like so</p>
 <pre><code>get "/1" (getApplication 1)
 get "/2" (getApplication 2)
 get "/3" (getApplication 3)
 ...
 </code></pre>
-<p>But this is impracticle because there can be a large amount of items or new items are constantly being created with new ids. Instead the solution is to use format strings. Remember that in the <a href="../adding-pages/">Adding Pages Guide</a>, we used <code>getf "/%s" index2Action</code> to pass a string to page.</p>
+<p>But this is impracticle because there can be a large number of items or new items are constantly being created with new IDs. Instead the solution is to use format strings. Remember that in the <a href="../adding-pages/">Adding Pages Guide</a>, we used <code>getf "/%s" index2Action</code> to pass a string to page.</p>
 <table>
 <thead>
 <tr>
@@ -693,11 +693,11 @@ get "/3" (getApplication 3)
 </tr>
 </tbody>
 </table>
-<p>For a numerical id, we want to pass an int which is <code>%i</code> in the list above so you can replace the lines aboves with</p>
+<p>For a numerical ID, we want to pass an int which is <code>%i</code> in the list above, so you can replace the lines above with</p>
 <pre><code class="fsharp">getf &quot;/%i&quot; getApplication
 </code></pre>
 
-<p>Notice that <code>getf</code> is used instead of get. This is a separate version of get that handle <code>f</code>ormat characters.</p>
+<p>Notice that <code>getf</code> is used instead of get. This is a separate version of get that handles <code>f</code>ormat characters.</p>
 <pre><code>You can use format strings with "forward" too by using "forwardf"
 </code></pre>
 <p>There are a lot of functionalities within routers and you can view all of them <a href="../../api/router">here</a>.</p>

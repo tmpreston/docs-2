@@ -696,7 +696,7 @@
                 <h1 id="router">Router</h1>
 <h2 id="router-builder">Router builder</h2>
 <p>Computation expression used to create routing, combining <code>HttpHandlers</code>, <code>pipelines</code> and <code>controllers</code> together.</p>
-<p>Result of the computation expression is standard Giraffe's <code>HttpHandler</code>which means that it's easily composable with other parts of the ecosytem.</p>
+<p>The result of the computation expression is a standard Giraffe <code>HttpHandler</code>, which means that it's easily composable with other parts of the ecosytem.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="fsharp">let topRouter = router {
     pipe_through headerPipe
@@ -727,43 +727,43 @@
 <hr />
 <h3 id="get">get</h3>
 <p>Adds handler for <code>GET</code> request.</p>
-<p><strong>Input:</strong>: <code>string * HttpHandler</code></p>
+<p><strong>Input:</strong> <code>string * HttpHandler</code></p>
 <h3 id="getf">getf</h3>
 <p>Adds handler for <code>GET</code> request using formatter.</p>
-<p><strong>Input:</strong>: <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
+<p><strong>Input:</strong> <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
 <h3 id="post">post</h3>
 <p>Adds handler for <code>POST</code> request.</p>
-<p><strong>Input:</strong>: <code>string * HttpHandler</code></p>
+<p><strong>Input:</strong> <code>string * HttpHandler</code></p>
 <h3 id="postf">postf</h3>
 <p>Adds handler for <code>POST</code> request using formatter.</p>
-<p><strong>Input:</strong>: <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
+<p><strong>Input:</strong> <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
 <h3 id="put">put</h3>
 <p>Adds handler for <code>PUT</code> request.</p>
-<p><strong>Input:</strong>: <code>string * HttpHandler</code></p>
+<p><strong>Input:</strong> <code>string * HttpHandler</code></p>
 <h3 id="putf">putf</h3>
 <p>Adds handler for <code>PUT</code> request using formatter.</p>
-<p><strong>Input:</strong>: <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
+<p><strong>Input:</strong> <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
 <h3 id="delete">delete</h3>
 <p>Adds handler for <code>DELETE</code> request.</p>
-<p><strong>Input:</strong>: <code>string * HttpHandler</code></p>
+<p><strong>Input:</strong> <code>string * HttpHandler</code></p>
 <h3 id="deletef">deletef</h3>
 <p>Adds handler for <code>DELETE</code> request using formatter.</p>
-<p><strong>Input:</strong>: <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
+<p><strong>Input:</strong> <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
 <h3 id="patch">patch</h3>
 <p>Adds handler for <code>PATCH</code> request.</p>
-<p><strong>Input:</strong>: <code>string * HttpHandler</code></p>
+<p><strong>Input:</strong> <code>string * HttpHandler</code></p>
 <h3 id="patchf">patchf</h3>
 <p>Adds handler for <code>PATCH</code> request using formatter.</p>
-<p><strong>Input:</strong>: <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
+<p><strong>Input:</strong> <code>PrintfFormat&lt;_,_,_,_'f&gt; * ('f -&gt; HttpHandler)</code></p>
 <h3 id="forward">forward</h3>
 <p>Forwards calls to different <code>router</code>. Modifies the <code>HttpRequest.Path</code> to allow subrouting.</p>
-<p><strong>Input:</strong>: <code>string * HttpHandler</code></p>
+<p><strong>Input:</strong> <code>string * HttpHandler</code></p>
 <h3 id="pipe_through">pipe_through</h3>
-<p>Adds pipeline to the list of pipelines that will be used for every request</p>
-<p><strong>Input:</strong>: <code>HttpHandler</code></p>
+<p>Adds a pipeline to the list of pipelines that will be used for every request</p>
+<p><strong>Input:</strong> <code>HttpHandler</code></p>
 <h3 id="not_found_handler">not_found_handler</h3>
 <p>Adds not-found handler for current router</p>
-<p><strong>Input:</strong>: <code>HttpHandler</code></p>
+<p><strong>Input:</strong> <code>HttpHandler</code></p>
                 
                   
                 

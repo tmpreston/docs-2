@@ -476,7 +476,7 @@
 <p>At this level most of it is basic configuration files to help with running Saturn. From looking at the <code>.paket</code>, <code>paket-files</code>, <code>paket.dependencies</code>, <code>paket.lock</code> folders and files, you can see that by default Saturn uses <a href="https://fsprojects.github.io/Paket/">paket</a> to handle package management. You won't be working with these files directly but rather through the command line tools instead.</p>
 <p>Saturn also uses <a href="https://fake.build/">FAKE</a> to build the project. You can see how it is set up by looking at the <code>.fake</code> folder and the <code>build.cmd</code>, <code>build.fsx</code>, <code>build.sh</code> files.</p>
 <p>Saturn also provides a <code>.gitignore</code> file that prevents some folders from being tracked by git when they don't need to.</p>
-<p>Lastly, there is the <code>SaturnSample.sln</code> solution file so you can open the project in an IDE like Visual Sudio and a <code>global.json</code> file to  configure the solution file.</p>
+<p>Lastly, there is the <code>SaturnSample.sln</code> solution file so you can open the project in an IDE like Visual Sudio and a <code>global.json</code> file to configure the solution file.</p>
 <p>Most of the work you will do in this project however, will be in <code>src/SaturnSample</code>, which looks like the following when expanded:</p>
 <pre><code>├── bin
 ├── Books
@@ -505,8 +505,8 @@
 <p>The convention for Saturn is that the model and everything associated with it are inside one folder. Everything is also named with the plural form of the model so "Books" instead of "Book".</p>
 <p>Your static files like css, js, and images should be inside the <code>static</code> folder.</p>
 <p><code>Config.fs</code> contains a <code>Config</code> record that stores settings that you can use inside your application. By default, the record only contains the <code>connectionString</code> field.</p>
-<p><code>Database.fs</code> contains functions to execute sql queries within the program through <a href="https://stackexchange.github.io/Dapper/">Dapper</a>.</p>
-<p>If you did not run <code>dotnet saturn migration</code> as in the <a href="../how-to-start/">how to start guide</a>, you might not see database.sqlite but that is the database file that your Saturn project is using to store data.</p>
+<p><code>Database.fs</code> contains functions to execute SQL queries within the program through <a href="https://stackexchange.github.io/Dapper/">Dapper</a>.</p>
+<p>If you did not run <code>dotnet saturn migration</code> as in the <a href="../how-to-start/">how to start guide</a>, you might not see <code>database.sqlite</code>, but that is the database file that your Saturn project is using to store data.</p>
 <p><code>paket.references</code> shows the packages that your project is using.</p>
 <p><code>Program.fs</code> handles intializing the program and loading up various settings.</p>
 <p><code>Router.fs</code> is where you will set the route of the site and what page to load.</p>

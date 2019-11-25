@@ -1015,8 +1015,8 @@
                 
                 <h1 id="pipeline">Pipeline</h1>
 <h2 id="pipeline-builder">Pipeline builder</h2>
-<p>Computation expression used to combine <code>HttpHandlers</code> in declarative manner.</p>
-<p>The result of the computation expression is a standard Giraffe <code>HttpHandler</code>which means that it's easily composable with other parts of the Giraffe ecosystem.</p>
+<p>Computation expression used to combine <code>HttpHandlers</code> in a declarative manner.</p>
+<p>The result of the computation expression is a standard Giraffe <code>HttpHandler</code> which means that it's easily composable with other parts of the Giraffe ecosystem.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="fsharp">let headerPipe = pipeline {
     set_header &quot;myCustomHeader&quot; &quot;abcd&quot;
@@ -1032,19 +1032,19 @@ let endpointPipe = pipeline {
 
 <hr />
 <h3 id="plug">plug</h3>
-<p>Enables adding any additional <code>HttpHandler</code> to the pipeline</p>
+<p>Enables adding any additional <code>HttpHandler</code> to the pipeline.</p>
 <p><strong>Input:</strong> <code>HttpHandler</code></p>
 <h3 id="must_accept">must_accept</h3>
-<p>Filters a request by the <code>Accept</code> HTTP header. You can use it to check if a client accepts a certain mime type before returning a response.</p>
+<p>Filters a request by the <code>Accept</code> HTTP header. You can use it to check if a client accepts a certain MIME type before returning a response.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <h3 id="challenge">challenge</h3>
-<p>Challenges an authentication with a specified authentication scheme</p>
+<p>Challenges authentication with a specified authentication scheme.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <h3 id="sign_off">sign_off</h3>
 <p>Signs off the currently logged in user with a specified authentication scheme.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <h3 id="requires_auth_policy">requires_auth_policy</h3>
-<p>Validates if a user satisfies policy requirement, if not then the handler will execute the <code>authFailedHandler</code> function.</p>
+<p>Validates if a user satisfies policy requirement, if not the handler will execute the <code>authFailedHandler</code> function.</p>
 <p><strong>Input:</strong> <code>(ClaimsPrincipal -&gt; bool) -&gt; HttpHandler</code></p>
 <h3 id="requires_authentication">requires_authentication</h3>
 <p>Validates if a user is authenticated/logged in. If the user is not authenticated then the handler will execute the <code>authFailedHandler</code> function.</p>
@@ -1061,34 +1061,34 @@ let endpointPipe = pipeline {
 <p>Changes the status code of the <code>HttpResponse</code>.</p>
 <p><strong>Input:</strong> <code>int</code></p>
 <h3 id="set_header">set_header</h3>
-<p>Sets or modifies a HTTP header of the <code>HttpResponse</code>.</p>
+<p>Sets or modifies an HTTP header of the <code>HttpResponse</code>.</p>
 <p><strong>Input:</strong> <code>string -&gt; 'a</code></p>
 <h3 id="set_body">set_body</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code>. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.</p>
+<p>Sets or modifies the body of the <code>HttpResponse</code>. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards any more.</p>
 <p><strong>Input:</strong> <code>byte[]</code></p>
 <h3 id="text">text</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code> by sending a plain text value to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>text/plain</code>.</p>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by sending a plain text value to the client. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>text/plain</code>.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <h3 id="json">json</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code> by sending a JSON serialized object to the client. It uses JSON serializer configured by Giraffe. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>application/json</code>.</p>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by sending a JSON serialized object to the client. It uses JSON serializer configured by Giraffe. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>application/json</code>.</p>
 <p><strong>Input:</strong> <code>'a</code></p>
 <h3 id="xml">xml</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code> by sending an XML serialized object to the client. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. It also sets the <code>Content-Type</code> HTTP header to <code>application/xml</code>.</p>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by sending an XML serialized object to the client. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards anymore. It also sets the <code>Content-Type</code> HTTP header to <code>application/xml</code>.</p>
 <p><strong>Input:</strong> <code>'a</code></p>
 <h3 id="negotiate">negotiate</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code> by inspecting the <code>Accept</code> header of the HTTP request and deciding if the response should be sent in JSON or XML or plain text. If the client is indifferent then the default response will be sent in JSON. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.</p>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by inspecting the <code>Accept</code> header of the HTTP request and deciding if the response should be sent in JSON or XML or plain text. If the client is indifferent then the default response will be sent in JSON. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards anymore.</p>
 <p><strong>Input:</strong> <code>'a</code></p>
 <h3 id="negotiate_with">negotiate_with</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code> by inspecting the <code>Accept</code> header of the HTTP request and deciding in what mimeType the response should be sent. A dictionary of type <code>IDictionary&lt;string, obj -&gt; HttpHandler&gt;</code> is used to determine which <code>obj -&gt; HttpHandler</code> function should be used to convert an object into a <code>HttpHandler</code> for a given mime type. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more.</p>
+<p>Sets or modifies the body of the <code>HttpResponse</code> by inspecting the <code>Accept</code> header of the HTTP request and deciding in what mimeType the response should be sent. A dictionary of type <code>IDictionary&lt;string, obj -&gt; HttpHandler&gt;</code> is used to determine which <code>obj -&gt; HttpHandler</code> function should be used to convert an object into a <code>HttpHandler</code> for a given mime type. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards anymore.</p>
 <p><strong>Input:</strong> <code>(IDictionary&lt;string, obj -&gt; HttpHandler&gt;) -&gt; 'a</code></p>
 <h3 id="html">html</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code> with the contents of a single string variable. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. Sets the HTTP header <code>Content-Type</code> to <code>text/html</code></p>
+<p>Sets or modifies the body of the <code>HttpResponse</code> with the contents of a single string variable. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards anymore. Sets the HTTP header <code>Content-Type</code> to <code>text/html</code>.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <h3 id="html_file">html_file</h3>
-<p>Sets or modifies the body of the <code>HttpResponse</code> with the contents of a physical html file. This http handler triggers a response to the client and other http handlers will not be able to modify the HTTP headers afterwards any more. This http handler takes a rooted path of a html file or a path which is relative to the ContentRootPath as the input parameter and sets the HTTP header <code>Content-Type</code> to <code>text/html</code></p>
+<p>Sets or modifies the body of the <code>HttpResponse</code> with the contents of a physical html file. This HTTP handler triggers a response to the client and other HTTP handlers will not be able to modify the HTTP headers afterwards anymore. This HTTP handler takes a rooted path of a html file or a path which is relative to the ContentRootPath as the input parameter and sets the HTTP header <code>Content-Type</code> to <code>text/html</code>.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <h3 id="render_html">render_html</h3>
-<p>It is a more functional way of generating HTML by composing HTML elements in F# to generate a rich Model-View output.</p>
+<p>A more functional way of generating HTML by composing HTML elements in F# to generate a rich Model-View output.</p>
 <p><strong>Input:</strong> <code>XmlNode</code> </p>
 <h3 id="redirect_to">redirect_to</h3>
 <p>Uses a 302 or 301 (when permanent) HTTP response code to redirect the client to the specified location. It takes in two parameters, a boolean flag denoting whether the redirect should be permanent or not and the location to redirect to.</p>
@@ -1101,15 +1101,15 @@ let endpointPipe = pipeline {
 <p><strong>Input:</strong> <code>HttpHandler</code> </p>
 <hr />
 <h2 id="pipeline-helpers">Pipeline Helpers</h2>
-<p>Module containing a couple of more advanced <code>HttpHandlers</code> commonly used in Saturn applications</p>
+<p>Module containing a couple of more advanced <code>HttpHandlers</code> commonly used in Saturn applications.</p>
 <h3 id="acceptjson">acceptJson</h3>
-<p>Accepts <code>ContentType</code> <code>application/json</code></p>
+<p>Accepts <code>ContentType</code> <code>application/json</code>.</p>
 <h3 id="acceptxml">acceptXml</h3>
-<p>Accepts <code>ContentType</code> <code>application/xml</code></p>
+<p>Accepts <code>ContentType</code> <code>application/xml</code>.</p>
 <h3 id="accepthtml">acceptHtml</h3>
-<p>Accepts <code>ContentType</code> <code>text/html</code></p>
+<p>Accepts <code>ContentType</code> <code>text/html</code>.</p>
 <h3 id="acceptmultipart">acceptMultipart</h3>
-<p>Accepts <code>ContentType</code> <code>multipart/form-data</code></p>
+<p>Accepts <code>ContentType</code> <code>multipart/form-data</code>.</p>
 <hr />
 <h3 id="putsecurebrowserheaders">putSecureBrowserHeaders</h3>
 <p>Adds headers that improve browser security.
@@ -1127,19 +1127,19 @@ It sets the following headers:</p>
 <h3 id="fetchsession">fetchSession</h3>
 <p>Fetches session from session provider. If it won't be called session will be synchronusly fetched on first usage.</p>
 <h3 id="fetchmodel">fetchModel</h3>
-<p>Tries to get the model from the request and puts model into <code>Items.RequestModel</code>. If it won't be called content can be fetched using <code>Context.Controller</code> helpers.
+<p>Tries to get the model from the request and puts the model into <code>Items.RequestModel</code>. If it won't be called content can be fetched using <code>Context.Controller</code> helpers.
 It won't crash the pipelines if fetching failed.
 It optionally takes custom culture name as arguments.</p>
 <p><strong>Input:</strong> <code>string option</code></p>
 <h3 id="head">head</h3>
 <p>Convert <code>HEAD</code> requests to <code>GET</code> requests.</p>
 <h3 id="requestid">requestId</h3>
-<p>Pipeline for generating a unique request id for each request. A generated request id will in the format <code>uq8hs30oafhj5vve8ji5pmp7mtopc08f</code>.
-If a request id already exists as the <code>x-request-id</code> HTTP request header, then that value will be used assuming it is between 20 and 200 characters. If it is not, a new request id will be generated.
-Request id is put into <code>x-request-id</code> HTTP header and into <code>Items</code> directory of HttpContext with <code>RequestId</code> key.</p>
+<p>Pipeline for generating a unique request ID for each request. A generated request ID will be in the format <code>uq8hs30oafhj5vve8ji5pmp7mtopc08f</code>.
+If a request ID already exists as the <code>x-request-id</code> HTTP request header, then that value will be used assuming it is between 20 and 200 characters. If it is not, a new request ID will be generated.
+The request ID is put into a <code>x-request-id</code> HTTP header and into the <code>Items</code> directory of the HttpContext with key <code>RequestId</code>.</p>
 <h3 id="requireheader">requireHeader</h3>
-<p>Requires given value for given request header</p>
-<p><strong>Input:</strong> <code>string -&gt; string</code></p>
+<p>Requires the given value for the given request header.</p>
+<p><strong>Input:</strong> <code>(header:string) -&gt; (value:string)</code></p>
                 
                   
                 

@@ -835,10 +835,10 @@
                 
                 <h1 id="application">Application</h1>
 <h2 id="run">run</h2>
-<p>Runs Saturn application</p>
+<p>Runs Saturn application.</p>
 <p><strong>Input:</strong> <code>IWebHostBuilder</code></p>
 <h2 id="application-builder">Application builder</h2>
-<p>Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as <code>IWebHostBuilder</code>, <code>IServiceCollection</code>, <code>IApplicationBuilder</code> and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles</p>
+<p>Computation expression used to configure Saturn application. Under the hood it's using ASP.NET application configurations interfaces such as <code>IWebHostBuilder</code>, <code>IServiceCollection</code>, <code>IApplicationBuilder</code> and others. It aims to hide cumbersome ASP.NET application configuration and enable high level, declarative application configuration using feature toggles.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="fsharp">let app = application {
     pipe_through endpointPipe
@@ -853,7 +853,7 @@
 
 <hr />
 <h3 id="use_router">use_router</h3>
-<p>Defines top-level router used for the application. It's calling <code>IApplicationBuilder.UseGiraffe</code></p>
+<p>Defines top-level router used for the application. It calls <code>IApplicationBuilder.UseGiraffe</code>.</p>
 <p><strong>Input:</strong> <code>HttpHandler</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -862,7 +862,7 @@
 </code></pre>
 
 <h3 id="pipe_through">pipe_through</h3>
-<p>Adds pipeline to the list of pipelines that will be used for every request</p>
+<p>Adds pipeline to the list of pipelines that will be used for every request.</p>
 <p><strong>Input:</strong> <code>HttpHandler</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -871,7 +871,7 @@
 </code></pre>
 
 <h3 id="error_handler">error_handler</h3>
-<p>Adds global error handler for exceptions not handled anywhere else. It's using <code>IApplicationBuilder.UseGiraffeErrorHandler</code></p>
+<p>Adds global error handler for exceptions not handled anywhere else. It uses <code>IApplicationBuilder.UseGiraffeErrorHandler</code>.</p>
 <p><strong>Input:</strong> <code>Exception -&gt; ILogger -&gt; HttpHandler</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -880,7 +880,7 @@
 </code></pre>
 
 <h3 id="url">url</h3>
-<p>Defines URL on which application will be hosted. Should include port.</p>
+<p>Defines the URL on which the application will be hosted. Should include port.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -897,7 +897,7 @@
 </code></pre>
 
 <h3 id="use_gzip">use_gzip</h3>
-<p>Enables automatic gzip compression</p>
+<p>Enables automatic gzip compression.</p>
 <pre><code class="fsharp">application {
     ...
     use_gzip
@@ -905,7 +905,7 @@
 </code></pre>
 
 <h3 id="use_static">use_static</h3>
-<p>Enables using static file hosting. Input path defines <code>WebRoot</code> and <code>ContentRoot</code> of application</p>
+<p>Enables static file hosting. Input path defines <code>WebRoot</code> and <code>ContentRoot</code> of application.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -914,7 +914,7 @@
 </code></pre>
 
 <h3 id="use_config">use_config</h3>
-<p>Defines configuration that can be used with <code>HttpContext.GetConfiguration ()</code> function. Configuration function is evaluated once, during first request of the application.</p>
+<p>Defines configuration that can be used with the <code>HttpContext.GetConfiguration()</code> function. The configuration function is evaluated once, during first request of the application.</p>
 <p><strong>Input:</strong> <code>unit -&gt; 'a</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -923,7 +923,7 @@
 </code></pre>
 
 <h3 id="force_ssl">force_ssl</h3>
-<p>Redirect all HTTP request to HTTPS</p>
+<p>Redirect all HTTP request to HTTPS.</p>
 <pre><code class="fsharp">application {
     ...
     force_ssl
@@ -931,7 +931,7 @@
 </code></pre>
 
 <h3 id="use_cors">use_cors</h3>
-<p>Enables application level CORS protection. First parameter is name of the policy. Second parameter is configuration builder setting policy options.</p>
+<p>Enables application level CORS protection. First parameter is the name of the policy. Second parameter is configuration builder setting policy options.</p>
 <p><strong>Input:</strong> <code>string -&gt; (CorsPolicyBuilder -&gt; unit)</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -940,7 +940,7 @@
 </code></pre>
 
 <h3 id="use_iis">use_iis</h3>
-<p>Enables IIS integration</p>
+<p>Enables IIS integration.</p>
 <pre><code class="fsharp">application {
     ...
     use_iis
@@ -949,7 +949,7 @@
 
 <hr />
 <h3 id="use_jwt_authentication">use_jwt_authentication</h3>
-<p>Enables default JWT authentication. First parameter is private key used to signing. Second one defines issuer of the token.</p>
+<p>Enables default JWT authentication. The first parameter is a private key used in signing. The second one defines the issuer of the token.</p>
 <p><strong>Input:</strong> <code>string -&gt; string</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -958,7 +958,7 @@
 </code></pre>
 
 <h3 id="use_jwt_authentication_with_config">use_jwt_authentication_with_config</h3>
-<p>Enables JWT authentication with custom configuration</p>
+<p>Enables JWT authentication with custom configuration.</p>
 <p><strong>Input:</strong> <code>JwtBearerOptions -&gt; unit</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -967,7 +967,7 @@
 </code></pre>
 
 <h3 id="use_cookies_authentication">use_cookies_authentication</h3>
-<p>Enables default cookies authentication</p>
+<p>Enables default cookies authentication.</p>
 <p><strong>Input:</strong> <code>string</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -976,7 +976,7 @@
 </code></pre>
 
 <h3 id="use_cookies_authentication_with_config">use_cookies_authentication_with_config</h3>
-<p>Enables cookies authentication with custom configuration</p>
+<p>Enables cookies authentication with custom configuration.</p>
 <p><strong>Input:</strong> <code>CookieAuthenticationOptions -&gt; unit</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -985,7 +985,7 @@
 </code></pre>
 
 <h3 id="use_github_oauth">use_github_oauth</h3>
-<p>Enables default GitHub OAuth authentication</p>
+<p>Enables default GitHub OAuth authentication.</p>
 <p><strong>Input:</strong> <code>string -&gt; string -&gt; string</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -994,7 +994,7 @@
 </code></pre>
 
 <h3 id="use_github_oauth_with_config">use_github_oauth_with_config</h3>
-<p>Enables GitHub OAuth authentication with custom configuration</p>
+<p>Enables GitHub OAuth authentication with custom configuration.</p>
 <p><strong>Input:</strong> <code>OAuthOptions -&gt; unit</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -1003,7 +1003,7 @@
 </code></pre>
 
 <h3 id="use_custom_oauth">use_custom_oauth</h3>
-<p>Enables custom OAuth authentication</p>
+<p>Enables custom OAuth authentication.</p>
 <p><strong>Input:</strong> <code>string -&gt; (OAuthOptions -&gt; unit)</code></p>
 <pre><code class="fsharp">application {
     ...
@@ -1013,7 +1013,7 @@
 
 <hr />
 <blockquote>
-<p>Functions below enables you to add any configuration with using standard ASP.NET builders</p>
+<p>The functions below enable you to add any configuration using standard ASP.NET builders</p>
 </blockquote>
 <h3 id="app_config">app_config</h3>
 <p>Adds custom application configuration step.</p>
@@ -1035,7 +1035,7 @@ let app = application {
 </code></pre>
 
 <h3 id="logging">logging</h3>
-<p>Adds logging configuration</p>
+<p>Adds logging configuration.</p>
 <p><strong>Input:</strong> <code>IloggingBuilder -&gt; unit</code></p>
                 
                   

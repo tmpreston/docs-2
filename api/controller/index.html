@@ -419,6 +419,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#action" title="Action" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#controller-helpers" title="Controller helpers" class="md-nav__link">
     Controller helpers
   </a>
@@ -870,6 +877,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#action" title="Action" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#controller-helpers" title="Controller helpers" class="md-nav__link">
     Controller helpers
   </a>
@@ -1292,11 +1306,26 @@
                 
                 
                 <h1 id="controller">Controller</h1>
+<h3 id="action">Action</h3>
+<pre><code class="fsharp">type Action =
+    | Index
+    | Show
+    | Add
+    | Edit
+    | Create
+    | Update
+    | Patch
+    | Delete
+    | DeleteAll
+    | All
+</code></pre>
+
+<hr />
 <h2 id="controller-helpers">Controller helpers</h2>
 <p>Module with high level helper functions that are usually used in controller actions.</p>
 <hr />
 <h3 id="json">json</h3>
-<p>Returns to the client content serialized to JSON</p>
+<p>Returns to the client content serialized to JSON.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="xml">xml</h3>
 <p>Returns to the client content serialized to XML.</p>
@@ -1308,16 +1337,16 @@
 <p>Returns to the client rendered template.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; string -&gt; HttpFuncResult</code></p>
 <h3 id="file">file</h3>
-<p>Returns to the client static file.</p>
+<p>Returns to the client a static file.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; string -&gt; HttpFuncResult</code></p>
 <h3 id="senddownload">sendDownload</h3>
-<p>Sends file with given path</p>
+<p>Sends file with given path.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; string -&gt; HttpFuncResult</code></p>
 <h3 id="senddownloadbinary">sendDownloadBinary</h3>
-<p>Sends file as binary blob</p>
+<p>Sends file as binary blob.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; byte [] -&gt; HttpFuncResult</code></p>
 <h3 id="redirect">redirect</h3>
-<p>Sends redirect response</p>
+<p>Sends redirect response.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; string -&gt; HttpFuncResult</code></p>
 <hr />
 <h3 id="getjsona">getJson&lt;'a&gt;</h3>
@@ -1336,102 +1365,102 @@
 <p>Get model based on <code>HttpMethod</code> and <code>Content-Type</code> of request.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; Task&lt;'a&gt;</code></p>
 <h3 id="loadmodela">loadModel&lt;'a&gt;</h3>
-<p>Loads model populated by <code>fetchModel</code> pipeline</p>
+<p>Loads model populated by <code>fetchModel</code> pipeline.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; Option&lt;'a&gt;</code></p>
 <h3 id="getpath">getPath</h3>
-<p>Gets path of the request - it's relative to current <code>router</code></p>
+<p>Gets path of the request relative to the current <code>router</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; string</code></p>
 <h3 id="geturl">getUrl</h3>
-<p>Gets url of the request</p>
+<p>Gets the request URL.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; string option</code></p>
 <h3 id="getconfiga">getConfig&lt;'a&gt;</h3>
-<p>Gets configuration</p>
+<p>Gets configuration.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a</code></p>
 <hr />
 <h2 id="response-helpers">Response helpers</h2>
 <p>Module with lower level functions for returning certain responses from the action.</p>
 <hr />
 <h3 id="continue">continue</h3>
-<p>Returns <code>100 Continue</code></p>
+<p>Returns <code>100 Continue</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; HttpFuncResult</code></p>
 <h3 id="switchingproto">switchingProto</h3>
-<p>Returns <code>101 Switching Protocols</code></p>
+<p>Returns <code>101 Switching Protocols</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; HttpFuncResult</code></p>
 <hr />
 <h3 id="ok">ok</h3>
-<p>Returns <code>200 OK</code></p>
+<p>Returns <code>200 OK</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="created">created</h3>
-<p>Returns <code>201 Created</code></p>
+<p>Returns <code>201 Created</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="accepted">accepted</h3>
-<p>Returns <code>202 Accepted</code></p>
+<p>Returns <code>202 Accepted</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <hr />
 <h3 id="badrequest">badRequest</h3>
-<p>Returns <code>400 Bad Request</code></p>
+<p>Returns <code>400 Bad Request</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="unauthorized">unauthorized</h3>
 <p>Returns <code>401 Unauthorized</code>. Requires <code>scheme</code> and <code>relam</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; string -&gt; string -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="forbidden">forbidden</h3>
-<p>Returns <code>403 Forbidden</code></p>
+<p>Returns <code>403 Forbidden</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="notfound">notFound</h3>
-<p>Returns <code>404 Not Found</code></p>
+<p>Returns <code>404 Not Found</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="methodnotallowed">methodNotAllowed</h3>
-<p>Returns <code>405 Method Not Allowed</code></p>
+<p>Returns <code>405 Method Not Allowed</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="notacceptable">notAcceptable</h3>
-<p>Returns <code>406 Not Acceptable</code></p>
+<p>Returns <code>406 Not Acceptable</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="conflict">conflict</h3>
-<p>Returns <code>409 Conflict</code></p>
+<p>Returns <code>409 Conflict</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="gone">gone</h3>
-<p>Returns <code>410 Gone</code></p>
+<p>Returns <code>410 Gone</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="unuspportedmediatype">unuspportedMediaType</h3>
-<p>Returns <code>415 Unsupported Media Type</code></p>
+<p>Returns <code>415 Unsupported Media Type</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="unprocessableentity">unprocessableEntity</h3>
-<p>Returns <code>422 Unprocessable Entity</code></p>
+<p>Returns <code>422 Unprocessable Entity</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="preconditionrequired">preconditionRequired</h3>
-<p>Returns <code>428 Precondition Required</code> </p>
+<p>Returns <code>428 Precondition Required</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="toomanyrequests">tooManyRequests</h3>
-<p>Returns <code>429 Too Many Requests</code> </p>
+<p>Returns <code>429 Too Many Requests</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <hr />
 <h3 id="internalerror">internalError</h3>
-<p>Returns <code>500 Internal Server Error</code> </p>
+<p>Returns <code>500 Internal Server Error</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="notimplemented">notImplemented</h3>
-<p>Returns <code>501 Not Implemented</code> </p>
+<p>Returns <code>501 Not Implemented</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="badgateway">badGateway</h3>
-<p>Returns <code>502 Bad Gateway</code> </p>
+<p>Returns <code>502 Bad Gateway</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="serviceunavailable">serviceUnavailable</h3>
-<p>Returns <code>503 Service Unavailable</code> </p>
+<p>Returns <code>503 Service Unavailable</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <h3 id="gatewaytimeout">gatewayTimeout</h3>
-<p>Returns <code>504 Gateway Timeout</code> </p>
+<p>Returns <code>504 Gateway Timeout</code>.</p>
 <p><strong>Type:</strong> <code>HttpContext -&gt; 'a -&gt; HttpFuncResult</code></p>
 <hr />
 <h2 id="controller-builder">Controller builder</h2>
 <p>Computation expression used to create Saturn controllers - abstraction representing REST-ish endpoint for serving HTML views or returning data. It supports:</p>
 <ul>
-<li>set of predefined actions that are automatically mapped to the endpoints following standard conventions</li>
+<li>a set of predefined actions that are automatically mapped to the endpoints following standard conventions</li>
 <li>embedding sub-controllers for modeling one-to-many relationships </li>
 <li>versioning </li>
-<li>adding plugs for particular action which in principle provides same mechanism as attributes in ASP.NET MVC applications. </li>
-<li>defining common error handler for all actions</li>
-<li>defining not-found action</li>
+<li>adding plugs for a particular action which in principle provides the same mechanism as attributes in ASP.NET MVC applications</li>
+<li>defining a common error handler for all actions</li>
+<li>defining a not-found action</li>
 </ul>
-<p>Result of the computation expression is standard Giraffe's <code>HttpHandler</code>which means that it's easily composable with other parts of the ecosytem.</p>
+<p>The result of the computation expression is a standard Giraffe <code>HttpHandler</code>, which means that it's easily composable with other parts of the ecosytem.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="fsharp">let commentController userId = controller {
     index (fun ctx -&gt; (sprintf &quot;Comment Index handler for user %i&quot; userId ) |&gt; Controller.text ctx)
@@ -1465,53 +1494,53 @@ let userController = controller {
 
 <hr />
 <h3 id="index">index</h3>
-<p>Operation that should render (or return in case of API controllers) list of data</p>
+<p>Operation that should render (or return in case of API controllers) a list of data.</p>
 <p>Mapped to <code>GET "/"</code> endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext -&gt; HttpFuncResult</code></p>
 <h3 id="show">show</h3>
-<p>Operation that should render (or return in case of API controllers) single entry of data</p>
+<p>Operation that should render (or return in case of API controllers) a single entry of data.</p>
 <p>Mapped to <code>GET "/:id"</code> endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext * 'Key -&gt; HttpFuncResult</code></p>
 <h3 id="add">add</h3>
-<p>Operation that should render form for adding new item</p>
+<p>Operation that should render a form for adding a new item.</p>
 <p>Mapped to <code>GET "/add"</code> endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext -&gt; HttpFuncResult</code></p>
 <h3 id="edit">edit</h3>
-<p>Operation that should render form for editing existing item</p>
+<p>Operation that should render a form for editing an existing item.</p>
 <p>Mapped to <code>GET "/:id/edit"</code> endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext * 'Key -&gt; HttpFuncResult</code></p>
 <h3 id="create">create</h3>
-<p>Operation that creates new item</p>
+<p>Operation that creates a new item.</p>
 <p>Mapped to <code>POST "/"</code> and endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext -&gt; HttpFuncResult</code></p>
 <h3 id="update">update</h3>
-<p>Operation that updates existing item</p>
+<p>Operation that updates an existing item.</p>
 <p>Mapped to <code>POST "/:id"</code> and <code>PATCH "/:id"</code> endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext * 'Key -&gt; HttpFuncResult</code></p>
 <h3 id="delete">delete</h3>
-<p>Operation that deletes existing item</p>
+<p>Operation that deletes an existing item.</p>
 <p>Mapped to <code>DELETE "/:id"</code> endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext * 'Key -&gt; HttpFuncResult</code></p>
 <h3 id="delete_all">delete_all</h3>
-<p>Operation that deletes all items</p>
+<p>Operation that deletes all items.</p>
 <p>Mapped to <code>DELETE "/"</code> endpoint</p>
 <p><strong>Input:</strong> <code>HttpContext -&gt; HttpFuncResult</code></p>
 <hr />
 <h3 id="not_found_handler">not_found_handler</h3>
-<p>Define not-found handler for the controller</p>
+<p>Define not-found handler for the controller.</p>
 <p><strong>Input:</strong> <code>HttpContext -&gt; HttpFuncResult</code></p>
 <h3 id="error_handler">error_handler</h3>
-<p>Define error for the controller</p>
+<p>Define error handler for the controller.</p>
 <p><strong>Input:</strong> <code>HttpContext * Exception -&gt; HttpFuncResult</code></p>
 <h3 id="subcontroller">subController</h3>
-<p>Adds subcontroller</p>
-<p>Forward to subcontroller all calls to <code>/:id/:controller_name</code> endpoint</p>
+<p>Add subcontroller</p>
+<p>Forward to subcontroller all calls to <code>/:id/:controller_name</code> endpoint.</p>
 <p><strong>Input:</strong> <code>string * ('a -&gt; HttpHandler)</code></p>
 <h3 id="version">version</h3>
-<p>Define version of controller. Adds checking of <code>x-controller-version</code> header</p>
+<p>Define the controller version. Adds checking of <code>x-controller-version</code> header.</p>
 <p><strong>Input:</strong> <code>int</code></p>
 <h3 id="plug">plug</h3>
-<p>Plugs given <code>HttpHandler</code> for some actions in the controller.</p>
+<p>Plugs given <code>HttpHandler</code> for some <a href="#action"><code>Action</code></a>s in the controller.</p>
 <p><strong>Input:</strong> <code>Action list * HttpHandler</code></p>
                 
                   
