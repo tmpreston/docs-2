@@ -167,19 +167,19 @@ Module containing a couple of more advanced `HttpHandlers` commonly used in Satu
 
 ### acceptJson
 
-Accepts `ContentType` `application/json`.
+Accepts requests with the `Accept` header set to `application/json`.
 
 ### acceptXml
 
-Accepts `ContentType` `application/xml`.
+Accepts requests with the `Accept` header set to `application/xml`.
 
 ### acceptHtml
 
-Accepts `ContentType` `text/html`.
+Accepts requests with the `Accept` header set to `text/html`.
 
 ### acceptMultipart
 
-Accepts `ContentType` `multipart/form-data`.
+Accepts requests with the `Accept` header set to `multipart/form-data`.
 
 ---
 
