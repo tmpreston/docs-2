@@ -18,7 +18,7 @@ Since this is at the root, this is your router at `""` path. You can then add a 
         |   ├── list        -yoursite.com/books/list
         |   ├── add         -yoursite.com/books/add
         |   ├── update      -yoursite.com/books/update
-        |   └── delete      -yoursite.com/books/update
+        |   └── delete      -yoursite.com/books/delete
         ├── about           -yoursite.com/about
         ├── contact         -yoursite.com/contact
         ├── news            -yoursite.com/news
